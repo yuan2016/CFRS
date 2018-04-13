@@ -1,0 +1,512 @@
+{
+  "table": [
+    {
+      "value": "新用户借款通过率",
+      "address": "/RMAB/market/newUserPassRate/tab1"
+    },
+    {
+      "value": "邀请活动",
+      "address": "/RMAB/operate/invitationEvent"
+    },
+    {
+      "value": "风控因素分析",
+      "address": "/RMAB/riskManagement/riskControlFactorAnalysis"
+    },
+    {
+      "value": "借款逾期催回率",
+      "address": "/RMAB/collection/loanOverdueRecallRate"
+    },
+    {
+      "value": "基础用户画像",
+      "address": "/RMAB/userPortrait/userBasePortrait"
+    },
+    {
+      "value": "运营用户画像",
+      "address": "/RMAB/userPortrait/operationUserPortrait"
+    },
+    {
+      "value": "数据概览",
+      "address": "/toyGrab/market/dataOverview"
+    },
+    {
+      "value": "企鹅推广统计(渠道)",
+      "address": "/toyGrab/market/promotionChannelStatisticsQE"
+    },
+    {
+      "value": "企鹅推广统计(OPPO)",
+      "address": "/toyGrab/market/promotionOPPOStatisticsQE"
+    },
+    {
+      "value": "企鹅在线人数统计",
+      "address": "/toyGrab/market/onlineStatisticsHourlyQE"
+    },
+    {
+      "value": "留存用户",
+      "address": "/toyGrab/userBehaviorAnalysis/retainedUser"
+    },
+    {
+      "value": "使用时长",
+      "address": "/toyGrab/userBehaviorAnalysis/hoursUsed"
+    },
+    {
+      "value": "用户充值间隔分析",
+      "address": "/toyGrab/market/userRechargeIntervalAnalysisQE/userRechargeIntervalAnalysisQE"
+    },
+    {
+      "value": "用户充值间隔分析(周)",
+      "address": "/toyGrab/market/userRechargeIntervalAnalysisWeeklyQE/userRechargeIntervalAnalysisWeeklyQE"
+    },
+    {
+      "value": "用户充值时段分析",
+      "address": "/toyGrab/market/userRechargeTimeAnalysisQE/userRechargeTimeAnalysisQE"
+    },
+    {
+      "value": "充值按钮点击量",
+      "address": "/toyGrab/buriaPointAnalysis/torechargePVUV"
+    },
+    {
+      "value": "各房间点击量 ",
+      "address": "/toyGrab/buriaPointAnalysis/roomPVUV"
+    },
+    {
+      "value": "任意门点击量 ",
+      "address": "/toyGrab/buriaPointAnalysis/arbitraryGatePVUV"
+    },
+    {
+      "value": "banner点击量 ",
+      "address": "/toyGrab/buriaPointAnalysis/bannerPVUV"
+    },
+    {
+      "value": "兑换点击量",
+      "address": "/toyGrab/buriaPointAnalysis/exchangePVUV"
+    },
+    {
+      "value": "一级游戏房",
+      "address": "/toyGrab/buriaPointAnalysis/level1Room"
+    },
+    {
+      "value": "充值活动",
+      "address": "/toyGrab/buriaPointAnalysis/rechargeActivities"
+    },
+    {
+      "value": "运营弹窗",
+      "address": "/toyGrab/buriaPointAnalysis/operatingWindow"
+    },
+    {
+      "value": "宝箱",
+      "address": "/toyGrab/buriaPointAnalysis/treasureBox"
+    },
+    {
+      "value": "企鹅对账明细",
+      "address": "/toyGrab/financialStatistics/reconciliationAnalysisQE"
+    },
+    {
+      "value": "企鹅收入结算表",
+      "address": "/toyGrab/financialStatistics/incomeStatementQE"
+    },
+    {
+      "value": "企鹅汇总明细表",
+      "address": "/toyGrab/financialStatistics/penguinSummaryQE"
+    },
+    {
+      "value": "企鹅进销存明细表",
+      "address": "/toyGrab/financialStatistics/inventoryManagementQE"
+    },
+    {
+      "value": "渠道信息表",
+      "address": "/auction/market/newChannelView"
+    },
+    {
+      "value": "渠道推广效果统计",
+      "address": "/auction/market/promotionEffectStatistics"
+    },
+    {
+      "value": "渠道每日统计",
+      "address": "/auction/market/dailyPromotionEffectStatistics"
+    },
+    {
+      "value": "渠道每周统计",
+      "address": "/auction/market/promotionChannelStatisticsWeekly"
+    },
+    {
+      "value": "渠道日环比数据",
+      "address": "/auction/market/channelDODData"
+    },
+    {
+      "value": "渠道周环比数据",
+      "address": "/auction/market/channelWOWData"
+    },
+    {
+      "value": "渠道月环比数据",
+      "address": "/auction/market/channelMOMData"
+    },
+    {
+      "value": "渠道季环比数据",
+      "address": "/auction/market/channelQOQData"
+    },
+    {
+      "value": "渠道年环比数据",
+      "address": "/auction/market/channelYOYData"
+    },
+    {
+      "value": "渠道用户活跃情况",
+      "address": "/auction/market/channelUserActivity"
+    },
+    {
+      "value": "市场看板",
+      "address": "/auction/market/marketView"
+    },
+    {
+      "value": "订单信息表",
+      "address": "/auction/operate/orderInfo"
+    },
+    {
+      "value": "用户信息表",
+      "address": "/auction/operate/userInfo"
+    },
+    {
+      "value": "流量统计表",
+      "address": "/auction/operate/pagePVUV"
+    },
+    {
+      "value": "竞拍记录表",
+      "address": "/auction/operate/auctionRecord"
+    },
+    {
+      "value": "积分记录表",
+      "address": "/auction/operate/integralRecord"
+    },
+    {
+      "value": "充值记录表",
+      "address": "/auction/operate/rechargeRecord"
+    },
+    {
+      "value": "流量路径统计表",
+      "address": "/auction/operate/trafficStatistics"
+    },
+    {
+      "value": "元素点击表",
+      "address": "/auction/operate/elementPVUV"
+    },
+    {
+      "value": "用户浏览行为表",
+      "address": "/auction/operate/userBrowsingBehavior"
+    },
+    {
+      "value": "运营看板",
+      "address": "/auction/operate/operateView"
+    },
+    {
+      "value": "拍卖首页",
+      "address": "/auction/operatingSituation"
+    },
+    {
+      "value": "用户列表",
+      "address": "/user/userList"
+    },
+    {
+      "value": "用户通讯录",
+      "address": "/user/userAddressBook"
+    },
+    {
+      "value": "银行卡列表",
+      "address": "/user/bankCardsList"
+    },
+    {
+      "value": "用户实名认证列表",
+      "address": "/user/userNameAuthenticationList"
+    },
+    {
+      "value": "用户认证列表",
+      "address": "/user/userAuthenticationList"
+    },
+    {
+      "value": "优惠券信息列表",
+      "address": "/user/discountCoupon"
+    },
+    {
+      "value": "新用户用户标签列表",
+      "address": "/user/newUserTagList"
+    },
+    {
+      "value": "老用户用户标签列表",
+      "address": "/user/oldUserTagList"
+    },
+    {
+      "value": "借款申请列表",
+      "address": "/loanManagement/loanApplicationsList"
+    },
+    {
+      "value": "放款审核列表",
+      "address": "/loanManagement/loanAuditList"
+    },
+    {
+      "value": "提额记录表",
+      "address": "/loanManagement/raiseQuotaRecord"
+    },
+    {
+      "value": "对账功能",
+      "address": "/loanManagement/reconciliationFunction"
+    },
+    {
+      "value": "资产信息-招财猫",
+      "address": "/loanManagement/assetInformation"
+    },
+    {
+      "value": "待还列表",
+      "address": "/repaymentManagement/repaymentList/waitingForReturnList"
+    },
+    {
+      "value": "已还列表",
+      "address": "/repaymentManagement/repaymentList/returnedList"
+    },
+    {
+      "value": "还款对账",
+      "address": "/repaymentManagement/reconciliationList/repaymentReconciliation"
+    },
+    {
+      "value": "续期对账",
+      "address": "/repaymentManagement/reconciliationList/renewalReconciliation"
+    },
+    {
+      "value": "还款详情",
+      "address": "/repaymentManagement/refundList/repaymentDetails"
+    },
+    {
+      "value": "续期详情",
+      "address": "/repaymentManagement/refundList/renewalParticulars"
+    },
+    {
+      "value": "已退列表",
+      "address": "/repaymentManagement/refundList/rebackedList"
+    },
+    {
+      "value": "续期管理",
+      "address": "/repaymentManagement/renewalManagement/repaymentDetails"
+    },
+    {
+      "value": "每日放款数据",
+      "address": "/dataAnalysis/financialData/dailyLendingData"
+    },
+    {
+      "value": "每日还款单位数据",
+      "address": "/dataAnalysis/financialData/dailyRepaymentUnitData"
+    },
+    {
+      "value": "21天分期统计",
+      "address": "/dataAnalysis/financialData/daysStageStatistics"
+    },
+    {
+      "value": "21天分期提额统计",
+      "address": "/dataAnalysis/financialData/installmentPromotionStatistics"
+    },
+    {
+      "value": "90天分期统计",
+      "address": "/dataAnalysis/financialData/daysStageStatistics90"
+    },
+    {
+      "value": "每日还款金额(非分期)",
+      "address": "/dataAnalysis/financialData/dailyRepaymentAmountData"
+    },
+    {
+      "value": "还款逾期统计",
+      "address": "/dataAnalysis/financialData/overdueRepaymentStatistics"
+    },
+    {
+      "value": "资金分析",
+      "address": "/dataAnalysis/financialData/fundAnalysis"
+    },
+    {
+      "value": "资金分析(分产品)",
+      "address": "/dataAnalysis/financialData/fundAnalysisProduct"
+    },
+    {
+      "value": "催收管理",
+      "address": "/dataAnalysis/financialData/collectionManagement"
+    },
+    {
+      "value": "在催金额",
+      "address": "/dataAnalysis/financialData/promptAmount"
+    },
+    {
+      "value": "提前还款统计",
+      "address": "/dataAnalysis/financialData/prepaymentStatistics"
+    },
+    {
+      "value": "自然渠道统计",
+      "address": "/dataAnalysis/dataReport/naturalChannelStatistics"
+    },
+    {
+      "value": "必过券统计",
+      "address": "/dataAnalysis/dataReport/couponStatistics"
+    },
+    {
+      "value": "还款抵扣券分析",
+      "address": "/dataAnalysis/financialData/repaymentCouponAnalysis"
+    },
+    {
+      "value": "分时段还款率",
+      "address": "/dataAnalysis/financialData/hourlyRepaymentRateT"
+    },
+    {
+      "value": "关键数据",
+      "address": "/dataAnalysis/financialData/keyData"
+    },
+    {
+      "value": "平台数据",
+      "address": "/dataAnalysis/dataReport/platformData"
+    },
+    {
+      "value": "每日支出数据",
+      "address": "/dataAnalysis/happyMall/dailyExpenditureData"
+    },
+    {
+      "value": "每日放款数据-借呗",
+      "address": "/dataAnalysis/cashBorrowed/dailyLendingData"
+    },
+    {
+      "value": "每日还款数据-借呗",
+      "address": "/dataAnalysis/cashBorrowed/dailyRepaymentUnitData"
+    },
+
+    {
+      "value": "还款明细",
+      "address": "/financeAnalysis/repaymentMinutia"
+    },
+    {
+      "value": "对账分析",
+      "address": "/financeAnalysis/reconciliationAnalysis"
+    },
+    {
+      "value": "还款日报",
+      "address": "/financeAnalysis/reportStatistics"
+    },
+    {
+      "value": "放款日报",
+      "address": "/financeAnalysis/lendingDaily"
+    },
+    {
+      "value": "推广渠道",
+      "address": "/promotionManagement/promotionChannel"
+    },
+    {
+      "value": "推广员管理",
+      "address": "/promotionManagement/promoterManagement"
+    },
+    {
+      "value": "推广统计(渠道)",
+      "address": "/promotionManagement/promotionChannelStatistics"
+    },
+    {
+      "value": "七日推广统计(渠道)",
+      "address": "/promotionManagement/promotionChannelStatistics7"
+    },
+    {
+      "value": "推广统计(地区)",
+      "address": "/promotionManagement/promotionRegionStatistics"
+    },
+    {
+      "value": "渠道统计汇总",
+      "address": "/promotionManagement/channelStatisticsSummary"
+    },
+    {
+      "value": "注册量统计报表",
+      "address": "/promotionManagement/registrationStatisticsReport"
+    },
+    {
+      "value": "贷款超市-PVUV",
+      "address": "/promotionManagement/PVUV"
+    },
+    {
+      "value": "部门绩效考评",
+      "address": "/evaluation/achievements"
+    },
+    {
+      "value": "员工信息",
+      "address": "/privilegeManage/employeeList"
+    },
+    {
+      "value": "任意门",
+      "address": "/lab/deleteRobotInfo"
+    },{
+      "value": "每日放款记录",
+      "address": "/period/loan/periodDailyLendingData"
+    },
+    {
+      "value": "还款逾期记录",
+      "address": "/period/loan/periodOverdueRepaymentStatistics"
+    },
+    {
+      "value": "每日还款金额记录",
+      "address": "/period/loan/periodDailyRepaymentAmountData"
+    },
+    {
+      "value": "每日还款明细记录",
+      "address": "/period/loan/repaymentDetailData"
+    },
+    {
+      "value": "在催金额记录",
+      "address": "/period/loan/promptAmountData"
+    },
+    {
+      "value": "零钱充值对账分析",
+      "address": "/period/mall/finance/rechargeOfChangeReport"
+    },
+    {
+      "value": "每日结算报表",
+      "address": "/period/mall/finance/dailySettlementReport"
+    },
+    {
+      "value": "每日债权报表",
+      "address": "/period/mall/finance/dailyClaimsReport"
+    },
+    {
+      "value": "ZCM还款数据核对",
+      "address": "/period/mall/finance/ZCMRepaymentDataReconciliation"
+    },
+    {
+      "value": "ZB开心分期还款数据核对",
+      "address": "/period/loan/ZBrepaymentData"
+    },
+    {
+      "value": "每月结算表",
+      "address": "/period/loan/monthlySettlementData"
+    },
+    {
+      "value": "每月债权报表",
+      "address": "/period/loan/monthlyBondData"
+    },
+    {
+      "value": "收入结算总表",
+      "address": "/period/mall/finance/totalIncome"
+    },
+    {
+      "value": "收入结算明细表",
+      "address": "/period/mall/finance/detailIncome"
+    },
+    {
+      "value": "总销售额统计表",
+      "address": "/period/mall/finance/totalSales"
+    },
+    {
+      "value": "商品销售记录",
+      "address": "/period/mall/finance/totalSales"
+    },
+    {
+      "value": "订单详情记录",
+      "address": "/period/mall/finance/totalSales"
+    },
+    {
+      "value": "每日零钱资金分析表",
+      "address": "/period/mall/finance/dailyPocketMoneyAnalysis"
+    },
+    {
+      "value": "每日大礼包收入报表",
+      "address": "/period/mall/finance/dailyPackageIncomeStatement"
+    },
+    {
+      "value": "每日商城订单报表",
+      "address": "/period/mall/finance/dailyMallOrderReport"
+    }
+  ]
+}

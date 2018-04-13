@@ -1,0 +1,241 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* custom */
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.8);
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.8);
+  -webkit-border-radius: 6px;
+}
+
+html, body {
+  width: 100%;
+  height:100%;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*add*/
+/*el-menu*/
+.el-menu-item, .el-submenu__title {
+  font-size: 12px!important;
+  height: 40px!important;
+  line-height: 40px!important;
+}
+.el-submenu .el-menu-item {
+  min-width: 180px!important;
+}
+.el-icon-star-on {
+  font-size: 15px!important;
+  left: 0!important;
+}
+.el-menu .el-submenu .el-menu .el-submenu .el-submenu__title {
+  padding-left: 33px!important;
+}
+.el-menu .el-submenu .el-menu .el-menu-item {
+  padding-left: 19px!important;
+}
+.el-menu .el-submenu .el-menu .el-submenu .el-menu .el-menu-item {
+  padding-left: 33px!important;
+}
+.el-menu--collapse .el-submenu .el-menu .el-submenu .el-menu {
+  max-height: 250px!important;
+  overflow: auto;
+}
+.elextra-icon-promotion {
+  font-size: 16px!important;
+  margin-right: 7px!important;
+  left: -11px!important;
+}
+.elextra-icon-finance {
+  font-size: 14px!important;
+  margin-right: 9px!important;
+}
+.elextra-icon-toy {
+  font-size: 14px!important;
+  margin-right: 9px!important;
+}
+.elextra-icon-bulb1 {
+  font-size: 13px!important;
+}
+
+.el-main {
+  padding: 10px !important;
+}
+
+.el-tag {
+  border: none!important;
+  height: 25px!important;
+  line-height: 25px!important;
+}
+.el-tag .el-icon-close {
+  color: #fff!important;
+}
+.el-tag .el-icon-close:hover{
+  background-color: #fff!important;
+  color: #2d2f33!important;
+}
+.el-tabs .el-tabs__nav {
+  float: right!important;
+}
+.el-tabs .el-tabs__header {
+  position: relative;
+  top: 10px;
+  margin: 0!important;
+}
+
+/* table*/
+.el-table {
+  border-radius: 10px;
+}
+.el-table td, .el-table th {
+  font-size: 12px!important;
+  text-align: center!important;
+  height: 40px!important;
+  line-height: 40px!important;
+  padding: 3px 0!important;
+  color: #2D2F33!important;
+}
+.el-table th > .cell {
+  font-weight: bold!important;
+}
+.el-table thead tr {
+  background-color: #eef1f6
+
+}
+.el-table thead tr th {
+  background: none
+
+}
+.el-table tbody tr td {
+  position:static
+}
+
+.el-form-item__label {
+  font-size: 12px!important;
+}
+.el-color-dropdown {
+  z-index:98!important;
+}
+.el-select-dropdown {
+  z-index:98!important;
+}
+.el-select-dropdown .el-scrollbar {
+  z-index:2005!important;
+}
+.el-date-picker {
+  z-index:98!important;
+}
+.date-filter{
+  padding: 15px 0 15px 1px;
+  box-sizing: border-box;
+}
+.date-filter li {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.date-filter li .managerFront {
+  display: inline-block;
+  padding-left: 5px;
+  font-size: 12px;
+  color: #666;
+}
+.date-filter li .searchButton {
+  margin-left: 10px
+}
+.date-filter li .refreshButton {
+  margin-left: 6px
+}
+.date-filter li .excelButton {
+  display: inline-block;
+  width: 72px;
+  height: 28px;
+  line-height: 28px;
+  color: #fff;
+  background-color: #20a0ff;
+  font-size: 12px;
+  border-radius: 4px;
+  text-align: center;
+  margin-left: 6px;
+}
+.ZIndex99 {
+  z-index: 99!important
+}
+
+
+
