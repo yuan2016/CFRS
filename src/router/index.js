@@ -1137,6 +1137,33 @@ const monthlyBondData = r =>
       ),
     "monthlyBondData"
   );
+  const repaymentReconciliationZFB = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/loan/repaymentReconciliationZFB/repaymentReconciliationZFB")
+      ),
+    "repaymentReconciliationZFB"
+  );
+  const dataCheckXN = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/loan/dataCheckXN/dataCheckXN")
+      ),
+    "dataCheckXN"
+  );
+  const threePartyAccountAnalysis = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/loan/threePartyAccountAnalysis/threePartyAccountAnalysis")
+      ),
+    "threePartyAccountAnalysis"
+  );
 /*商城*/
 const totalIncome = r =>
   require.ensure(
@@ -2475,8 +2502,8 @@ export const asyncRouterMap = [
         path: "/period/loan/ZBrepaymentData",
         icon: "el-icon-star-on",
         component: ZBrepaymentData,
-        name: "ZB开心分期还款数据核对",
-        meta: ["开心分期", "黑卡", "ZB开心分期还款数据核对"]
+        name: "ZB还款数据核对",
+        meta: ["开心分期", "黑卡", "ZB还款数据核对"]
       },
       {
         path: "/period/loan/monthlySettlementData",
@@ -2491,6 +2518,27 @@ export const asyncRouterMap = [
         component: monthlyBondData,
         name: "每月债权报表",
         meta: ["开心分期", "黑卡", "每月债权报表"]
+      },
+      {
+        path: "/period/loan/repaymentReconciliationZFB",
+        icon: "el-icon-star-on",
+        component: repaymentReconciliationZFB,
+        name: "支付宝还款对账",
+        meta: ["开心分期", "黑卡", "支付宝还款对账"]
+      },
+      {
+        path: "/period/loan/dataCheckXN",
+        icon: "el-icon-star-on",
+        component: dataCheckXN,
+        name: "XN数据核对",
+        meta: ["开心分期", "黑卡", "XN数据核对"]
+      },
+      {
+        path: "/period/loan/threePartyAccountAnalysis",
+        icon: "el-icon-star-on",
+        component: threePartyAccountAnalysis,
+        name: "三方对账分析",
+        meta: ["开心分期", "黑卡", "三方对账分析"]
       }
     ]
   },

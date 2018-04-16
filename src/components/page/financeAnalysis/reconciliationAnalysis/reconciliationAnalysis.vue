@@ -221,18 +221,6 @@
       this.resizeHeight()
     },
     methods: {
-//      showChange (a, b) {
-//        console.log(a)
-//        console.log(b)
-//      },
-//      change (a, b) {
-//        if (!a || !b) {
-//          console.log(111)
-//          return this.changeItem(a) - this.changeItem(b)
-//        } else {
-//          return ''
-//        }
-//      },
       closeDetial() {
         this.isShowDetail = !this.isShowDetail
       },

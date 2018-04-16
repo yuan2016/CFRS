@@ -2595,7 +2595,7 @@ export function getRepaymentDetailDataRefresh (data) {
     data: data
   })
 }
-//ZB开心分期还款数据核对
+//ZB还款数据核对
 export function getZBRepaymentData (data) {
   return fetch({
     url: '/api/ZBrepaymentData',
@@ -2699,7 +2699,7 @@ export function getZCMRepaymentDataReconciliationSum (data) {
     data: data
   })
 }
-//ZB开心分期还款数据核对统计
+//ZB还款数据核对统计
 export function getZBRepaymentDataCount (data) {
   return fetch({
     url: '/api/ZBrepaymentData/count',
@@ -2707,7 +2707,7 @@ export function getZBRepaymentDataCount (data) {
     data: data
   })
 }
-//ZB开心分期还款数据核对一键刷新
+//ZB还款数据核对一键刷新
 export function getZBRepaymentDataRefresh (data) {
   return fetch({
     url: '/api/ZBrepaymentData/refresh',
@@ -2759,6 +2759,86 @@ export function getMonthlyBondDataCount (data) {
 export function getMonthlyBondDataRefresh (data) {
   return fetch({
     url: '/api/monthlyBondData/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//支付宝还款对账
+export function getRepaymentReconciliationZFB (data) {
+  return fetch({
+    url: '/api/repaymentReconciliationZFB',
+    method: 'post',
+    data: data
+  })
+}
+//支付宝还款对账统计
+export function getRepaymentReconciliationZFBCount (data) {
+  return fetch({
+    url: '/api/repaymentReconciliationZFB/count',
+    method: 'post',
+    data: data
+  })
+}
+//支付宝还款对账一键刷新
+export function getRepaymentReconciliationZFBRefresh (data) {
+  return fetch({
+    url: '/api/repaymentReconciliationZFB/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//XN数据核对
+export function getDataCheckXN (data) {
+  return fetch({
+    url: '/api/dataCheckXN',
+    method: 'post',
+    data: data
+  })
+}
+//XN数据核对统计
+export function getDataCheckXNCount (data) {
+  return fetch({
+    url: '/api/dataCheckXN/count',
+    method: 'post',
+    data: data
+  })
+}
+//XN数据核对一键刷新
+export function getDataCheckXNRefresh (data) {
+  return fetch({
+    url: '/api/dataCheckXN/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//三方对账分析
+export function getThreePartyAccountAnalysis (data) {
+  return fetch({
+    url: '/api/threePartyAccountAnalysis',
+    method: 'post',
+    data: data
+  })
+}
+//三方对账分析统计
+export function getThreePartyAccountAnalysisCount (data) {
+  return fetch({
+    url: '/api/threePartyAccountAnalysis/count',
+    method: 'post',
+    data: data
+  })
+}
+//三方对账分析一键刷新
+export function getThreePartyAccountAnalysisRefresh (data) {
+  return fetch({
+    url: '/api/threePartyAccountAnalysis/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//三方对账分析更新
+export function getThreePartyAccountAnalysisModify (data) {
+  return fetch({
+    url: '/api/threePartyAccountAnalysis/modify',
     method: 'post',
     data: data
   })

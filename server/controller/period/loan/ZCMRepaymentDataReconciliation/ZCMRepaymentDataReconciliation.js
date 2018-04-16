@@ -118,17 +118,17 @@ module.exports = {
       pro.exec(shell.ZCMRepaymentDataReconciliation, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日债权表shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期ZCM还款数据核对shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
           global.ZCMRepaymentDataReconciliationCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日债权表shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期ZCM还款数据核对shell脚本执行成功')
           res.json({code: '200'})
           global.ZCMRepaymentDataReconciliationCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日债权表开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期ZCM还款数据核对开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }

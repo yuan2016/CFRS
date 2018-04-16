@@ -974,6 +974,35 @@ let sqlMap = {
       selectAllExcel:
         'select D_MONTH as "月份",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)",CREATE_TIME as "创建时间" from ?? '
     },
+    repaymentReconciliationZFB: {
+      selectAll:
+        "select D_DATE,D_MONTH,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,TOTAL_AMT,ZFB_ZCM,ZFB_XW,EW_AMT,TOTAL_AMT_D,CREATE_TIME from ?? ",
+      order: " order by d_date desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectAllExcel:
+        'select D_DATE as "日期",D_MONTH as "月份",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",TOTAL_AMT as "合计(元)",ZFB_ZCM as "招财猫支付宝(元)",ZFB_XW as "新网支付宝(元)",EW_AMT as "额外收入(元)",TOTAL_AMT_D as "差异值(元)",CREATE_TIME as "创建时间" from ?? '
+    },
+    dataCheckXN: {
+      selectAll:
+        "select D_DATE,D_MONTH,XQ_AMT,XQINT_TQ,XQINT_DQ,XQINT_YQ,LQCZ_AMT,TOTAL_AMT,LL_XN,YMT_XN,TOTAL_AMT_D,CREATE_TIME from ?? ",
+      order: " order by d_date desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectAllExcel:
+        'select D_DATE as "日期",D_MONTH as "月份",XQ_AMT as "续期费用(元)",XQINT_TQ as "提前续期利息(元)",XQINT_DQ as "到期续期利息(元)",XQINT_YQ as "逾期续期利息(元)",LQCZ_AMT as "零钱充值(元)",TOTAL_AMT as "合计(元)",LL_XN as "XN连连(元)",YMT_XN as "XN益码通(元)",TOTAL_AMT_D as "差异值(元)",CREATE_TIME as "创建时间" from ?? '
+    },
+    rechargeOfChangeReport: {
+      selectAll:
+        "select d_date,m_month,xn_ll,xn_ymt,pocket_amount,dlb_income,pocket_buy,withdraw,withdraw_fee,dlb_refund,pocket_recharge_tatol,balance_day,balance,diff,alipay_recharge_fee,remarks from ?? ",
+      order: " order by d_date desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectAllExcel:
+        'select d_date as "日期",m_month as "月份",xn_ll as "XN连连(元)",xn_ymt as "XN益码通(元)",pocket_amount as "零钱合计(元)",dlb_income as "礼包购买(元)",pocket_buy as "商品零钱购买(元)",withdraw as "提现(元)",withdraw_fee as "提现手续费(元)",dlb_refund as "退款(元)",pocket_recharge_tatol as "合计(元)",balance_day as "当日余额(元)",balance as "后台当日余额(元)",diff as "验证差异(元)",alipay_recharge_fee as "支付宝充值手续费收入(元)",remarks as "备注" from ?? ',
+      update:
+        "update ?? set xn_ll=?,xn_ymt=?,pocket_amount=?,balance_day=? where d_date=?"
+    },
     /**黑卡 */
     totalIncome: {
       selectAll:
@@ -1047,7 +1076,7 @@ let sqlMap = {
       selectAllExcel:
         'select d_date as "日期",m_month as "月份",free_amount as "优惠券使用金额(元)",buy_amount as "零钱购买金额(元)",debt_amount as "白条使用金额(元)",amount as "数据合计(元)",product_amount as "商品总额(元)",diff as "差异(元)" from ?? '
     },
-    rechargeOfChangeReport: {
+    threePartyAccountAnalysis: {
       selectAll:
         "select d_date,m_month,xn_ll,xn_ymt,pocket_amount,dlb_income,pocket_buy,withdraw,withdraw_fee,dlb_refund,pocket_recharge_tatol,balance_day,balance,diff,alipay_recharge_fee,remarks from ?? ",
       order: " order by d_date desc",
@@ -1056,7 +1085,7 @@ let sqlMap = {
       selectAllExcel:
         'select d_date as "日期",m_month as "月份",xn_ll as "XN连连(元)",xn_ymt as "XN益码通(元)",pocket_amount as "零钱合计(元)",dlb_income as "礼包购买(元)",pocket_buy as "商品零钱购买(元)",withdraw as "提现(元)",withdraw_fee as "提现手续费(元)",dlb_refund as "退款(元)",pocket_recharge_tatol as "合计(元)",balance_day as "当日余额(元)",balance as "后台当日余额(元)",diff as "验证差异(元)",alipay_recharge_fee as "支付宝充值手续费收入(元)",remarks as "备注" from ?? ',
       update:
-        "update ?? set xn_ll=?,xn_ymt=?,pocket_amount=?,balance_day=? where d_date=?"
+        "update ?? set LL_ZCM_T=?,LL_ZB_T=?,YMT_ZB_T=?,LL_XN_T=?,YMT_XN_T=?,TOTAL_AMT_T=?,LL_ZCM_D=?,LL_ZB_D=?,YMT_ZB_D=?,LL_XN_D=?,YMT_XN_D=?,TOTAL_AMT_D=? where d_date=?"
     }
   }
 };

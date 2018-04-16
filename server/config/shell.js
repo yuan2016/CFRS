@@ -33,7 +33,12 @@ module.exports = {
   detailSales: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_商品销售详情',
   detailOrder: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_订单详情表',
   repaymentDetailData: '/mnt/usr/local/data-integration/kitchen.sh -rep kettle -user admin -pass admin -dir /report -job FRESH_开心分期_还款明细',
-  dailySettlementReport: '',
-  dailyClaimsReport: '',
-  ZCMRepaymentDataReconciliation: ''
+  dailySettlementReport: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每日结算表',
+  dailyClaimsReport: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每日债权表',
+  ZCMRepaymentDataReconciliation: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_ZCM还款数据核对',
+  repaymentReconciliationZFB: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_ZFB还款数据核对',
+  dataCheckXN: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_XN数据核对',
+  threePartyAccountAnalysis: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_三方对账',
+  monthlyBondData: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每月债权表',
+  monthlySettlementData: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每月结算表'
 }

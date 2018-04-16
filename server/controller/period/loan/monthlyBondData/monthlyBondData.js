@@ -15,7 +15,7 @@ const filterVal = ['D_MONTH', 'KXLOAN_AMT_Z', 'KXLOAN_AMT_X', 'XFLOAN_AMT_Z', 'X
 const merge = [[0, 0, 0, 1], [1, 0, 5, 0], [6, 0, 10, 0], [11, 0, 15, 0], [16, 0, 16, 1], [17, 0, 17, 1]]
 const change = [['A1', '    月份'], ['B1', '                          借款金额(元)'], ['G1', '                           利息(元)'], ['L1', '                           放款笔数'], ['Q1', '     创建时间'], ['R1', '     修改时间']]
 
-global.ZBrepaymentDataCount = 0
+global.monthlyBondDataCount = 0
 
 function formatJson(filterVal, jsonData) {
   return jsonData.map(v => filterVal.map(j => v[j]))
@@ -131,22 +131,22 @@ module.exports = {
     })
   },
   refreshData(req, res) {
-    if (global.ZBrepaymentDataCount === 0) {
-      global.ZBrepaymentDataCount++
-      pro.exec(shell.periodDailyLending, function (error, stdout, stderr) {
+    if (global.monthlyBondDataCount === 0) {
+      global.monthlyBondDataCount++
+      pro.exec(shell.monthlyBondData, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日放款记录shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每月债权表shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
-          global.ZBrepaymentDataCount = 0
+          global.monthlyBondDataCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日放款记录shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每月债权表shell脚本执行成功')
           res.json({code: '200'})
-          global.ZBrepaymentDataCount = 0
+          global.monthlyBondDataCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每日放款记录开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期每月债权表开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }

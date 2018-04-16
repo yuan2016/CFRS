@@ -465,7 +465,7 @@
       "address": "/period/mall/finance/ZCMRepaymentDataReconciliation"
     },
     {
-      "value": "ZB开心分期还款数据核对",
+      "value": "ZB还款数据核对",
       "address": "/period/loan/ZBrepaymentData"
     },
     {
@@ -475,6 +475,18 @@
     {
       "value": "每月债权报表",
       "address": "/period/loan/monthlyBondData"
+    },
+    {
+      "value": "支付宝还款对账",
+      "address": "/period/loan/repaymentReconciliationZFB"
+    },
+    {
+      "value": "XN数据核对",
+      "address": "/period/loan/dataCheckXN"
+    },
+    {
+      "value": "三方对账分析",
+      "address": "/period/loan/threePartyAccountAnalysis"
     },
     {
       "value": "收入结算总表",

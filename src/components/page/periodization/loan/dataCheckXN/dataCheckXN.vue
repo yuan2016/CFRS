@@ -1,5 +1,5 @@
 <template>
-  <div class="ZBrepaymentData" v-loading.body="loading" element-loading-text="拼命加载中"
+  <div class="dataCheckXN" v-loading.body="loading" element-loading-text="拼命加载中"
   >
     <banner></banner>
     <div class="date-filter">
@@ -31,29 +31,22 @@
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="ZBrepaymentData-table" @sort-change="sort">
+              class="dataCheckXN-table" @sort-change="sort">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="90"></el-table-column>
-      <el-table-column property="d_month" sortable="custom" label="月份" min-width="80"></el-table-column>
-      <el-table-column label="结算分析">
-      <el-table-column property="ADVANCE_REPAYMENT_AMT" sortable="custom" label="提前还款本金(元)" min-width="140"></el-table-column>
-      <el-table-column property="ADVANCE_REPAYMENT_INTEREST" sortable="custom" label="提前还款利息(元)" min-width="140"></el-table-column>
-      <el-table-column property="REPAYMENT_AMT" sortable="custom" label="正常还款本金(元)" min-width="140"></el-table-column>
-      <el-table-column property="REPAYMENT_INTEREST" sortable="custom" label="正常还款利息(元)" min-width="140"></el-table-column>
-      <el-table-column property="OVERDUE_REPAYMENT_AMT" sortable="custom" label="逾期还款本金(元)" min-width="140"></el-table-column>
-      <el-table-column property="OVERDUE_REPAYMENT_INTEREST" sortable="custom" label="逾期还款利息(元)" min-width="140"></el-table-column>
-      <el-table-column property="OVERDUE_LATE_FEE" sortable="custom" label="逾期滞纳金(元)" min-width="130"></el-table-column>
-      <el-table-column property="RENEWAL_FEE" sortable="custom" label="续期费(元)" min-width="110"></el-table-column>
-      <el-table-column property="TOTAL_AMT" sortable="custom" label="合计(元)" min-width="110"></el-table-column>
-      </el-table-column>
-      <el-table-column label="三方账户">
-      <el-table-column property="ZB_LL" sortable="custom" label="zb连连(元)" min-width="110"></el-table-column>
-      <el-table-column property="ZB_YMT" sortable="custom" label="zb益码通(元)" min-width="120"></el-table-column>
-      </el-table-column>
-      <el-table-column property="DIFF_VALUE" sortable="custom" label="差异值(元)" min-width="160"></el-table-column>
-      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间" min-width="140"></el-table-column>
+      <el-table-column property="D_MONTH" sortable="custom" label="月份" min-width="80"></el-table-column>
+      <el-table-column property="XQ_AMT" sortable="custom" label="续期费用(元)" min-width="130"></el-table-column>
+      <el-table-column property="XQINT_TQ" sortable="custom" label="提前续期利息(元)" min-width="140"></el-table-column>
+      <el-table-column property="XQINT_DQ" sortable="custom" label="到期续期利息(元)" min-width="140"></el-table-column>
+      <el-table-column property="XQINT_YQ" sortable="custom" label="逾期续期利息(元)" min-width="140"></el-table-column>
+      <el-table-column property="LQCZ_AMT" sortable="custom" label="零钱充值(元)" min-width="140"></el-table-column>
+      <el-table-column property="TOTAL_AMT" sortable="custom" label="合计(元)" min-width="140"></el-table-column>
+      <el-table-column property="LL_XN" sortable="custom" label="XN连连(元)" min-width="120"></el-table-column>
+      <el-table-column property="YMT_XN" sortable="custom" label="XN益码通(元)" min-width="120"></el-table-column>
+      <el-table-column property="TOTAL_AMT_D" sortable="custom" label="差异值(元)" min-width="160"></el-table-column>
+      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间(元)" min-width="140"></el-table-column>
     </el-table>
     <div class="pop1">
-      <p class="popTop">差异值=结算分析-三方账户</p>
+      <p class="popTop">差异值=结算分析-三方账户分析</p>
     </div>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination
@@ -72,11 +65,12 @@
   import banner from '../../../../common/banner/banner'
   import {getNowFormatDate, formatDate} from '../../../../../common/js/utils'
   import {
-    getZBRepaymentData,
-    getZBRepaymentDataCount,
-    getZBRepaymentDataRefresh
+    getDataCheckXN,
+    getDataCheckXNCount,
+    getDataCheckXNRefresh
   } from '../../../../../common/js/api'
   import {mapGetters} from 'vuex'
+  import {getHeight} from '../../../../../common/js/storage'
 
   export default {
     data() {
@@ -95,7 +89,14 @@
         buttonLoading: false,
         order: '',
         isRefreshData: false,
-        isShowExcel: false
+        isShowExcel: false,
+        formLabelAlign: {
+          xn_ll: '',
+          xn_ymt: '',
+          pocket_amount: '',
+          balance_day: ''
+        },
+        labelPosition: 'right'
       }
     },
     components: {
@@ -111,7 +112,7 @@
     },
     computed: {
       mosaicLink() {
-        return 'api/ZBrepaymentData/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"'
+        return 'api/dataCheckXN/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"'
       },
       ...mapGetters([
         'permission'
@@ -120,7 +121,7 @@
     updated () {
       if (document.getElementsByClassName('el-table__row').length > 0) {
         let header = document.getElementsByClassName('el-table__header')[0]
-        let pops = [4]
+        let pops = [10]
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
           header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].style.position = 'relative'
@@ -185,7 +186,7 @@
         })
       },
       getData() {
-        return getZBRepaymentData({
+        return getDataCheckXN({
           limit: this.limit,
           offset: this.offset,
           startTime: [this.startTime, 'DATE'],
@@ -194,7 +195,7 @@
         })
       },
       getCount() {
-        return getZBRepaymentDataCount({
+        return getDataCheckXNCount({
           startTime: [this.startTime, 'DATE'],
           endTime: [this.endTime, 'DATE']
         })
@@ -205,7 +206,7 @@
       },
       refreshData() {
         this.buttonLoading = true
-        getZBRepaymentDataRefresh().then((response) => {
+        getDataCheckXNRefresh().then((response) => {
           if (response.data.code === '200') {
             this.getDataInit()
             this.buttonLoading = false
@@ -287,7 +288,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .ZBrepaymentData
+  .dataCheckXN
     height: 100%
     .date-filter
       li
@@ -308,10 +309,10 @@
 
     .elextra-icon-info
       position: absolute
-      top: 38px
+      top: 15px
       right: 7px
       font-size: 16px
       color: rgb(102, 102, 102)
-      font-weight: 400 !important      
+      font-weight: 400 !important
 </style>
 

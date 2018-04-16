@@ -149,6 +149,9 @@ let ZCMRepaymentDataReconciliation = require('../controller/period/loan/ZCMRepay
 let ZBrepaymentData = require('../controller/period/loan/ZBrepaymentData/ZBrepaymentData')
 let monthlySettlementData = require('../controller/period/loan/monthlySettlementData/monthlySettlementData')
 let monthlyBondData = require('../controller/period/loan/monthlyBondData/monthlyBondData')
+let repaymentReconciliationZFB = require('../controller/period/loan/repaymentReconciliationZFB/repaymentReconciliationZFB')
+let dataCheckXN = require('../controller/period/loan/dataCheckXN/dataCheckXN')
+let threePartyAccountAnalysis = require('../controller/period/loan/threePartyAccountAnalysis/threePartyAccountAnalysis')
 /**商城 */
 let totalIncome = require('../controller/period/mall/totalIncome/totalIncome')
 let detailIncome = require('../controller/period/mall/detailIncome/detailIncome')
@@ -768,7 +771,7 @@ router.post(api.ZCMRepaymentDataReconciliationCount, ZCMRepaymentDataReconciliat
 router.post(api.ZCMRepaymentDataReconciliation, ZCMRepaymentDataReconciliation.fetchAll)
 router.post(api.ZCMRepaymentDataReconciliationRefresh, ZCMRepaymentDataReconciliation.refreshData)
 router.get(api.ZCMRepaymentDataReconciliationExcel, ZCMRepaymentDataReconciliation.getExcelData)
-//ZB开心分期还款数据核对
+//ZB还款数据核对
 router.post(api.ZBrepaymentDataCount, ZBrepaymentData.getCount)
 router.post(api.ZBrepaymentData, ZBrepaymentData.fetchAll)
 router.post(api.ZBrepaymentDataRefresh, ZBrepaymentData.refreshData)
@@ -783,6 +786,22 @@ router.post(api.monthlyBondDataCount, monthlyBondData.getCount)
 router.post(api.monthlyBondData, monthlyBondData.fetchAll)
 router.post(api.monthlyBondDataRefresh, monthlyBondData.refreshData)
 router.get(api.monthlyBondDataExcel, monthlyBondData.getExcelData)
+//支付宝还款对账
+router.post(api.repaymentReconciliationZFBCount, repaymentReconciliationZFB.getCount)
+router.post(api.repaymentReconciliationZFB, repaymentReconciliationZFB.fetchAll)
+router.post(api.repaymentReconciliationZFBRefresh, repaymentReconciliationZFB.refreshData)
+router.get(api.repaymentReconciliationZFBExcel, repaymentReconciliationZFB.getExcelData)
+//XN数据核对
+router.post(api.dataCheckXNCount, dataCheckXN.getCount)
+router.post(api.dataCheckXN, dataCheckXN.fetchAll)
+router.post(api.dataCheckXNRefresh, dataCheckXN.refreshData)
+router.get(api.dataCheckXNExcel, dataCheckXN.getExcelData)
+//三方对账分析
+router.post(api.threePartyAccountAnalysisCount, threePartyAccountAnalysis.getCount)
+router.post(api.threePartyAccountAnalysis, threePartyAccountAnalysis.fetchAll)
+router.post(api.threePartyAccountAnalysisRefresh, threePartyAccountAnalysis.refreshData)
+router.post(api.threePartyAccountAnalysisModify, threePartyAccountAnalysis.modify)
+router.get(api.threePartyAccountAnalysisExcel, threePartyAccountAnalysis.getExcelData)
 /**商城 */
 //收入结算总表
 router.post(api.totalIncomeCount, totalIncome.getCount)

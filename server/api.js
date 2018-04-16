@@ -561,7 +561,7 @@ module.exports = {
   ZCMRepaymentDataReconciliationCount: path + '/ZCMRepaymentDataReconciliation/count',
   ZCMRepaymentDataReconciliationRefresh: path + '/ZCMRepaymentDataReconciliation/refresh',
   ZCMRepaymentDataReconciliationExcel: path + '/ZCMRepaymentDataReconciliation/excel',
-  //ZB开心分期还款数据核对
+  //ZB还款数据核对
   ZBrepaymentData: path + '/ZBrepaymentData',
   ZBrepaymentDataCount: path + '/ZBrepaymentData/count',
   ZBrepaymentDataRefresh: path + '/ZBrepaymentData/refresh',
@@ -576,6 +576,22 @@ module.exports = {
   monthlyBondDataCount: path + '/monthlyBondData/count',
   monthlyBondDataRefresh: path + '/monthlyBondData/refresh',
   monthlyBondDataExcel: path + '/monthlyBondData/excel',
+  //支付宝还款对账
+  repaymentReconciliationZFB: path + '/repaymentReconciliationZFB',
+  repaymentReconciliationZFBCount: path + '/repaymentReconciliationZFB/count',
+  repaymentReconciliationZFBRefresh: path + '/repaymentReconciliationZFB/refresh',
+  repaymentReconciliationZFBExcel: path + '/repaymentReconciliationZFB/excel',
+  //XN数据核对
+  dataCheckXN: path + '/dataCheckXN',
+  dataCheckXNCount: path + '/dataCheckXN/count',
+  dataCheckXNRefresh: path + '/dataCheckXN/refresh',
+  dataCheckXNExcel: path + '/dataCheckXN/excel',
+  //三方对账分析
+  threePartyAccountAnalysis: path + '/threePartyAccountAnalysis',
+  threePartyAccountAnalysisCount: path + '/threePartyAccountAnalysis/count',
+  threePartyAccountAnalysisRefresh: path + '/threePartyAccountAnalysis/refresh',
+  threePartyAccountAnalysisExcel: path + '/threePartyAccountAnalysis/excel',
+  threePartyAccountAnalysisModify: path + '/threePartyAccountAnalysis/modify',
   /**商城 */
   //收入结算总表
   totalIncome: path + '/totalIncome',

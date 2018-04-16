@@ -310,14 +310,20 @@ module.exports = {
     dailySettlementReport: 'PR_FA_SETTLEMENT_DAY',
     //每日债权报表
     dailyClaimsReport: 'PR_FA_CREDITOR_DAY',
-    //ZCM开心分期还款数据核对
+    //ZCM还款数据核对
     ZCMRepaymentDataReconciliation: 'PR_FA_REPAYMENT_DATA_CHECK_ZCM',
-    //ZB开心分期还款数据核对
+    //ZB还款数据核对
     ZBrepaymentData: 'PR_FA_REPAYMENT_DATA_CHECK_ZB',
     //每月结算表
     monthlySettlementData: 'PR_FA_SETTLEMENT_MONTH',
     //每月债权报表
     monthlyBondData: 'PR_FA_CREDITOR_MONTH',
+    //支付宝还款对账
+    repaymentReconciliationZFB: 'PR_FA_REPAYMENT_DATA_CHECK_ZFB',
+    //XN数据核对
+    dataCheckXN: 'PR_FA_DATA_CHECK_XN',
+    //三方对账分析
+    threePartyAccountAnalysis: 'PR_FA_THREE_PARTY_ACCOUNT_ANALYSIS',
     /**商城 */
     //收入结算总表
     totalIncome: 'PR_DS_INCOME_KXFQ',
