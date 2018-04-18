@@ -162,7 +162,8 @@ let dailyPocketMoneyAnalysis = require('../controller/period/mall/dailyPocketMon
 let dailyPackageIncomeStatement = require('../controller/period/mall/dailyPackageIncomeStatement/dailyPackageIncomeStatement')
 let dailyMallOrderReport = require('../controller/period/mall/dailyMallOrderReport/dailyMallOrderReport')
 let rechargeOfChangeReport = require('../controller/period/mall/rechargeOfChangeReport/rechargeOfChangeReport')
-
+let mallMonthlyReport = require('../controller/period/mall/mallMonthlyReport/mallMonthlyReport')
+let changeFundAccountStatement = require('../controller/period/mall/changeFundAccountStatement/changeFundAccountStatement')
 let api = require('../api')
 
 let router = express.Router()
@@ -849,4 +850,14 @@ router.post(api.rechargeOfChangeReport, rechargeOfChangeReport.fetchAll)
 router.post(api.rechargeOfChangeReportRefresh, rechargeOfChangeReport.refreshData)
 router.get(api.rechargeOfChangeReportExcel, rechargeOfChangeReport.getExcelData)
 router.post(api.rechargeOfChangeReportModify, rechargeOfChangeReport.modify)
+//商城月报表
+router.post(api.mallMonthlyReportCount, mallMonthlyReport.getCount)
+router.post(api.mallMonthlyReport, mallMonthlyReport.fetchAll)
+router.post(api.mallMonthlyReportRefresh, mallMonthlyReport.refreshData)
+router.get(api.mallMonthlyReportExcel, mallMonthlyReport.getExcelData)
+//零钱资金账户明细表
+router.post(api.changeFundAccountStatementCount, changeFundAccountStatement.getCount)
+router.post(api.changeFundAccountStatement, changeFundAccountStatement.fetchAll)
+router.post(api.changeFundAccountStatementRefresh, changeFundAccountStatement.refreshData)
+router.get(api.changeFundAccountStatementExcel, changeFundAccountStatement.getExcelData)
 module.exports = router

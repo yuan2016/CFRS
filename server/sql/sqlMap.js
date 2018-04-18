@@ -1086,7 +1086,24 @@ let sqlMap = {
         'select d_date as "日期",m_month as "月份",xn_ll as "XN连连(元)",xn_ymt as "XN益码通(元)",pocket_amount as "零钱合计(元)",dlb_income as "礼包购买(元)",pocket_buy as "商品零钱购买(元)",withdraw as "提现(元)",withdraw_fee as "提现手续费(元)",dlb_refund as "退款(元)",pocket_recharge_tatol as "合计(元)",balance_day as "当日余额(元)",balance as "后台当日余额(元)",diff as "验证差异(元)",alipay_recharge_fee as "支付宝充值手续费收入(元)",remarks as "备注" from ?? ',
       update:
         "update ?? set LL_ZCM_T=?,LL_ZB_T=?,YMT_ZB_T=?,LL_XN_T=?,YMT_XN_T=?,TOTAL_AMT_T=?,LL_ZCM_D=?,LL_ZB_D=?,YMT_ZB_D=?,LL_XN_D=?,YMT_XN_D=?,TOTAL_AMT_D=? where d_date=?"
+    },
+    mallMonthlyReport: {
+      selectAll:
+        "select y_year,m_month,pocket_recharge,recharge_fee,withdraw_amount,withdraw_fee,dlb_income,dlb_refund,pocket_pay,summation from ?? ",
+      order: " order by y_year,m_month desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectAllExcel: 'select y_year as "年份",m_month as "月份",pocket_recharge as "零钱充值(元)",recharge_fee as "充值手续费(元)",withdraw_amount as "提现金额(元)",withdraw_fee as "提现手续费(元)",dlb_income as "大礼包收入(元)",dlb_refund as "大礼包退款(元)",pocket_pay as "商品零钱支付(元)" from ?? '
+    },
+    changeFundAccountStatement: {
+      selectAll:
+        "select created_time,id,user_id,user_name,user_phone,recharge_amt,recharge_fee,withdraw_fee,dlb_refund,dlb_pay,pocket_pay,withdraw,balance from ?? ",
+      order: " order by created_time desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectAllExcel: 'select created_time as "创建时间",id as "序号",user_id as "用户ID",user_name as "用户名",user_phone as "手机号",recharge_amt as "充值金额(元)",recharge_fee as "充值手续费(元)",withdraw_fee as "提现手续费(元)",dlb_refund as "大礼包退款(元)",dlb_pay as "大礼包支付(元)",pocket_pay as "商品零钱支付(元)",withdraw as "提现(元)",balance as "余额(元)" from ?? '
     }
   }
-};
-module.exports = sqlMap;
+}
+
+module.exports = sqlMap

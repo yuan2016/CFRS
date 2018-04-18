@@ -342,6 +342,10 @@ module.exports = {
     //每日商城订单报表
     dailyMallOrderReport: 'PR_CW_MALLORDER_DAY_KXFQ',
     //零钱充值对账分析
-    rechargeOfChangeReport: 'pr_cw_pocketcheck_day_kxfq'
+    rechargeOfChangeReport: 'pr_cw_pocketcheck_day_kxfq',
+    //商城月报表
+    mallMonthlyReport: 'pr_cw_mall_month_kxfq',
+    //零钱资金账户明细表
+    changeFundAccountStatement: 'pr_cw_pocket_mx_kxfq'
   }
 }

@@ -519,6 +519,14 @@
     {
       "value": "每日商城订单报表",
       "address": "/period/mall/finance/dailyMallOrderReport"
+    },
+    {
+      "value": "商城月报表",
+      "address": "/period/mall/finance/mallMonthlyReport"
+    },
+    {
+      "value": "零钱资金账户明细表",
+      "address": "/period/mall/finance/changeFundAccountStatement."
     }
   ]
 }

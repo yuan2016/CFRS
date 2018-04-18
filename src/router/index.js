@@ -1244,6 +1244,24 @@ const dailyPackageIncomeStatement = r =>
       ),
     "rechargeOfChangeReport"
   );
+const mallMonthlyReport = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/mall/finance/mallMonthlyReport/mallMonthlyReport")
+      ),
+    "mallMonthlyReport"
+  );
+const changeFundAccountStatement = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/mall/finance/changeFundAccountStatement/changeFundAccountStatement")
+      ),
+    "changeFundAccountStatement"
+  );
 /**
  * icon : the icon show in the sidebar
  * hidden : if hidden:true will not show in the sidebar
@@ -2611,6 +2629,20 @@ export const asyncRouterMap = [
             component: dailyMallOrderReport,
             name: "每日商城订单报表",
             meta: ["开心分期", "商城", "财务对账", "每日商城订单报表"]
+          },
+          {
+            path: "/period/mall/finance/mallMonthlyReport",
+            icon: "el-icon-star-on",
+            component: mallMonthlyReport,
+            name: "商城月报表",
+            meta: ["开心分期", "商城", "财务对账", "商城月报表"]
+          },
+          {
+            path: "/period/mall/finance/changeFundAccountStatement",
+            icon: "el-icon-star-on",
+            component: changeFundAccountStatement,
+            name: "零钱资金账户明细表",
+            meta: ["开心分期", "商城", "财务对账", "零钱资金账户明细表"]
           }
         ]
       }

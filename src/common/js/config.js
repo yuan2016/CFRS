@@ -129,7 +129,9 @@ let address = {
   '每日零钱资金分析表': '/period/mall/finance/dailyPocketMoneyAnalysis',
   '每日大礼包收入报表': '/period/mall/finance/dailyPackageIncomeStatement',
   '每日商城订单报表': '/period/mall/finance/dailyMallOrderReport',
-  '零钱充值对账分析': '/period/mall/finance/rechargeOfChangeReport'
+  '零钱充值对账分析': '/period/mall/finance/rechargeOfChangeReport',
+  '商城月报表': '/period/mall/finance/mallMonthlyReport',
+  '零钱资金账户明细表': '/period/mall/finance/changeFundAccountStatement'
 }
 
 export { parentTable, address }

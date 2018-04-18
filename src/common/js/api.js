@@ -3068,3 +3068,51 @@ export function getRechargeOfChangeReportModify (data) {
     data: data
   })
 }
+//商城月报表收入报表
+export function getMallMonthlyReport (data) {
+  return fetch({
+    url: '/api/mallMonthlyReport',
+    method: 'post',
+    data: data
+  })
+}
+//商城月报表收入报表统计
+export function getMallMonthlyReportCount (data) {
+  return fetch({
+    url: '/api/mallMonthlyReport/count',
+    method: 'post',
+    data: data
+  })
+}
+//商城月报表收入报表一键刷新
+export function getMallMonthlyReportRefresh (data) {
+  return fetch({
+    url: '/api/mallMonthlyReport/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//零钱资金账户明细表
+export function getChangeFundAccountStatement (data) {
+  return fetch({
+    url: '/api/changeFundAccountStatement',
+    method: 'post',
+    data: data
+  })
+}
+//零钱资金账户明细表统计
+export function getChangeFundAccountStatementCount (data) {
+  return fetch({
+    url: '/api/changeFundAccountStatement/count',
+    method: 'post',
+    data: data
+  })
+}
+//零钱资金账户明细表一键刷新
+export function getChangeFundAccountStatementRefresh (data) {
+  return fetch({
+    url: '/api/changeFundAccountStatement/refresh',
+    method: 'post',
+    data: data
+  })
+}

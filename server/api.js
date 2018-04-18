@@ -638,5 +638,15 @@ module.exports = {
   rechargeOfChangeReportCount: path + '/rechargeOfChangeReport/count',
   rechargeOfChangeReportRefresh: path + '/rechargeOfChangeReport/refresh',
   rechargeOfChangeReportExcel: path + '/rechargeOfChangeReport/excel',
-  rechargeOfChangeReportModify: path + '/rechargeOfChangeReport/modify'
+  rechargeOfChangeReportModify: path + '/rechargeOfChangeReport/modify',
+  //商城月报表
+  mallMonthlyReport: path + '/mallMonthlyReport',
+  mallMonthlyReportCount: path + '/mallMonthlyReport/count',
+  mallMonthlyReportRefresh: path + '/mallMonthlyReport/refresh',
+  mallMonthlyReportExcel: path + '/mallMonthlyReport/excel',
+  //零钱资金账户明细表
+  changeFundAccountStatement: path + '/changeFundAccountStatement',
+  changeFundAccountStatementCount: path + '/changeFundAccountStatement/count',
+  changeFundAccountStatementRefresh: path + '/changeFundAccountStatement/refresh',
+  changeFundAccountStatementExcel: path + '/changeFundAccountStatement/excel'
 }
