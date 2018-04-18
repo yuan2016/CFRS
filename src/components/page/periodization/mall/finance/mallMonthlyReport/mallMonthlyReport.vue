@@ -4,36 +4,28 @@
     <banner></banner>
     <div class="date-filter">
       <li>
-        <span class="managerFront">日期：</span>
+        <span class="managerFront">年：</span>
         <el-date-picker
           size="mini"
-          v-model.trim="startTime"
-          type="date"
+          v-model.trim="y_year"
+          type="year"
           class="dateSelect"
-          placeholder="从"
-          value-format="yyyy-MM-dd">
-        </el-date-picker>
-        <el-date-picker
-          size="mini"
-          v-model.trim="endTime"
-          type="date"
-          class="dateSelect"
-          placeholder="到"
-          value-format="yyyy-MM-dd">
+          placeholder="选择年"
+          value-format="yyyy">
         </el-date-picker>
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <!--<el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button>
+        </el-button>-->
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
               class="mallMonthlyReport-table" @sort-change="sort">
       <el-table-column property="y_year" fixed sortable="custom" label="年份" min-width="80"></el-table-column>
-      <el-table-column property="m_month" fixed sortable="custom" label="月份" min-width="80"></el-table-column>
+      <el-table-column property="m_month" sortable="custom" label="月份" min-width="80"></el-table-column>
       <el-table-column property="pocket_recharge" sortable="custom" label="零钱充值(元)" min-width="130"></el-table-column>
       <el-table-column property="recharge_fee" sortable="custom" label="充值手续费(元)" min-width="130"></el-table-column>
       <el-table-column property="withdraw_amount" sortable="custom" label="提现金额(元)" min-width="130"></el-table-column>
@@ -76,7 +68,7 @@
         limit: 20,
         count: 0,
         currentPage: 1,
-        startTime: '',
+        y_year: '',
         endTime: '',
         height: 500,
         buttonLoading: false,
@@ -98,7 +90,7 @@
     },
     computed: {
       mosaicLink() {
-        return 'api/mallMonthlyReport/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"'
+        return 'api/mallMonthlyReport/excel?y_year="' + [this.y_year, 'INPUT']+ '"'
       },
       ...mapGetters([
         'permission'
@@ -149,15 +141,13 @@
         return getMallMonthlyReport({
           limit: this.limit,
           offset: this.offset,
-          startTime: [this.startTime, 'DATE'],
-          endTime: [this.endTime, 'DATE'],
+          y_year: [this.y_year, 'INPUT'],
           order: this.order
         })
       },
       getCount() {
         return getMallMonthlyReportCount({
-          startTime: [this.startTime, 'DATE'],
-          endTime: [this.endTime, 'DATE']
+          y_year: [this.y_year, 'INPUT']
         })
       },
       search() {

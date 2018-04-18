@@ -78,7 +78,7 @@ module.exports = {
   //每日还款明细记录
   fetchAll(req, res) {
     let params = req.body
-    let queries = analysis(params, 'd_date', 'w')
+    let queries = analysis(params, 'y_year', 'w')
     let order = params.order || sql.period.mallMonthlyReport.order
     let query = sql.period.mallMonthlyReport.selectAll + queries + order + sql.period.mallMonthlyReport.selectAllBack
     func.connPool1(query, [tableName.period.mallMonthlyReport, params.offset, params.limit], function (err, rs) {
@@ -102,7 +102,7 @@ module.exports = {
   //每日还款明细记录总条数
   getCount(req, res) {
     let params = req.body
-    let queries = analysis(params, 'd_date', 'w')
+    let queries = analysis(params, 'y_year', 'w')
     let query = sql.period.mallMonthlyReport.getCount + queries
     func.connPool1(query, [tableName.period.mallMonthlyReport], function (err, rs) {
       if (err) {
@@ -144,7 +144,7 @@ module.exports = {
   },
   getExcelData(req, res) {
     let params = req.query
-    let queries = analysis(params, 'd_date', 'w')
+    let queries = analysis(params, 'y_year', 'w')
     let query = sql.period.mallMonthlyReport.selectAllExcel + queries + sql.period.mallMonthlyReport.order
     func.connPool1(query, [tableName.period.mallMonthlyReport], function (err, rs) {
       if (err) {
