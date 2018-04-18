@@ -24,14 +24,14 @@
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <!-- <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button> -->
+        </el-button>
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="threePartyAccountAnalysis-table" @sort-change="sort" @row-dblclick="showData">
+              class="threePartyAccountAnalysis-table" @sort-change="sort" @row-dblclick="showData" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="90"></el-table-column>
       <el-table-column label="技术后台数据">
         <el-table-column property="LL_ZCM_KX" sortable="custom" label="ZCM开心分期连连(元)" min-width="170"></el-table-column>
@@ -179,7 +179,8 @@
         },
         currentRowData: {},
         isShowDetail: false,
-        labelPosition: 'right'
+        labelPosition: 'right',
+        isUpdate: false
       }
     },
     components: {
@@ -189,6 +190,7 @@
       this.loading = true
       this.getDataInit()
       this.isShowRefreshAndExcel()
+      this.isUseUpdate()
     },
     mounted() {
       this.resizeHeight()
@@ -202,6 +204,12 @@
       ])
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //重置form表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -344,6 +352,13 @@
           this.isShowExcel = false
         }
       },
+      isUseUpdate() {
+        if (this.permission.indexOf('update') > -1) {
+          this.isUpdate = true
+        } else {
+          this.isUpdate = false
+        }
+      },
       //千分位表示为普通数字表示
       changeItem(a) {
         if (!a) {
@@ -362,22 +377,26 @@
         return 0
       },
       showData(row) {
-        this.currentRowData = row
-        this.formLabelAlign = {
-          LL_ZCM_T: row.LL_ZCM_T,
-          LL_ZB_T: row.LL_ZB_T,
-          YMT_ZB_T: row.YMT_ZB_T,
-          LL_XN_T: row.LL_XN_T,
-          YMT_XN_T: row.YMT_XN_T,
-          TOTAL_AMT_T: row.TOTAL_AMT_T,
-          LL_ZCM_D: row.LL_ZCM_D,
-          LL_ZB_D: row.LL_ZB_D,
-          YMT_ZB_D: row.YMT_ZB_D,
-          LL_XN_D: row.LL_XN_D,
-          YMT_XN_D: row.YMT_XN_D,
-          TOTAL_AMT_D: row.TOTAL_AMT_D
+        if (this.isUpdate) {
+          if (row.D_DATE) {
+            this.currentRowData = row
+            this.formLabelAlign = {
+              LL_ZCM_T: row.LL_ZCM_T,
+              LL_ZB_T: row.LL_ZB_T,
+              YMT_ZB_T: row.YMT_ZB_T,
+              LL_XN_T: row.LL_XN_T,
+              YMT_XN_T: row.YMT_XN_T,
+              TOTAL_AMT_T: row.TOTAL_AMT_T,
+              LL_ZCM_D: row.LL_ZCM_D,
+              LL_ZB_D: row.LL_ZB_D,
+              YMT_ZB_D: row.YMT_ZB_D,
+              LL_XN_D: row.LL_XN_D,
+              YMT_XN_D: row.YMT_XN_D,
+              TOTAL_AMT_D: row.TOTAL_AMT_D
+            }
+            this.isShowDetail = !this.isShowDetail
+          }
         }
-        this.isShowDetail = !this.isShowDetail
       },
       saveData() {
         let extra = this.formLabelAlign
@@ -480,7 +499,7 @@
       height: 100%
       z-index: 1002
       overflow: auto
-      background: rgba(7, 17, 27, 0.8)
+      background: rgba(0, 0, 0, .5)
       backdrop-filter: blur(10px)
       &.fade-enter-active
         transition: all .1s linear
@@ -500,6 +519,7 @@
           top: 50%
           left: 50%
           transform: translate(-50%, -50%)
+          padding: 10px 0 0 20px
           width: 380px
           height: 430px
           border-radius: 5px

@@ -24,9 +24,9 @@
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <!-- <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button> -->
+        </el-button>
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>

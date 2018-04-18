@@ -108,8 +108,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_month', 'w')
     let order = params.order || sql.period.monthlySettlementData.order
-    let query = sql.period.monthlySettlementData.selectAll + queries + order + sql.period.monthlySettlementData.selectAllBack
-    func.connPool1(query, [tableName.period.monthlySettlementData, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.monthlySettlementData.selectSum + queries + ' UNION ALL ' + '(' + sql.period.monthlySettlementData.selectAll + queries + order + sql.period.monthlySettlementData.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.monthlySettlementData, tableName.period.monthlySettlementData, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -173,8 +173,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_month', 'w')
-    let query = sql.period.monthlySettlementData.selectAllExcel + queries + sql.period.monthlySettlementData.order
-    func.connPool1(query, [tableName.period.monthlySettlementData], function (err, rs) {
+    let query = sql.period.monthlySettlementData.selectSumExcel + queries + ' UNION ALL ' + '(' + sql.period.monthlySettlementData.selectAllExcel + queries + sql.period.monthlySettlementData.order + ')'
+    func.connPool1(query, [tableName.period.monthlySettlementData, tableName.period.monthlySettlementData], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {

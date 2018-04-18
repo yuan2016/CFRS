@@ -320,7 +320,7 @@ module.exports = {
     monthlyBondData: 'PR_FA_CREDITOR_MONTH',
     //支付宝还款对账
     repaymentReconciliationZFB: 'PR_FA_REPAYMENT_DATA_CHECK_ZFB',
-    //XN数据核对
+    //XN还款数据核对
     dataCheckXN: 'PR_FA_DATA_CHECK_XN',
     //三方对账分析
     threePartyAccountAnalysis: 'PR_FA_THREE_PARTY_ACCOUNT_ANALYSIS',

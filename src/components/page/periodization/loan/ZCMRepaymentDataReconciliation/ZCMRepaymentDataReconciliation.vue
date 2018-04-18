@@ -24,14 +24,14 @@
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <!-- <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button> -->
+        </el-button>
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="ZCMRepaymentDataReconciliation-table" @sort-change="sort">
+              class="ZCMRepaymentDataReconciliation-table" @sort-change="sort" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="120"></el-table-column>
       <el-table-column property="d_month" sortable="custom" label="月份" min-width="100"></el-table-column>
       <el-table-column label="结算分析">
@@ -113,6 +113,12 @@
       ])
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //每页显示数据量变更
       handleSizeChange(val) {
         this.limit = val
@@ -264,11 +270,5 @@
           width: 165px
         .ZCMRepaymentDataReconciliationSelect
           width: 100px
-    .el-table
-      tbody
-        tr:first-of-type
-          td
-            .cell
-              color: #ff4949
 </style>
 

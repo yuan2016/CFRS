@@ -83,7 +83,7 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'D_DATE', 'w')
     let order = params.order || sql.period.dailyClaimsReport.order
-    let query = sql.period.dailyClaimsReport.select + '(' + sql.period.dailyClaimsReport.sum + queries + ')t UNION ALL ' + sql.period.dailyClaimsReport.select + '(' + sql.period.dailyClaimsReport.selectAll + queries + order + sql.period.dailyClaimsReport.selectAllBack + ') t1'
+    let query = sql.period.dailyClaimsReport.selectSum + queries + ' UNION ALL ' + '(' + sql.period.dailyClaimsReport.selectAll + queries + order + sql.period.dailyClaimsReport.selectAllBack + ')'
     func.connPool1(query, [tableName.period.dailyClaimsReport, tableName.period.dailyClaimsReport, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
@@ -148,7 +148,7 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'D_DATE', 'w')
-    let query = sql.period.dailyClaimsReport.select + '(' + sql.period.dailyClaimsReport.sum + queries + ')t UNION ALL ' + sql.period.dailyClaimsReport.select + '(' + sql.period.dailyClaimsReport.selectAll + queries + sql.period.dailyClaimsReport.order + ') t1'
+    let query = sql.period.dailyClaimsReport.selectSum + queries + ' UNION ALL ' + '(' + sql.period.dailyClaimsReport.selectAll + queries + sql.period.dailyClaimsReport.order + ')'
     func.connPool1(query, [tableName.period.dailyClaimsReport, tableName.period.dailyClaimsReport], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)

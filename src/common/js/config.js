@@ -119,7 +119,7 @@ let address = {
   '每月结算表': '/period/loan/monthlySettlementData',
   '每月债权报表': '/period/mall/finance/monthlyBondData',
   '支付宝还款对账': '/period/loan/repaymentReconciliationZFB',
-  'XN数据核对': '/period/loan/dataCheckXN',
+  'XN还款数据核对': '/period/loan/dataCheckXN',
   '三方对账分析': '/period/loan/threePartyAccountAnalysis',
   '收入结算总表': '/period/mall/finance/totalIncome',
   '收入结算明细表': '/period/mall/finance/detailIncome',

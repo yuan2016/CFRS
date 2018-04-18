@@ -75,21 +75,22 @@
             <el-form :label-position="labelPosition" label-width="120px" :rules="loginRules" :model="formLabelAlign"
                      class="reconciliationAnalysisQE-form" ref="ruleForm">
               <el-form-item prop="Alipay_amt_third" size="mini" label="支付宝:">
-                <el-input v-model.trim="formLabelAlign.Alipay_amt_third"></el-input>
+                <el-input v-model.trim="formLabelAlign.Alipay_amt_third" class="reconciliationAnalysisQE-input"></el-input>
               </el-form-item>
               <el-form-item prop="WeChat_amt_third" size="mini" label="微信:">
-                <el-input v-model.trim="formLabelAlign.WeChat_amt_third"></el-input>
+                <el-input v-model.trim="formLabelAlign.WeChat_amt_third" class="reconciliationAnalysisQE-input"></el-input>
               </el-form-item>
-              <el-form-item prop="Alipay_amt_third" size="mini" label="邮费-支付宝:">
-                <el-input v-model.trim="formLabelAlign.post_alipay_amt_third"></el-input>
+              <el-form-item prop="post_alipay_amt_third" size="mini" label="邮费-支付宝:">
+                <el-input v-model.trim="formLabelAlign.post_alipay_amt_third" class="reconciliationAnalysisQE-input"></el-input>
               </el-form-item>
-              <el-form-item prop="WeChat_amt_third" size="mini" label="邮费-微信:">
-                <el-input v-model.trim="formLabelAlign.post_wechat_amt_third"></el-input>
+              <el-form-item prop="post_wechat_amt_third" size="mini" label="邮费-微信:">
+                <el-input v-model.trim="formLabelAlign.post_wechat_amt_third" class="reconciliationAnalysisQE-input"></el-input>
               </el-form-item>
-              <el-form-item size="mini" label="备注:">
-                <el-input type="textarea" v-model.trim="formLabelAlign.remark"></el-input>
+              <el-form-item prop="remark" size="mini" label="备注:">
+                <el-input type="textarea" v-model.trim="formLabelAlign.remark" class="reconciliationAnalysisQE-input"></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item  class="bottom">
+                <el-button class="reconciliationAnalysisQE-button" @click="resetForm('ruleForm')">重置</el-button>
                 <el-button type="primary" class="reconciliationAnalysisQE-button" @click="saveData('ruleForm')">
                   立即修改
                 </el-button>
@@ -168,7 +169,8 @@
         currentRowData: {},
         order: '',
         isRefreshData: false,
-        isShowExcel: false
+        isShowExcel: false,
+        isUpdate: false
       }
     },
     computed: {
@@ -186,29 +188,36 @@
       this.loading = true
       this.getDataInit()
       this.isShowRefreshAndExcel()
+      this.isUseUpdate()
     },
     mounted() {
       this.resizeHeight()
     },
     methods: {
+      //重置form表单
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
       closeDetial() {
         this.isShowDetail = !this.isShowDetail
       },
       showData(row) {
-        this.currentRowData = row
-        this.formLabelAlign = {
-          Alipay_amt_third: row.Alipay_amt_third,
-          Alipay_amt_diff: row.Alipay_amt_diff,
-          WeChat_amt_third: row.WeChat_amt_third,
-          WeChat_amt_diff: row.WeChat_amt_diff,
-          post_alipay_amt_third: row.post_alipay_amt_third,
-          post_alipay_amt_diff: row.post_alipay_amt_diff,
-          post_wechat_amt_third: row.post_wechat_amt_third,
-          post_wechat_amt_diff: row.post_wechat_amt_diff,
-          all_amt_diff: row.all_amt_diff,
-          remark: row.remark
+        if (this.isUpdate){
+          this.currentRowData = row
+          this.formLabelAlign = {
+            Alipay_amt_third: row.Alipay_amt_third,
+            Alipay_amt_diff: row.Alipay_amt_diff,
+            WeChat_amt_third: row.WeChat_amt_third,
+            WeChat_amt_diff: row.WeChat_amt_diff,
+            post_alipay_amt_third: row.post_alipay_amt_third,
+            post_alipay_amt_diff: row.post_alipay_amt_diff,
+            post_wechat_amt_third: row.post_wechat_amt_third,
+            post_wechat_amt_diff: row.post_wechat_amt_diff,
+            all_amt_diff: row.all_amt_diff,
+            remark: row.remark
         }
         this.isShowDetail = !this.isShowDetail
+        }
       },
       //千分位表示为普通数字表示
       changeItem(a) {
@@ -405,6 +414,13 @@
         } else {
           this.isShowExcel = false
         }
+      },
+      isUseUpdate() {
+        if (this.permission.indexOf('update') > -1) {
+          this.isUpdate = true
+        } else {
+          this.isUpdate = false
+        }
       }
     }
   }
@@ -427,7 +443,7 @@
       height: 100%
       z-index: 1002
       overflow: auto
-      background: rgba(7, 17, 27, 0.8)
+      background: rgba(0, 0, 0, .5)
       backdrop-filter: blur(10px)
       &.fade-enter-active
         transition: all .1s linear
@@ -449,9 +465,10 @@
           transform: translate(-50%, -50%)
           width: 350px
           height: 400px
+          padding:10px 0 0 20px
           border-radius: 5px
           text-align: center
-          background-color: rgb(239, 242, 247)
+          background-color: #fff
           .title
             box-sizing: border-box
             padding-left: 20px
@@ -460,13 +477,22 @@
             width: 100%
             text-align: left
             font-size: 25px
-            color: #fff
+            color: #666
             border-radius: 4px 4px 0 0
-            background-color rgb(50, 140, 195)
+            background-color #fff
           .reconciliationAnalysisQE-form
             margin: 20px 20px 20px 0
+            position: relative
+            .reconciliationAnalysisQE-input
+              position: absolute
+              left: 0px
+              width: 160px
+            .bottom
+              position: relative
+              right:-10px
+              bottom:-30px    
           .reconciliationAnalysisQE-button
-            width: 200px
+            width: 100px
       .detail-close
         position: absolute
         top: 50px
@@ -478,7 +504,7 @@
         color: rgba(255, 255, 255, 0.5)
 
     .el-form-item__content
-      width: 200px
+      width: 220px
 
     .el-pagination
       overflow: auto

@@ -113,8 +113,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
     let order = params.order || sql.period.dataCheckXN.order
-    let query = sql.period.dataCheckXN.selectAll + queries + order + sql.period.dataCheckXN.selectAllBack
-    func.connPool1(query, [tableName.period.dataCheckXN, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.dataCheckXN.selectSum + queries + ' UNION ALL ' + '(' + sql.period.dataCheckXN.selectAll + queries + order + sql.period.dataCheckXN.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.dataCheckXN, tableName.period.dataCheckXN, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -160,17 +160,17 @@ module.exports = {
       pro.exec(shell.dataCheckXN, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN数据核对shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN还款数据核对shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
           global.dataCheckXNCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN数据核对shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN还款数据核对shell脚本执行成功')
           res.json({code: '200'})
           global.dataCheckXNCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN数据核对开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期XN还款数据核对开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }
@@ -178,8 +178,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.dataCheckXN.selectAllExcel + queries + sql.period.dataCheckXN.order
-    func.connPool1(query, [tableName.period.dataCheckXN], function (err, rs) {
+    let query = sql.period.dataCheckXN.selectSumExcel + queries + ' UNION ALL ' + '(' + sql.period.dataCheckXN.selectAllExcel + queries + sql.period.dataCheckXN.order + ')'
+    func.connPool1(query, [tableName.period.dataCheckXN, tableName.period.dataCheckXN], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -228,30 +228,5 @@ module.exports = {
         })
       })
     }, 180000)
-  },
-  //数据变更
-  modify (req, res) {
-    let params = req.body.formData
-    let query = sql.period.dataCheckXN.update
-    func.connPool1(query, [tableName.period.dataCheckXN, changeItem(params.xn_ll), changeItem(params.xn_ymt), changeItem(params.pocket_amount), changeItem(params.balance_day), req.body.date], function (err, rs) {
-      if (err) {
-        console.log('[query] - :' + err)
-        if (err.message === 'Query inactivity timeout') {
-          res.json({
-            code: '1024'
-          })
-        } else {
-          res.json({
-            code: '404'
-          })
-        }
-        return
-      }
-      if (rs.changedRows === 1) {
-        res.json(200)
-      } else {
-        res.json(500)
-      }
-    })
   }
 }
