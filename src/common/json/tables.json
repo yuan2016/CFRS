@@ -481,7 +481,7 @@
       "address": "/period/loan/repaymentReconciliationZFB"
     },
     {
-      "value": "XN数据核对",
+      "value": "XN还款数据核对",
       "address": "/period/loan/dataCheckXN"
     },
     {

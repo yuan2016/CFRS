@@ -179,7 +179,8 @@
         },
         currentRowData: {},
         isShowDetail: false,
-        labelPosition: 'right'
+        labelPosition: 'right',
+        isUpdate: false
       }
     },
     components: {
@@ -189,6 +190,7 @@
       this.loading = true
       this.getDataInit()
       this.isShowRefreshAndExcel()
+      this.isUseUpdate()
     },
     mounted() {
       this.resizeHeight()
@@ -350,6 +352,13 @@
           this.isShowExcel = false
         }
       },
+      isUseUpdate() {
+        if (this.permission.indexOf('update') > -1) {
+          this.isUpdate = true
+        } else {
+          this.isUpdate = false
+        }
+      },
       //千分位表示为普通数字表示
       changeItem(a) {
         if (!a) {
@@ -368,22 +377,26 @@
         return 0
       },
       showData(row) {
-        this.currentRowData = row
-        this.formLabelAlign = {
-          LL_ZCM_T: row.LL_ZCM_T,
-          LL_ZB_T: row.LL_ZB_T,
-          YMT_ZB_T: row.YMT_ZB_T,
-          LL_XN_T: row.LL_XN_T,
-          YMT_XN_T: row.YMT_XN_T,
-          TOTAL_AMT_T: row.TOTAL_AMT_T,
-          LL_ZCM_D: row.LL_ZCM_D,
-          LL_ZB_D: row.LL_ZB_D,
-          YMT_ZB_D: row.YMT_ZB_D,
-          LL_XN_D: row.LL_XN_D,
-          YMT_XN_D: row.YMT_XN_D,
-          TOTAL_AMT_D: row.TOTAL_AMT_D
+        if (this.isUpdate) {
+          if (row.D_DATE) {
+            this.currentRowData = row
+            this.formLabelAlign = {
+              LL_ZCM_T: row.LL_ZCM_T,
+              LL_ZB_T: row.LL_ZB_T,
+              YMT_ZB_T: row.YMT_ZB_T,
+              LL_XN_T: row.LL_XN_T,
+              YMT_XN_T: row.YMT_XN_T,
+              TOTAL_AMT_T: row.TOTAL_AMT_T,
+              LL_ZCM_D: row.LL_ZCM_D,
+              LL_ZB_D: row.LL_ZB_D,
+              YMT_ZB_D: row.YMT_ZB_D,
+              LL_XN_D: row.LL_XN_D,
+              YMT_XN_D: row.YMT_XN_D,
+              TOTAL_AMT_D: row.TOTAL_AMT_D
+            }
+            this.isShowDetail = !this.isShowDetail
+          }
         }
-        this.isShowDetail = !this.isShowDetail
       },
       saveData() {
         let extra = this.formLabelAlign
@@ -486,7 +499,7 @@
       height: 100%
       z-index: 1002
       overflow: auto
-      background: rgba(7, 17, 27, 0.8)
+      background: rgba(0, 0, 0, .5)
       backdrop-filter: blur(10px)
       &.fade-enter-active
         transition: all .1s linear
@@ -506,6 +519,7 @@
           top: 50%
           left: 50%
           transform: translate(-50%, -50%)
+          padding: 10px 0 0 20px
           width: 380px
           height: 430px
           border-radius: 5px

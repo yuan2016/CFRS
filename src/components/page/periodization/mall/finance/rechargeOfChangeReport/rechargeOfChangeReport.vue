@@ -66,13 +66,14 @@
             <div class="title">补录数据</div>
             <el-form :label-position="labelPosition" label-width="120px" :rules="loginRules" :model="formLabelAlign"
                      class="rechargeOfChangeReport-form" ref="ruleForm">
-              <el-form-item prop="xn_ll" size="mini" label="XN连连(元):">
+              <el-form-item prop="xn_ll" size="mini" label="XN连连(元):" class="rechargeOfChangeReport-input">
                 <el-input v-model.trim="formLabelAlign.xn_ll"></el-input>
               </el-form-item>
-              <el-form-item prop="xn_ll" size="mini" label="XN益码通(元):">
+              <el-form-item prop="xn_ymt" size="mini" label="XN益码通(元):" class="rechargeOfChangeReport-input">
                 <el-input v-model.trim="formLabelAlign.xn_ymt"></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item class="bottom">
+                <el-button class="rechargeOfChangeReport-button" @click="resetForm('ruleForm')">重置</el-button>
                 <el-button type="primary" class="rechargeOfChangeReport-button" @click="saveData('ruleForm')">
                   立即修改
                 </el-button>
@@ -145,7 +146,8 @@
         },
         currentRowData: {},
         isShowDetail: false,
-        labelPosition: 'right'
+        labelPosition: 'right',
+        isUpdate: false
       }
     },
     components: {
@@ -155,6 +157,7 @@
       this.loading = true
       this.getDataInit()
       this.isShowRefreshAndExcel()
+      this.isUseUpdate()
     },
     mounted() {
       this.resizeHeight()
@@ -168,6 +171,10 @@
       ])
     },
     methods: {
+      //重置form表单
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
       //每页显示数据量变更
       handleSizeChange(val) {
         this.limit = val
@@ -306,6 +313,13 @@
           this.isShowExcel = false
         }
       },
+      isUseUpdate() {
+        if (this.permission.indexOf('update') > -1) {
+          this.isUpdate = true
+        } else {
+          this.isUpdate = false
+        }
+      },
       //千分位表示为普通数字表示
       changeItem(a) {
         if (a === 0 || a === '0') {
@@ -314,12 +328,14 @@
         return parseFloat(a.split(',').join(''))
       },
       showData(row) {
-        this.currentRowData = row
-        this.formLabelAlign = {
-          xn_ll: row.xn_ll,
-          xn_ymt: row.xn_ymt
+        if (this.isUpdate){
+          this.currentRowData = row
+          this.formLabelAlign = {
+            xn_ll: row.xn_ll,
+            xn_ymt: row.xn_ymt
+          }
+          this.isShowDetail = !this.isShowDetail
         }
-        this.isShowDetail = !this.isShowDetail
       },
       saveData() {
         let extra = this.formLabelAlign
@@ -393,7 +409,7 @@
       height: 100%
       z-index: 1002
       overflow: auto
-      background: rgba(7, 17, 27, 0.8)
+      background: rgba(0, 0, 0, 0.5)
       backdrop-filter: blur(10px)
       &.fade-enter-active
         transition: all .1s linear
@@ -413,11 +429,12 @@
           top: 50%
           left: 50%
           transform: translate(-50%, -50%)
+          padding-top:10px
           width: 350px
-          height: 360px
+          height: 260px
           border-radius: 5px
           text-align: center
-          background-color: rgb(239, 242, 247)
+          background-color: #fff
           .title
             box-sizing: border-box
             padding-left: 20px
@@ -426,13 +443,21 @@
             width: 100%
             text-align: left
             font-size: 25px
-            color: #fff
+            color: #666
             border-radius: 4px 4px 0 0
-            background-color rgb(50, 140, 195)
           .rechargeOfChangeReport-form
-            margin: 65px 20px 20px 0
-          .rechargeOfChangeReport-button
-            width: 200px
+            margin: 30px 20px 20px 0
+            .rechargeOfChangeReport-input
+              position:relative
+              .el-input
+                position: absolute
+                left:0
+                width:160px
+            .bottom
+            .el-form-item__content
+              width: 220px
+            .rechargeOfChangeReport-button
+              width: 100px
       .detail-close
         position: absolute
         top: 50px

@@ -31,7 +31,7 @@
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="dailySettlementReport-table" @sort-change="sort">
+              class="dailySettlementReport-table" @sort-change="sort" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="90"></el-table-column>
       <el-table-column property="ADVANCE_REPAYMENT_AMT" sortable="custom" label="提前还款本金(元)" min-width="160"></el-table-column>
       <el-table-column property="ADVANCE_REPAYMENT_INTEREST" sortable="custom" label="提前还款利息(元)" min-width="160"></el-table-column>
@@ -107,6 +107,12 @@
       ])
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //每页显示数据量变更
       handleSizeChange(val) {
         this.limit = val
@@ -256,12 +262,5 @@
       li
         .dateSelect
           width: 165px
-    .el-table
-      tbody
-        tr:first-of-type
-          td
-            .cell
-              color: #ff4949
-
 </style>
 

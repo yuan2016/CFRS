@@ -791,7 +791,7 @@ router.post(api.repaymentReconciliationZFBCount, repaymentReconciliationZFB.getC
 router.post(api.repaymentReconciliationZFB, repaymentReconciliationZFB.fetchAll)
 router.post(api.repaymentReconciliationZFBRefresh, repaymentReconciliationZFB.refreshData)
 router.get(api.repaymentReconciliationZFBExcel, repaymentReconciliationZFB.getExcelData)
-//XN数据核对
+//XN还款数据核对
 router.post(api.dataCheckXNCount, dataCheckXN.getCount)
 router.post(api.dataCheckXN, dataCheckXN.fetchAll)
 router.post(api.dataCheckXNRefresh, dataCheckXN.refreshData)

@@ -581,7 +581,7 @@ module.exports = {
   repaymentReconciliationZFBCount: path + '/repaymentReconciliationZFB/count',
   repaymentReconciliationZFBRefresh: path + '/repaymentReconciliationZFB/refresh',
   repaymentReconciliationZFBExcel: path + '/repaymentReconciliationZFB/excel',
-  //XN数据核对
+  //XN还款数据核对
   dataCheckXN: path + '/dataCheckXN',
   dataCheckXNCount: path + '/dataCheckXN/count',
   dataCheckXNRefresh: path + '/dataCheckXN/refresh',

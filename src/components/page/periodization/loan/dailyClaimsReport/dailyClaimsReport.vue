@@ -43,7 +43,7 @@
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="dailyClaimsReport-table" @sort-change="sort">
+              class="dailyClaimsReport-table" @sort-change="sort" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="放款日期"  min-width="120"></el-table-column>
       <el-table-column property="LOAN_TERM" sortable="custom" label="期限(天)" min-width="100"></el-table-column>
       <el-table-column label="借款金额(元)">
@@ -139,6 +139,12 @@
       ])
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //每页显示数据量变更
       handleSizeChange(val) {
         this.limit = val
@@ -292,11 +298,5 @@
           width: 165px
         .dailyClaimsReportSelect
           width: 100px
-    .el-table
-      tbody
-        tr:first-of-type
-          td
-            .cell
-              color: #ff4949
 </style>
 

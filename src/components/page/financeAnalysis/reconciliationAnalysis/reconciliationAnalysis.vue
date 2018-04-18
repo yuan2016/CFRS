@@ -84,29 +84,30 @@
             <div class="title">第三方数据</div>
             <el-form :label-position="labelPosition" label-width="120px" :rules="loginRules" :model="formLabelAlign"
                      class="reconciliationAnalysis-form" ref="ruleForm">
-              <el-form-item prop="AMT_FY_THIRD" size="mini" label="富友:">
+              <el-form-item prop="AMT_FY_THIRD" size="mini" label="富友:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_FY_THIRD"></el-input>
               </el-form-item>
-              <el-form-item prop="AMT_LL_THIRD" size="mini" label="连连:">
+              <el-form-item prop="AMT_LL_THIRD" size="mini" label="连连:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_LL_THIRD"></el-input>
               </el-form-item>
-              <el-form-item prop="AMT_ZFB_THIRD" size="mini" label="支付宝:">
+              <el-form-item prop="AMT_ZFB_THIRD" size="mini" label="支付宝:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_ZFB_THIRD"></el-input>
               </el-form-item>
-              <el-form-item prop="AMT_YMT_THIRD" size="mini" label="益码通支付宝:">
+              <el-form-item prop="AMT_YMT_THIRD" size="mini" label="益码通支付宝:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_YMT_THIRD"></el-input>
               </el-form-item>
-              <el-form-item prop="AMT_LKL_THIRD" size="mini" label="拉卡拉:">
+              <el-form-item prop="AMT_LKL_THIRD" size="mini" label="拉卡拉:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_LKL_THIRD"></el-input>
               </el-form-item>
-              <el-form-item prop="AMT_HLB_THIRD" size="mini" label="合利宝:">
+              <el-form-item prop="AMT_HLB_THIRD" size="mini" label="合利宝:" clearable class="reconciliationAnalysis-input">
                 <el-input v-model.trim="formLabelAlign.AMT_HLB_THIRD"></el-input>
               </el-form-item>
-              <el-form-item size="mini" label="备注:">
+              <el-form-item prop="REMARK" size="mini" label="备注:" clearable class="reconciliationAnalysis-input">
                 <el-input type="textarea" v-model.trim="formLabelAlign.REMARK"></el-input>
               </el-form-item>
-              <el-form-item>
-                <el-button type="primary" class="reconciliationAnalysis-button" @click="saveData('ruleForm')">
+              <el-form-item class="bottom">
+                <el-button class="reconciliationAnalysis-button" @click="resetForm('ruleForm')">重置</el-button>
+                <el-button class="reconciliationAnalysis-button" type="primary" @click="saveData('ruleForm')">
                   立即修改
                 </el-button>
               </el-form-item>
@@ -198,7 +199,8 @@
         currentRowData: {},
         order: '',
         isRefreshData: false,
-        isShowExcel: false
+        isShowExcel: false,
+        isUpdate: false
       }
     },
     computed: {
@@ -216,32 +218,39 @@
       this.loading = true
       this.getDataInit()
       this.isShowRefreshAndExcel()
+      this.isUseUpdate()
     },
     mounted() {
       this.resizeHeight()
     },
     methods: {
+      //重置form表单
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
       closeDetial() {
         this.isShowDetail = !this.isShowDetail
       },
       showData(row) {
-        this.currentRowData = row
-        this.formLabelAlign = {
-          AMT_FY_THIRD: row.AMT_FY_THIRD,
-          AMT_FY_DIFF: row.AMT_FY_DIFF,
-          AMT_LL_THIRD: row.AMT_LL_THIRD,
-          AMT_LL_DIFF: row.AMT_LL_DIFF,
-          AMT_ZFB_THIRD: row.AMT_ZFB_THIRD,
-          AMT_ZFB_DIFF: row.AMT_ZFB_DIFF,
-          AMT_YMT_THIRD: row.AMT_YMT_THIRD,
-          AMT_YMT_DIFF: row.AMT_YMT_DIFF,
-          AMT_LKL_THIRD: row.AMT_LKL_THIRD,
-          AMT_LKL_DIFF: row.AMT_LKL_DIFF,
-          AMT_HLB_THIRD: row.AMT_HLB_THIRD,
-          AMT_HLB_DIFF: row.AMT_HLB_DIFF,
-          REMARK: row.REMARK
+        if (this.isUpdate){
+          this.currentRowData = row
+          this.formLabelAlign = {
+            AMT_FY_THIRD: row.AMT_FY_THIRD,
+            AMT_FY_DIFF: row.AMT_FY_DIFF,
+            AMT_LL_THIRD: row.AMT_LL_THIRD,
+            AMT_LL_DIFF: row.AMT_LL_DIFF,
+            AMT_ZFB_THIRD: row.AMT_ZFB_THIRD,
+            AMT_ZFB_DIFF: row.AMT_ZFB_DIFF,
+            AMT_YMT_THIRD: row.AMT_YMT_THIRD,
+            AMT_YMT_DIFF: row.AMT_YMT_DIFF,
+            AMT_LKL_THIRD: row.AMT_LKL_THIRD,
+            AMT_LKL_DIFF: row.AMT_LKL_DIFF,
+            AMT_HLB_THIRD: row.AMT_HLB_THIRD,
+            AMT_HLB_DIFF: row.AMT_HLB_DIFF,
+            REMARK: row.REMARK
+          }
+          this.isShowDetail = !this.isShowDetail
         }
-        this.isShowDetail = !this.isShowDetail
       },
       //千分位表示为普通数字表示
       changeItem(a) {
@@ -430,6 +439,13 @@
         } else {
           this.isShowExcel = false
         }
+      },
+      isUseUpdate() {
+        if (this.permission.indexOf('update') > -1) {
+          this.isUpdate = true
+        } else {
+          this.isUpdate = false
+        }
       }
     }
   }
@@ -452,7 +468,7 @@
       height: 100%
       z-index: 1002
       overflow: auto
-      background: rgba(7, 17, 27, 0.8)
+      background: rgba(0, 0, 0, .5)
       backdrop-filter: blur(10px)
       &.fade-enter-active
         transition: all .1s linear
@@ -472,11 +488,12 @@
           top: 50%
           left: 50%
           transform: translate(-50%, -50%)
-          width: 350px
+          width: 400px
           height: 500px
+          padding-top:10px
           border-radius: 5px
           text-align: center
-          background-color: rgb(239, 242, 247)
+          background-color: #fff
           .title
             box-sizing: border-box
             padding-left: 20px
@@ -485,13 +502,14 @@
             width: 100%
             text-align: left
             font-size: 25px
-            color: #fff
+            color: #666
             border-radius: 4px 4px 0 0
-            background-color rgb(50, 140, 195)
           .reconciliationAnalysis-form
             margin: 20px 20px 20px 0
-          .reconciliationAnalysis-button
-            width: 200px
+            .bottom
+              margin-left: 14px
+              .reconciliationAnalysis-button
+                width: 100px
       .detail-close
         position: absolute
         top: 50px
@@ -503,7 +521,7 @@
         color: rgba(255, 255, 255, 0.5)
 
     .el-form-item__content
-      width: 200px
+      width: 240px
 
     .el-pagination
       overflow: auto

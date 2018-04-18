@@ -2443,25 +2443,11 @@ export const asyncRouterMap = [
         meta: ["开心分期", "黑卡", "每日放款记录"]
       },
       {
-        path: "/period/loan/periodOverdueRepaymentStatistics",
-        icon: "el-icon-star-on",
-        component: periodOverdueRepaymentStatistics,
-        name: "还款逾期记录",
-        meta: ["开心分期", "黑卡", "还款逾期记录"]
-      },
-      {
         path: "/period/loan/periodDailyRepaymentAmountData",
         icon: "el-icon-star-on",
         component: periodDailyRepaymentAmountData,
         name: "每日还款金额记录",
         meta: ["开心分期", "黑卡", "每日还款金额记录"]
-      },
-      {
-        path: "/period/loan/promptAmountData",
-        icon: "el-icon-star-on",
-        component: promptAmountData,
-        name: "在催金额记录",
-        meta: ["开心分期", "黑卡", "在催金额记录"]
       },
       {
         path: "/period/loan/repaymentDetailData",
@@ -2485,18 +2471,18 @@ export const asyncRouterMap = [
         meta: ["开心分期", "黑卡", "每日债权报表"]
       },
       {
-        path: "/period/mall/finance/ZCMRepaymentDataReconciliation",
+        path: "/period/loan/periodOverdueRepaymentStatistics",
         icon: "el-icon-star-on",
-        component: ZCMRepaymentDataReconciliation,
-        name: "ZCM还款数据核对",
-        meta: ["开心分期", "黑卡", "ZCM还款数据核对"]
+        component: periodOverdueRepaymentStatistics,
+        name: "还款逾期记录",
+        meta: ["开心分期", "黑卡", "还款逾期记录"]
       },
       {
-        path: "/period/loan/ZBrepaymentData",
+        path: "/period/loan/promptAmountData",
         icon: "el-icon-star-on",
-        component: ZBrepaymentData,
-        name: "ZB还款数据核对",
-        meta: ["开心分期", "黑卡", "ZB还款数据核对"]
+        component: promptAmountData,
+        name: "在催金额记录",
+        meta: ["开心分期", "黑卡", "在催金额记录"]
       },
       {
         path: "/period/loan/monthlySettlementData",
@@ -2513,18 +2499,32 @@ export const asyncRouterMap = [
         meta: ["开心分期", "黑卡", "每月债权报表"]
       },
       {
-        path: "/period/loan/repaymentReconciliationZFB",
+        path: "/period/mall/finance/ZCMRepaymentDataReconciliation",
         icon: "el-icon-star-on",
-        component: repaymentReconciliationZFB,
-        name: "支付宝还款对账",
-        meta: ["开心分期", "黑卡", "支付宝还款对账"]
+        component: ZCMRepaymentDataReconciliation,
+        name: "ZCM还款数据核对",
+        meta: ["开心分期", "黑卡", "ZCM还款数据核对"]
+      },
+      {
+        path: "/period/loan/ZBrepaymentData",
+        icon: "el-icon-star-on",
+        component: ZBrepaymentData,
+        name: "ZB还款数据核对",
+        meta: ["开心分期", "黑卡", "ZB还款数据核对"]
       },
       {
         path: "/period/loan/dataCheckXN",
         icon: "el-icon-star-on",
         component: dataCheckXN,
-        name: "XN数据核对",
-        meta: ["开心分期", "黑卡", "XN数据核对"]
+        name: "XN还款数据核对",
+        meta: ["开心分期", "黑卡", "XN还款数据核对"]
+      },
+      {
+        path: "/period/loan/repaymentReconciliationZFB",
+        icon: "el-icon-star-on",
+        component: repaymentReconciliationZFB,
+        name: "支付宝还款对账",
+        meta: ["开心分期", "黑卡", "支付宝还款对账"]
       },
       {
         path: "/period/loan/threePartyAccountAnalysis",

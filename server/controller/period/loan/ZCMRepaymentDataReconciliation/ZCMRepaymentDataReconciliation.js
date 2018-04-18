@@ -71,8 +71,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'D_DATE', 'w')
     let order = params.order || sql.period.ZCMRepaymentDataReconciliation.order
-    let query = sql.period.ZCMRepaymentDataReconciliation.select + '(' + sql.period.ZCMRepaymentDataReconciliation.sum + queries + ')t UNION ALL ' + sql.period.ZCMRepaymentDataReconciliation.select + '(' + sql.period.ZCMRepaymentDataReconciliation.selectAll + queries + order + sql.period.ZCMRepaymentDataReconciliation.selectAllBack + ') t1'
-      func.connPool1(query, [tableName.period.ZCMRepaymentDataReconciliation, tableName.period.ZCMRepaymentDataReconciliation, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.ZCMRepaymentDataReconciliation.selectSum + queries + ' UNION ALL ' + '(' + sql.period.ZCMRepaymentDataReconciliation.selectAll + queries + order + sql.period.ZCMRepaymentDataReconciliation.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.ZCMRepaymentDataReconciliation, tableName.period.ZCMRepaymentDataReconciliation, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -136,7 +136,7 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'D_DATE', 'w')
-    let query = sql.period.ZCMRepaymentDataReconciliation.select + '(' + sql.period.ZCMRepaymentDataReconciliation.sum + queries + ')t UNION ALL ' + sql.period.ZCMRepaymentDataReconciliation.select + '(' + sql.period.ZCMRepaymentDataReconciliation.selectAll + queries + sql.period.ZCMRepaymentDataReconciliation.order + ') t1'
+    let query = sql.period.ZCMRepaymentDataReconciliation.selectSum + queries + ' UNION ALL ' + '(' + sql.period.ZCMRepaymentDataReconciliation.selectAll + queries + sql.period.ZCMRepaymentDataReconciliation.order + ')'
     func.connPool1(query, [tableName.period.ZCMRepaymentDataReconciliation, tableName.period.ZCMRepaymentDataReconciliation], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)

@@ -2787,7 +2787,7 @@ export function getRepaymentReconciliationZFBRefresh (data) {
     data: data
   })
 }
-//XN数据核对
+//XN还款数据核对
 export function getDataCheckXN (data) {
   return fetch({
     url: '/api/dataCheckXN',
@@ -2795,7 +2795,7 @@ export function getDataCheckXN (data) {
     data: data
   })
 }
-//XN数据核对统计
+//XN还款数据核对统计
 export function getDataCheckXNCount (data) {
   return fetch({
     url: '/api/dataCheckXN/count',
@@ -2803,7 +2803,7 @@ export function getDataCheckXNCount (data) {
     data: data
   })
 }
-//XN数据核对一键刷新
+//XN还款数据核对一键刷新
 export function getDataCheckXNRefresh (data) {
   return fetch({
     url: '/api/dataCheckXN/refresh',

@@ -934,15 +934,11 @@ let sqlMap = {
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectAllExcel:
-        'select D_DATE as "日期",ADVANCE_REPAYMENT_AMT as "提前还款本金",ADVANCE_REPAYMENT_INTEREST as "提前还款利息",REPAYMENT_AMT as "正常还款本金",REPAYMENT_INTEREST as "正常还款利息",OVERDUE_REPAYMENT_AMT as "逾期还款本金",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息",OVERDUE_LATE_FEE as "逾期滞纳金",RENEWAL_FEE as "续期费",LQ_RECHARGE as "零钱充值",TOTAL_AMT as "合计" from ?? ',
-      sum:
+        'select D_DATE as "日期",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)" from ?? ',
+      selectSum:
         " select null as D_DATE,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(LQ_RECHARGE) as LQ_RECHARGE,sum(TOTAL_AMT) as TOTAL_AMT from ?? ",
-      select:
-        "select D_DATE,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,LQ_RECHARGE,TOTAL_AMT from",
-      selectAllExcelSum:
-        'select null as "日期",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息",sum(REPAYMENT_AMT) as "正常还款本金",sum(REPAYMENT_INTEREST) as "正常还款利息",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息",sum(OVERDUE_LATE_FEE) as "逾期滞纳金",sum(RENEWAL_FEE) as "续期费",sum(LQ_RECHARGE) as "零钱充值",sum(TOTAL_AMT) as "合计" from ?? ',
-      selectExcel:
-        "select 日期,提前还款本金,提前还款利息,正常还款本金,正常还款利息,逾期还款本金,逾期还款利息,逾期滞纳金,续期费,零钱充值,合计 from"
+        selectSumExcel:
+        'select null as "日期",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)" from ?? '
     },
     dailyClaimsReport: {
       selectAll:
@@ -950,10 +946,8 @@ let sqlMap = {
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
-      sum:
-        " select null as D_DATE,null as LOAN_TERM, sum(KXLOAN_AMT_Z) as KXLOAN_AMT_Z,sum(KXLOAN_AMT_X) as KXLOAN_AMT_X,sum(XFLOAN_AMT_Z) as XFLOAN_AMT_Z,sum(XFLOAN_AMT_X) as XFLOAN_AMT_X,sum(LOAN_AMT) as LOAN_AMT,sum(KX_INTEREST_Z) as KX_INTEREST_Z,sum(KX_INTEREST_X) as KX_INTEREST_X,sum(XF_INTEREST_Z) as XF_INTEREST_Z,sum(XF_INTEREST_X) as XF_INTEREST_X,sum(INTEREST_AMT) as INTEREST_AMT,sum(KXLOAN_CNT_Z) as KXLOAN_CNT_Z,sum(KXLOAN_CNT_X) as KXLOAN_CNT_X,sum(XFLOAN_CNT_Z) as XFLOAN_CNT_Z,sum(XFLOAN_CNT_X) as XFLOAN_CNT_X,sum(LOAN_CNT) as LOAN_CNT from ?? ",
-      select:
-        "select D_DATE,LOAN_TERM,KXLOAN_AMT_Z,KXLOAN_AMT_X,XFLOAN_AMT_Z,XFLOAN_AMT_X,LOAN_AMT,KX_INTEREST_Z,KX_INTEREST_X,XF_INTEREST_Z,XF_INTEREST_X,INTEREST_AMT,KXLOAN_CNT_Z,KXLOAN_CNT_X,XFLOAN_CNT_Z,XFLOAN_CNT_X,LOAN_CNT from"
+      selectSum:
+        " select null as D_DATE,null as LOAN_TERM, sum(KXLOAN_AMT_Z) as KXLOAN_AMT_Z,sum(KXLOAN_AMT_X) as KXLOAN_AMT_X,sum(XFLOAN_AMT_Z) as XFLOAN_AMT_Z,sum(XFLOAN_AMT_X) as XFLOAN_AMT_X,sum(LOAN_AMT) as LOAN_AMT,sum(KX_INTEREST_Z) as KX_INTEREST_Z,sum(KX_INTEREST_X) as KX_INTEREST_X,sum(XF_INTEREST_Z) as XF_INTEREST_Z,sum(XF_INTEREST_X) as XF_INTEREST_X,sum(INTEREST_AMT) as INTEREST_AMT,sum(KXLOAN_CNT_Z) as KXLOAN_CNT_Z,sum(KXLOAN_CNT_X) as KXLOAN_CNT_X,sum(XFLOAN_CNT_Z) as XFLOAN_CNT_Z,sum(XFLOAN_CNT_X) as XFLOAN_CNT_X,sum(LOAN_CNT) as LOAN_CNT from ?? "
     },
     ZCMRepaymentDataReconciliation: {
       selectAll:
@@ -961,10 +955,8 @@ let sqlMap = {
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
-      sum:
-        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE from ?? ",
-      select:
-        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,TOTAL_AMT,ZCM_LL,DIFF_VALUE from"
+      selectSum:
+        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
     },
     monthlySettlementData: {
       selectAll:
@@ -995,7 +987,7 @@ let sqlMap = {
       order: " order by d_date desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
-      selectSumExcel: 'select null "日期",null "月份",sum(XQ_AMT) "续期费用(元)"v,sum(XQINT_TQ) "提前续期利息(元)",sum(XQINT_DQ) "到期续期利息(元)",sum(XQINT_YQ) "逾期续期利息(元)",sum(LQCZ_AMT) "零钱充值(元)",sum(TOTAL_AMT) "合计(元)",sum(LL_XN) "XN连连(元)",sum(YMT_XN) "XN益码通(元)",sum(TOTAL_AMT_D) "差异值(元)",CREATE_TIME "创建时间" from ?? ',
+      selectSumExcel: 'select null "日期",null "月份",sum(XQ_AMT) "续期费用(元)",sum(XQINT_TQ) "提前续期利息(元)",sum(XQINT_DQ) "到期续期利息(元)",sum(XQINT_YQ) "逾期续期利息(元)",sum(LQCZ_AMT) "零钱充值(元)",sum(TOTAL_AMT) "合计(元)",sum(LL_XN) "XN连连(元)",sum(YMT_XN) "XN益码通(元)",sum(TOTAL_AMT_D) "差异值(元)",CREATE_TIME "创建时间" from ?? ',
       selectAllExcel:
         'select D_DATE as "日期",D_MONTH as "月份",XQ_AMT as "续期费用(元)",XQINT_TQ as "提前续期利息(元)",XQINT_DQ as "到期续期利息(元)",XQINT_YQ as "逾期续期利息(元)",LQCZ_AMT as "零钱充值(元)",TOTAL_AMT as "合计(元)",LL_XN as "XN连连(元)",YMT_XN as "XN益码通(元)",TOTAL_AMT_D as "差异值(元)",CREATE_TIME as "创建时间" from ?? '
     },
