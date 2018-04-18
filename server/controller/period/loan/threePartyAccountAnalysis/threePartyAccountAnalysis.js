@@ -122,8 +122,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
     let order = params.order || sql.period.threePartyAccountAnalysis.order
-    let query = sql.period.selectAll + queries + order + sql.period.selectAllBack
-    func.connPool1(query, [tableName.period.threePartyAccountAnalysis, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.threePartyAccountAnalysis.selectSum + queries + ' UNION ALL ' + '(' + sql.period.threePartyAccountAnalysis.selectAll + queries + order + sql.period.threePartyAccountAnalysis.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.threePartyAccountAnalysis, tableName.period.threePartyAccountAnalysis, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -187,8 +187,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.selectAll + queries + sql.period.order
-    func.connPool1(query, [tableName.period.threePartyAccountAnalysis], function (err, rs) {
+    let query = sql.period.threePartyAccountAnalysis.selectSum + queries + ' UNION ALL ' + '(' + sql.period.threePartyAccountAnalysis.selectAll + queries + sql.period.threePartyAccountAnalysis.order + ')'
+    func.connPool1(query, [tableName.period.threePartyAccountAnalysis, tableName.period.threePartyAccountAnalysis], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {

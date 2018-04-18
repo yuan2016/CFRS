@@ -113,8 +113,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
     let order = params.order || sql.period.dataCheckXN.order
-    let query = sql.period.dataCheckXN.selectAll + queries + order + sql.period.dataCheckXN.selectAllBack
-    func.connPool1(query, [tableName.period.dataCheckXN, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.dataCheckXN.selectSum + queries + ' UNION ALL ' + '(' + sql.period.dataCheckXN.selectAll + queries + order + sql.period.dataCheckXN.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.dataCheckXN, tableName.period.dataCheckXN, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -178,8 +178,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.dataCheckXN.selectAllExcel + queries + sql.period.dataCheckXN.order
-    func.connPool1(query, [tableName.period.dataCheckXN], function (err, rs) {
+    let query = sql.period.dataCheckXN.selectSum + queries + ' UNION ALL ' + '(' + sql.period.dataCheckXN.selectAll + queries + sql.period.dataCheckXN.order + ')'
+    func.connPool1(query, [tableName.period.dataCheckXN, tableName.period.dataCheckXN], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -228,30 +228,5 @@ module.exports = {
         })
       })
     }, 180000)
-  },
-  //数据变更
-  modify (req, res) {
-    let params = req.body.formData
-    let query = sql.period.dataCheckXN.update
-    func.connPool1(query, [tableName.period.dataCheckXN, changeItem(params.xn_ll), changeItem(params.xn_ymt), changeItem(params.pocket_amount), changeItem(params.balance_day), req.body.date], function (err, rs) {
-      if (err) {
-        console.log('[query] - :' + err)
-        if (err.message === 'Query inactivity timeout') {
-          res.json({
-            code: '1024'
-          })
-        } else {
-          res.json({
-            code: '404'
-          })
-        }
-        return
-      }
-      if (rs.changedRows === 1) {
-        res.json(200)
-      } else {
-        res.json(500)
-      }
-    })
   }
 }

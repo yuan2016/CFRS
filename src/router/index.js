@@ -2471,32 +2471,25 @@ export const asyncRouterMap = [
         meta: ["开心分期", "黑卡", "每日还款明细记录"]
       },
       {
-        path: "/period/mall/finance/rechargeOfChangeReport",
-        icon: "el-icon-star-on",
-        component: rechargeOfChangeReport,
-        name: "零钱充值对账分析",
-        meta: ["开心分期", "商城", "财务对账", "零钱充值对账分析"]
-      },
-      {
         path: "/period/mall/finance/dailySettlementReport",
         icon: "el-icon-star-on",
         component: dailySettlementReport,
         name: "每日结算报表",
-        meta: ["开心分期", "商城", "财务对账", "每日结算报表"]
+        meta: ["开心分期", "黑卡", "每日结算报表"]
       },
       {
         path: "/period/mall/finance/dailyClaimsReport",
         icon: "el-icon-star-on",
         component: dailyClaimsReport,
         name: "每日债权报表",
-        meta: ["开心分期", "商城", "财务对账", "每日债权报表"]
+        meta: ["开心分期", "黑卡", "每日债权报表"]
       },
       {
         path: "/period/mall/finance/ZCMRepaymentDataReconciliation",
         icon: "el-icon-star-on",
         component: ZCMRepaymentDataReconciliation,
         name: "ZCM还款数据核对",
-        meta: ["开心分期", "商城", "财务对账", "ZCM还款数据核对"]
+        meta: ["开心分期", "黑卡", "ZCM还款数据核对"]
       },
       {
         path: "/period/loan/ZBrepaymentData",
@@ -2569,6 +2562,13 @@ export const asyncRouterMap = [
             component: detailIncome,
             name: "收入结算明细表",
             meta: ["开心分期", "商城", "财务对账", "收入结算明细表"]
+          },
+          {
+            path: "/period/mall/finance/rechargeOfChangeReport",
+            icon: "el-icon-star-on",
+            component: rechargeOfChangeReport,
+            name: "零钱充值对账分析",
+            meta: ["开心分期", "商城", "财务对账", "零钱充值对账分析"]
           },
           {
             path: "/period/mall/finance/totalSales",

@@ -24,14 +24,14 @@
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <!-- <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button> -->
+        </el-button>
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="dataCheckXN-table" @sort-change="sort">
+              class="dataCheckXN-table" @sort-change="sort" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="90"></el-table-column>
       <el-table-column property="D_MONTH" sortable="custom" label="月份" min-width="80"></el-table-column>
       <el-table-column property="XQ_AMT" sortable="custom" label="续期费用(元)" min-width="130"></el-table-column>
@@ -145,6 +145,12 @@
       }
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //每页显示数据量变更
       handleSizeChange(val) {
         this.limit = val

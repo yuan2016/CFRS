@@ -140,8 +140,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
     let order = params.order || sql.period.repaymentReconciliationZFB.order
-    let query = sql.period.repaymentReconciliationZFB.selectAll + queries + order + sql.period.repaymentReconciliationZFB.selectAllBack
-    func.connPool1(query, [tableName.period.repaymentReconciliationZFB, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.repaymentReconciliationZFB.selectSum + queries + ' UNION ALL ' + '(' + sql.period.repaymentReconciliationZFB.selectAll + queries + order + sql.period.repaymentReconciliationZFB.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.repaymentReconciliationZFB, tableName.period.repaymentReconciliationZFB, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -205,8 +205,9 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.repaymentReconciliationZFB.selectAllExcel + queries + sql.period.repaymentReconciliationZFB.order
-    func.connPool1(query, [tableName.period.repaymentReconciliationZFB], function (err, rs) {
+    let order = params.order || sql.period.repaymentReconciliationZFB.order
+    let query = sql.period.repaymentReconciliationZFB.selectSumExcel + queries + ' UNION ALL ' + '(' + sql.period.repaymentReconciliationZFB.selectAllExcel + queries + order + ')'
+    func.connPool1(query, [tableName.period.repaymentReconciliationZFB, tableName.period.repaymentReconciliationZFB], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {

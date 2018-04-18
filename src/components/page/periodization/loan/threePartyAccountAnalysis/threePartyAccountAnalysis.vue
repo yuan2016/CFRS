@@ -24,14 +24,14 @@
       </li>
       <li>
         <el-button class="searchButton" type="primary" size="mini" @click.prevent.stop="search">搜索</el-button>
-        <!-- <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
+        <el-button class="refreshButton" v-if='isRefreshData' type="primary" size="mini" :loading="buttonLoading"
                    @click.prevent.stop="refreshData">一键刷新
-        </el-button> -->
+        </el-button>
         <a :href="mosaicLink" v-if='isShowExcel' class="excelButton">导出excel</a>
       </li>
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
-              class="threePartyAccountAnalysis-table" @sort-change="sort" @row-dblclick="showData">
+              class="threePartyAccountAnalysis-table" @sort-change="sort" @row-dblclick="showData" :cell-style="cellStyle">
       <el-table-column property="D_DATE" fixed sortable="custom" label="日期"  min-width="90"></el-table-column>
       <el-table-column label="技术后台数据">
         <el-table-column property="LL_ZCM_KX" sortable="custom" label="ZCM开心分期连连(元)" min-width="170"></el-table-column>
@@ -202,6 +202,12 @@
       ])
     },
     methods: {
+      //第一行显示红色字体
+      cellStyle: function (row) {
+        if(row.rowIndex === 0){
+          return {"color": "red!important","font-weight": "bold!important"}
+        }
+      },
       //重置form表单
       resetForm(formName) {
         this.$refs[formName].resetFields();
