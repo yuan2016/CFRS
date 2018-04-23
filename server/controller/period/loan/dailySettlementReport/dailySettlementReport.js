@@ -52,6 +52,9 @@ function formatData(rows) {
     if (row.TOTAL_AMT) {
       row.TOTAL_AMT = formatCurrency(row.TOTAL_AMT)
     }
+    if (row.YIMATONG_FEE) {
+      row.YIMATONG_FEE = formatCurrency(row.YIMATONG_FEE)
+    }
     return row
   })
 }
@@ -91,6 +94,9 @@ function formatExcelData (rows) {
     }
     if (row['合计(元)']) {
       row['合计(元)'] = formatCurrency(row['合计(元)'])
+    }
+    if (row['益码通手续费(元)']) {
+      row['益码通手续费(元)'] = formatCurrency(row['益码通手续费(元)'])
     }
     return row
   })

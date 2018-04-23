@@ -43,6 +43,7 @@
       <el-table-column property="OVERDUE_REPAYMENT_INTEREST" sortable="custom" label="逾期还款利息(元)" min-width="140"></el-table-column>
       <el-table-column property="OVERDUE_LATE_FEE" sortable="custom" label="逾期滞纳金(元)" min-width="130"></el-table-column>
       <el-table-column property="RENEWAL_FEE" sortable="custom" label="续期费(元)" min-width="110"></el-table-column>
+        <el-table-column property="YIMATONG_FEE" sortable="custom" label="ZB益码通手续费(元)" min-width="160"></el-table-column>
       <el-table-column property="TOTAL_AMT" sortable="custom" label="合计(元)" min-width="110"></el-table-column>
       </el-table-column>
       <el-table-column label="三方账户">
@@ -312,6 +313,6 @@
       right: 7px
       font-size: 16px
       color: rgb(102, 102, 102)
-      font-weight: 400 !important      
+      font-weight: 400 !important
 </style>
 

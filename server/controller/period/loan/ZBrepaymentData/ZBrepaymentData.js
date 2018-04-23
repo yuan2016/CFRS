@@ -9,11 +9,11 @@ let pro = require('child_process')
 let path = require('path')
 let fs = require('fs')
 
-const tHeader = [['', '', '提前还款本金(元)', '提前还款利息(元)', '正常还款本金(元)', '正常还款利息(元)', '逾期还款本金(元)', '逾期还款利息(元)', '逾期滞纳金(元)', '续期费(元)', '合计(元)', 'ZB连连(元)', 'ZB益码通(元)', '差异值(元)', ''], ['日期', '月份', '', '', '', '', '结算分析', '', '三方账户', '', '差异值(元)', '创建时间']]
+const tHeader = [['', '', '提前还款本金(元)', '提前还款利息(元)', '正常还款本金(元)', '正常还款利息(元)', '逾期还款本金(元)', '逾期还款利息(元)', '逾期滞纳金(元)', '续期费(元)', 'ZB益码通手续费(元)', '合计(元)', 'ZB连连(元)', 'ZB益码通(元)', '差异值(元)', ''], ['日期', '月份', '', '', '', '', '结算分析', '', '三方账户', '', '差异值(元)', '创建时间']]
 const filterVal = ['D_DATE', 'd_month', 'ADVANCE_REPAYMENT_AMT', 'ADVANCE_REPAYMENT_INTEREST', 'REPAYMENT_AMT', 'REPAYMENT_INTEREST', 'OVERDUE_REPAYMENT_AMT', 'OVERDUE_REPAYMENT_INTEREST', 'OVERDUE_LATE_FEE', 'RENEWAL_FEE', 'TOTAL_AMT', 'ZB_LL', 'ZB_YMT', 'DIFF_VALUE', 'CREATE_TIME']
 //横坐标纵坐标
-const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 10, 0], [11, 0, 12, 0], [13, 0, 13, 1], [14, 0, 14, 1]]
-const change = [['A1', '    日期'], ['B1', '  月份'], ['C1', '                                                                结算分析'], ['L1', '       三方账户'], ['N1', '  差异值'], ['O1', '  创建时间']]
+const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 11, 0], [12, 0, 13, 0], [14, 0, 14, 1], [15, 0, 15, 1]]
+const change = [['A1', '    日期'], ['B1', '  月份'], ['C1', '                                                                结算分析'], ['M1', '       三方账户'], ['O1', '  差异值'], ['P1', '  创建时间']]
 
 global.ZBrepaymentDataCount = 0
 
@@ -68,6 +68,9 @@ function formatData(rows) {
     }
     if (row.DIFF_VALUE) {
       row.DIFF_VALUE = formatCurrency(row.DIFF_VALUE)
+    }
+    if (row.YIMATONG_FEE) {
+      row.YIMATONG_FEE = formatCurrency(row.YIMATONG_FEE)
     }
     return row
   })
