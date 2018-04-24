@@ -322,10 +322,6 @@
               } else if (response.data.code === 4001) {
                 this.$message.error('短信验证码过期')
               } else {
-                this.$message({
-                  message: '欢迎进入报表系统',
-                  type: 'success'
-                })
                 let resData = response.data
                 saveToken(resData.token)
                 savePhone(this.loginForm.phoneNumber)
@@ -334,6 +330,15 @@
                   message: resData.name + this.judgeTime() + ',欢迎进入报表系统',
                   type: 'success'
                 })
+                setTimeout(() => {
+                  this.$notify({
+                  title: '提示',
+                  message: '请在右上角下拉菜单中选择相应产品',
+                  duration: 3500,
+                  type: 'success',
+                  offset: 50
+                  })
+                }, 1000)
               }
             })
           } else {
@@ -359,10 +364,6 @@
               } else if (response.data === 300) {
                 this.$message.error('密码错误')
               } else {
-                this.$message({
-                  message: '欢迎进入报表系统',
-                  type: 'success'
-                })
                 let resData = response.data
                 saveToken(resData.token)
                 saveEmail(this.loginForm2.email)
@@ -371,6 +372,15 @@
                   message: resData.name + this.judgeTime() + ',欢迎进入报表系统',
                   type: 'success'
                 })
+                setTimeout(() => {
+                  this.$notify({
+                  title: '提示',
+                  message: '请在右上角下拉菜单中选择相应产品',
+                  type: 'success',
+                  duration: 3500,
+                  offset: 50
+                  })
+                }, 1000)
               }
             })
           } else {
