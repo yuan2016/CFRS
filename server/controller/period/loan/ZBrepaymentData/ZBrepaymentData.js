@@ -82,8 +82,8 @@ module.exports = {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
     let order = params.order || sql.period.order
-    let query = sql.period.selectAll + queries + order + sql.period.selectAllBack
-    func.connPool1(query, [tableName.period.ZBrepaymentData, params.offset, params.limit], function (err, rs) {
+    let query = sql.period.ZBrepaymentData.selectSum + queries + ' UNION ALL ' + '(' + sql.period.ZBrepaymentData.selectAll + queries + order + sql.period.ZBrepaymentData.selectAllBack + ')'
+    func.connPool1(query, [tableName.period.ZBrepaymentData, tableName.period.ZBrepaymentData, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -147,8 +147,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.selectAll + queries + sql.period.order
-    func.connPool1(query, [tableName.period.ZBrepaymentData], function (err, rs) {
+    let query = sql.period.ZBrepaymentData.selectSum + queries + ' UNION ALL ' + '(' + sql.period.ZBrepaymentData.selectAll + queries + sql.period.ZBrepaymentData.order + ')'
+    func.connPool1(query, [tableName.period.ZBrepaymentData, tableName.period.ZBrepaymentData], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {

@@ -121,8 +121,10 @@
         let pops = [4]
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].style.position = 'relative'
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].insertAdjacentHTML('beforeEnd', '<i class="elextra-icon-info"></i>')
+          if (!header.getElementsByTagName('thead')[0].getElementsByClassName('elextra-icon-info').length) {
+            header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].style.position = 'relative'
+            header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].insertAdjacentHTML('beforeEnd', '<i class="elextra-icon-info"></i>')
+          }
         }
         let popName = [document.getElementsByClassName('pop1')[0]]
         let clientWidth = document.documentElement.clientWidth

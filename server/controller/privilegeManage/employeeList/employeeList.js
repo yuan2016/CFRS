@@ -72,7 +72,7 @@ module.exports = {
     let productNames = names.join('|')
     let permission = params.permission
     let query = sql.privilegeManage.employeeList.privilegeModify
-    func.connPool1(query, [tableName.privilegeManage.employeeList, tables, tables1, tables2, tables3, productNames, ruleForm.user_name, ruleForm.user_sex, ruleForm.department, ruleForm.user_mobile, permission, ruleForm.user_email], function (err, rs) {
+    func.connPool1(query, [tableName.privilegeManage.employeeList, tables, tables1, tables2, tables3, productNames, ruleForm.user_name, ruleForm.user_sex, ruleForm.department, ruleForm.user_mobile, permission,params.addIp,ruleForm.user_email], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -135,7 +135,7 @@ module.exports = {
           names.push('开心分期')
         }
         let productNames = names.join('|')
-        func.connPool1(sql.privilegeManage.employeeList.add, [tableName.privilegeManage.employeeList, productNames, tables, tables1, tables2, tables3, params.department, userPassword, params.name, params.sex, params.mobile, params.email, params.permission], function (err, rs) {
+        func.connPool1(sql.privilegeManage.employeeList.add, [tableName.privilegeManage.employeeList, productNames, tables, tables1, tables2, tables3, params.department, userPassword, params.name, params.sex, params.mobile, params.email, params.permission, params.addIp], function (err, rs) {
           if (err) {
             console.log('[query] - :' + err)
             if (err.message === 'Query inactivity timeout') {
@@ -208,7 +208,7 @@ module.exports = {
     }
     condition = '(' + condition.substr(0, condition.length - 1) + ')'
     let query = sql.privilegeManage.employeeList.modifyMultiple + condition
-    func.connPool1(query, [tableName.privilegeManage.employeeList, productNames, tables, tables1, tables2, tables3], function (err, rs) {
+    func.connPool1(query, [tableName.privilegeManage.employeeList, productNames, tables, tables1, tables2, tables3,params.addIp], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
