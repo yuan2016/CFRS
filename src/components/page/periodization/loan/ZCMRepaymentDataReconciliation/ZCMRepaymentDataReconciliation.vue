@@ -48,8 +48,11 @@
       <el-table-column label="三方账户">
         <el-table-column property="ZCM_LL" sortable="custom" label="ZCM连连" min-width="160"></el-table-column>
       </el-table-column>
-      <el-table-column property="DIFF_VALUE" sortable="custom" label="差异值=结算分析-三方账户分析(元)" min-width="240"></el-table-column>
+      <el-table-column property="DIFF_VALUE" sortable="custom" label="差异值(元)" min-width="240"></el-table-column>
     </el-table>
+    <div class="pop1">
+      <p class="popTop">差异值=结算分析-三方账户分析</p>
+    </div>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination
         @size-change="handleSizeChange"
@@ -111,6 +114,34 @@
       ...mapGetters([
         'permission'
       ])
+    },
+    updated () {
+      if (document.getElementsByClassName('el-table__row').length > 0) {
+        let header = document.getElementsByClassName('el-table__header')[0]
+        let pops = [4]
+        for (let i = 0; i < pops.length; i++) {
+          let j = pops[i]
+          if (!header.getElementsByTagName('thead')[0].getElementsByClassName('elextra-icon-info').length) {
+            header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].style.position = 'relative'
+            header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].insertAdjacentHTML('beforeEnd', '<i class="elextra-icon-info"></i>')
+          }
+        }
+        let popName = [document.getElementsByClassName('pop1')[0]]
+        let clientWidth = document.documentElement.clientWidth
+        for (let i = 0; i < pops.length; i++) {
+          let j = pops[i]
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[2].addEventListener('mouseover', function (event) {
+            let x = clientWidth - event.clientX + 20
+            let y = event.clientY - 30
+            popName[i].style.display = 'block'
+            popName[i].style.top = y + 'px'
+            popName[i].style.right = x + 'px'
+          })
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[2].addEventListener('mouseout', function () {
+            popName[i].style.display = 'none'
+          })
+        }
+      }
     },
     methods: {
       //第一行显示红色字体
@@ -270,5 +301,25 @@
           width: 165px
         .ZCMRepaymentDataReconciliationSelect
           width: 100px
+    .pop1
+      display: none
+      position: absolute
+      padding: 5px
+      border: 1px solid #cccccc
+      border-radius: 5px
+      font-size: 12px
+      background-color: #fff
+      box-shadow: 5px 5px 5px #999
+
+    .popTop
+      padding-bottom: 5px
+
+    .elextra-icon-info
+      position: absolute
+      top: 38px
+      right: 52px
+      font-size: 16px
+      color: rgb(102, 102, 102)
+      font-weight: 400 !important
 </style>
 

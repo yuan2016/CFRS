@@ -904,13 +904,13 @@ let sqlMap = {
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       privilegeModify:
-        "UPDATE ?? SET available_table = ?, available_table_zww = ?, available_table_jp = ?,available_table_fq = ?, product_names = ?, user_name=?,user_sex=?,department=?,user_mobile=?,user_permission = ? WHERE user_email = ?",
+        "UPDATE ?? SET available_table = ?, available_table_zww = ?, available_table_jp = ?,available_table_fq = ?, product_names = ?, user_name=?,user_sex=?,department=?,user_mobile=?,user_permission = ?,add_ip = ? WHERE user_email = ?",
       add:
-        "INSERT INTO ?? (product_names,available_table,available_table_zww,available_table_jp,available_table_fq,department,user_password,user_name,user_sex,user_mobile,user_email,user_permission) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO ?? (product_names,available_table,available_table_zww,available_table_jp,available_table_fq,department,user_password,user_name,user_sex,user_mobile,user_email,user_permission,add_ip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
       delete: "DELETE FROM ?? WHERE user_email = ?",
       selectByPhone: "select * from ?? where user_mobile=?",
       modifyMultiple:
-        "UPDATE ?? set product_names = ?, available_table = ?,available_table_zww = ?,available_table_jp = ?,available_table_fq = ? where user_mobile in "
+        "UPDATE ?? set product_names = ?, available_table = ?,available_table_zww = ?,available_table_jp = ?,available_table_fq = ?,add_ip = ? where user_mobile in "
     }
   },
   /*开心分期*/
@@ -929,16 +929,16 @@ let sqlMap = {
     },
     dailySettlementReport: {
       selectAll:
-        "select D_DATE,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,LQ_RECHARGE,TOTAL_AMT from ?? ",
+        "select D_DATE,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,LQ_RECHARGE,TOTAL_AMT from ?? ",
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectAllExcel:
-        'select D_DATE as "日期",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)" from ?? ',
+        'select D_DATE as "日期",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",YIMATONG_FEE as "益码通手续费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)" from ?? ',
       selectSum:
-        " select null as D_DATE,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(LQ_RECHARGE) as LQ_RECHARGE,sum(TOTAL_AMT) as TOTAL_AMT from ?? ",
+        " select null as D_DATE,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(LQ_RECHARGE) as LQ_RECHARGE,sum(TOTAL_AMT) as TOTAL_AMT from ?? ",
         selectSumExcel:
-        'select null as "日期",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)" from ?? '
+        'select null as "日期",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(YIMATONG_FEE) as "益码通手续费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)" from ?? '
     },
     dailyClaimsReport: {
       selectAll:
@@ -956,18 +956,27 @@ let sqlMap = {
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectSum:
-        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
+        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZCM_LL) as ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
+    },
+    ZBrepaymentData: {
+      selectAll:
+        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,TOTAL_AMT,ZB_LL,ZB_YMT,DIFF_VALUE from ?? ",
+      order: " order by D_DATE desc",
+      selectAllBack: " limit ?,?",
+      getCount: "select count(*) as count from ??",
+      selectSum:
+        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZB_LL) as ZB_LL,sum(ZB_YMT) as ZB_YMT,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
     },
     monthlySettlementData: {
       selectAll:
-        "select D_MONTH,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,LQ_RECHARGE,TOTAL_AMT,CREATE_TIME from ?? ",
-        selectSum: 'select null D_MONTH,sum(ADVANCE_REPAYMENT_AMT) ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) REPAYMENT_AMT,sum(REPAYMENT_INTEREST) REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) OVERDUE_LATE_FEE,sum(RENEWAL_FEE) RENEWAL_FEE,sum(LQ_RECHARGE) LQ_RECHARGE,sum(TOTAL_AMT) TOTAL_AMT,CREATE_TIME from ?? ',
+        "select D_MONTH,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,LQ_RECHARGE,TOTAL_AMT,CREATE_TIME from ?? ",
+        selectSum: 'select null D_MONTH,sum(ADVANCE_REPAYMENT_AMT) ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) REPAYMENT_AMT,sum(REPAYMENT_INTEREST) REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) OVERDUE_LATE_FEE,sum(RENEWAL_FEE) RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(LQ_RECHARGE) LQ_RECHARGE,sum(TOTAL_AMT) TOTAL_AMT,CREATE_TIME from ?? ',
       order: " order by D_MONTH desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
-      selectSumExcel: 'select null as "月份",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)",CREATE_TIME as "创建时间" from ?? ',
+      selectSumExcel: 'select null as "月份",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(YIMATONG_FEE) as "益码通手续费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)",CREATE_TIME as "创建时间" from ?? ',
       selectAllExcel:
-        'select D_MONTH as "月份",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)",CREATE_TIME as "创建时间" from ?? '
+        'select D_MONTH as "月份",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",LQ_RECHARGE as "益码通手续费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)",CREATE_TIME as "创建时间" from ?? '
     },
     repaymentReconciliationZFB: {
       selectAll:

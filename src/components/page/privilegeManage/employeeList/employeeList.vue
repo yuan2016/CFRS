@@ -397,6 +397,7 @@
     getEmployeeListDelete,
     modifyMultiple
   } from '../../../../common/js/api'
+  import {mapState} from 'vuex'
 
   let temp
 
@@ -1466,6 +1467,11 @@
     mounted() {
       this.resizeHeight()
     },
+    computed: {
+      ...mapState({
+        addIp: state => state.user.name
+      })
+    },
     methods: {
       addMultiple() {
         let phones = []
@@ -1501,7 +1507,8 @@
             tables1: tables1,
             tables2: tables2,
             tables3: tables3,
-            phones: phones
+            phones: phones,
+            addIp: this.addIp
           }).then((response) => {
             if (response.data.code === '404') {
               this.$router.push('./404')
@@ -1730,7 +1737,8 @@
                   tables1: arrSet1.join('|'),
                   tables2: arrSet2.join('|'),
                   tables3: arrSet3.join('|'),
-                  permission: Array.from(this.ruleForm.user_permission).join('|')
+                  permission: Array.from(this.ruleForm.user_permission).join('|'),
+                  addIp: this.addIp
                 }).then((response) => {
                   if (response.data.code === '404') {
                     this.$router.push('./404')
@@ -1839,7 +1847,8 @@
                 sex: this.newRuleForm.user_sex,
                 mobile: this.newRuleForm.user_mobile,
                 email: this.newRuleForm.user_email + '@xianjinkd.com',
-                permission: Array.from(this.newRuleForm.user_permission).join('|')
+                permission: Array.from(this.newRuleForm.user_permission).join('|'),
+                addIp: this.addIp
               }).then((response) => {
                 if (response.data.code === '404') {
                   this.$router.push('./404')

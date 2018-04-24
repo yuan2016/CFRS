@@ -46,7 +46,7 @@
         <el-table-column property="YMT_XQ_XN" sortable="custom" label="XN续期益码通(元)" min-width="150"></el-table-column>
         <el-table-column property="TOTAL_AMT" sortable="custom" label="合计(元)" min-width="110"></el-table-column>
       </el-table-column>
-      <el-table-column label="第三方账户数据">        
+      <el-table-column label="第三方账户数据">
         <el-table-column property="LL_ZCM_T" fixed sortable="custom" label="ZCM连连(元)"  min-width="130"></el-table-column>
         <el-table-column property="LL_ZB_T" sortable="custom" label="ZB连连(元)" min-width="130"></el-table-column>
         <el-table-column property="YMT_ZB_T" sortable="custom" label="ZB益码通(元)" min-width="130"></el-table-column>
@@ -54,7 +54,7 @@
         <el-table-column property="YMT_XN_T" sortable="custom" label="XN益码通(元)" min-width="130"></el-table-column>
         <el-table-column property="TOTAL_AMT_T" sortable="custom" label="合计(元)" min-width="110"></el-table-column>
       </el-table-column>
-      <el-table-column label="差异(技术后台-第三方账户)">        
+      <el-table-column label="差异(技术后台-第三方账户)">
         <el-table-column property="LL_ZCM_D" fixed sortable="custom" label="ZCM连连(元)"  min-width="130"></el-table-column>
         <el-table-column property="LL_ZB_D" sortable="custom" label="ZB连连(元)" min-width="130"></el-table-column>
         <el-table-column property="YMT_ZB_D" sortable="custom" label="ZB益码通(元)" min-width="130"></el-table-column>
@@ -373,7 +373,7 @@
           }
         } else if (typeof (a) == "number") {
           return a
-        } 
+        }
         return 0
       },
       showData(row) {
@@ -433,15 +433,15 @@
               extra.YMT_ZB_D = this.changeItem(origin.YMT_ZB_KX) + this.changeItem(origin.YMT_ZB_XF) - this.changeItem(extra.YMT_ZB_T)
             }
             if (extra.LL_XN_T) {
-              extra.LL_XN_D = this.changeItem(origin.LL_LQ_XN) + this.changeItem(origin.YMT_LQ_XN) - this.changeItem(extra.LL_XN_T)
+              extra.LL_XN_D = this.changeItem(origin.LL_LQ_XN) + this.changeItem(origin.LL_XQ_XN) - this.changeItem(extra.LL_XN_T)
             }
             if (extra.YMT_XN_T) {
-              extra.YMT_XN_D = this.changeItem(origin.LL_XQ_XN) + this.changeItem(origin.YMT_XQ_XN) - this.changeItem(extra.YMT_XN_T)
+              extra.YMT_XN_D = this.changeItem(origin.YMT_LQ_XN) + this.changeItem(origin.YMT_XQ_XN) - this.changeItem(extra.YMT_XN_T)
             }
-            if (extra.LL_ZCM_T || extra.LL_ZB_T || extra.YMT_ZB_T || extra.LL_XN_T || extra.YMT_XN_T) {
+            if ((origin.LL_ZCM_T !== '' && origin.LL_ZCM_T !== null) &&(origin.LL_ZB_T !== '' && origin.LL_ZB_T !== null) &&(origin.YMT_ZB_T !== '' && origin.YMT_ZB_T !== null) &&(origin.LL_XN_T !== '' && origin.LL_XN_T !== null) &&(origin.YMT_XN_T !== '' && origin.YMT_XN_T !== null)) {
               extra.TOTAL_AMT_T = this.changeItem(extra.LL_ZCM_T) + this.changeItem(extra.LL_ZB_T) + this.changeItem(extra.YMT_ZB_T) + this.changeItem(extra.LL_XN_T) + this.changeItem(extra.YMT_XN_T)
             }
-            if (extra.LL_ZCM_D || extra.LL_ZB_D || extra.YMT_ZB_D || extra.LL_XN_D || extra.YMT_XN_D) {
+            if ((origin.LL_ZCM_D !== '' && origin.LL_ZCM_D !== null) &&(origin.LL_ZB_D !== '' && origin.LL_ZB_D !== null) &&(origin.YMT_ZB_D !== '' && origin.YMT_ZB_D !== null) &&(origin.LL_XN_D !== '' && origin.LL_XN_D !== null) &&(origin.YMT_XN_D !== '' && origin.YMT_XN_D !== null)) {
               extra.TOTAL_AMT_D = this.changeItem(extra.LL_ZCM_D) + this.changeItem(extra.LL_ZB_D) + this.changeItem(extra.YMT_ZB_D) + this.changeItem(extra.LL_XN_D) + this.changeItem(extra.YMT_XN_D)
             }
             getThreePartyAccountAnalysisModify({
@@ -545,7 +545,7 @@
             .bottom
               position: relative
               right:-10px
-              bottom:-30px    
+              bottom:-30px
           .threePartyAccountAnalysis-button
             width: 100px
       .detail-close

@@ -59,7 +59,7 @@ function formatData(rows) {
   })
 }
 
-const tHeader = [['', '', '提前还款本金(元)', '提前还款利息(元)', '正常还款本金(元)', '正常还款利息(元)', '逾期还款本金(元)', '逾期还款利息(元)', '逾期滞纳金(元)', '续期费(元)', '合计(元)', 'ZCM连连', ''], ['日期', '月份', '结算分析', '三方账户', '差异值=结算分析-三方账户分析(元)']]
+const tHeader = [['', '', '提前还款本金(元)', '提前还款利息(元)', '正常还款本金(元)', '正常还款利息(元)', '逾期还款本金(元)', '逾期还款利息(元)', '逾期滞纳金(元)', '续期费(元)', '合计(元)', 'ZCM连连', ''], ['日期', '月份', '结算分析', '三方账户', '差异值(元)']]
 const filterVal = ['D_DATE', 'd_month', 'ADVANCE_REPAYMENT_AMT', 'ADVANCE_REPAYMENT_INTEREST', 'REPAYMENT_AMT', 'REPAYMENT_INTEREST', 'OVERDUE_REPAYMENT_AMT', 'OVERDUE_REPAYMENT_INTEREST', 'OVERDUE_LATE_FEE', 'RENEWAL_FEE', 'TOTAL_AMT', 'ZCM_LL', 'DIFF_VALUE']
 //横坐标纵坐标
 const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 6, 0], [7, 0, 11, 0], [12, 0, 16, 0]]
