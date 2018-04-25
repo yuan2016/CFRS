@@ -3140,6 +3140,14 @@ export function getChannelStatisticsRefresh (data) {
     data: data
   })
 }
+//渠道统计表 渠道商
+export function getChannelStatisticsSelect (data) {
+  return fetch({
+    url: '/api/channelStatistics/getSelectOptions',
+    method: 'post',
+    data: data
+  })
+}
 //渠道统计汇总表
 export function getChannelSummaryStatistics (data) {
   return fetch({

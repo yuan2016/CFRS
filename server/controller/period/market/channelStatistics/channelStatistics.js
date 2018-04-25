@@ -196,6 +196,19 @@ function formatExcelData (rows) {
   })
 }
 
+function packageRows (rows) {
+  let options = [{value: '', label: '不限'}]
+  for (let row of rows) {
+    let option = {}
+    if (row.channel_name && row.channel_name !== '') {
+      option.value = row.channel_name
+      option.label = row.channel_name
+      options.push(option)
+    }
+  }
+  return options
+}
+
 module.exports = {
   //每日还款金额数据
   fetchAll(req, res) {
@@ -317,5 +330,14 @@ module.exports = {
         })
       })
     }, 180000)
+  },
+  getSelectOptions (req, res) {
+    func.connPool1(sql.period.channelStatistics.getSelectOptions, tableName.period.channelStatistics, function (err, rs) {
+      if (err) {
+        console.log('[query] - :' + err)
+      }
+      rs = packageRows(rs)
+      res.json(rs)
+    })
   }
 }

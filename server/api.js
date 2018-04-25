@@ -655,6 +655,7 @@ module.exports = {
   channelStatisticsCount: path + '/channelStatistics/count',
   channelStatisticsRefresh: path + '/channelStatistics/refresh',
   channelStatisticsExcel: path + '/channelStatistics/excel',
+  channelStatisticsGetOptions: path + '/channelStatistics/getSelectOptions',
   //渠道统计汇总表
   channelSummaryStatistics: path + '/channelSummaryStatistics',
   channelSummaryStatisticsCount: path + '/channelSummaryStatistics/count',
