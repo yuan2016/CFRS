@@ -648,5 +648,16 @@ module.exports = {
   changeFundAccountStatement: path + '/changeFundAccountStatement',
   changeFundAccountStatementCount: path + '/changeFundAccountStatement/count',
   changeFundAccountStatementRefresh: path + '/changeFundAccountStatement/refresh',
-  changeFundAccountStatementExcel: path + '/changeFundAccountStatement/excel'
+  changeFundAccountStatementExcel: path + '/changeFundAccountStatement/excel',
+  /***市场***/
+  //渠道统计表
+  channelStatistics: path + '/channelStatistics',
+  channelStatisticsCount: path + '/channelStatistics/count',
+  channelStatisticsRefresh: path + '/channelStatistics/refresh',
+  channelStatisticsExcel: path + '/channelStatistics/excel',
+  //渠道统计汇总表
+  channelSummaryStatistics: path + '/channelSummaryStatistics',
+  channelSummaryStatisticsCount: path + '/channelSummaryStatistics/count',
+  channelSummaryStatisticsRefresh: path + '/channelSummaryStatistics/refresh',
+  channelSummaryStatisticsExcel: path + '/channelSummaryStatistics/excel'
 }

@@ -40,5 +40,7 @@ module.exports = {
   dataCheckXN: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_XN数据核对',
   threePartyAccountAnalysis: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_三方对账',
   monthlyBondData: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每月债权表',
-  monthlySettlementData: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每月结算表'
+  monthlySettlementData: '/mnt/usr/local/data-integration/pan.sh -rep kettle -user admin -pass admin -dir /report -trans FRESH_开心分期_财务数据_每月结算表',
+  channelStatistics: '',
+  channelSummaryStatistics: ''
 }

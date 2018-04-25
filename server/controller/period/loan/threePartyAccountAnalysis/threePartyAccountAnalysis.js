@@ -23,6 +23,14 @@ function formatJson(filterVal, jsonData) {
   return jsonData.map(v => filterVal.map(j => v[j]))
 }
 
+//千分位表示为普通数字表示
+function changeItem(a) {
+  if (a === 0 || a === '0') {
+    return a
+  }
+  return parseFloat(a.split(',').join(''))
+}
+
 function formatData(rows) {
   return rows.map(row => {
     if (row.D_DATE) {
@@ -83,8 +91,56 @@ function formatData(rows) {
     if (row.TOTAL_AMT_T) {
       row.TOTAL_AMT_T = formatCurrency(row.TOTAL_AMT_T)
     }
+    if (row.LL_ZCM_KX !== '' && row.LL_ZCM_KX !== null && row.LL_ZCM_XF !== null && row.LL_ZCM_XF !== null && row.LL_ZCM_T !== null && row.LL_ZCM_T !== null) {
+      let temp = parseFloat(row.LL_ZCM_KX) + parseFloat(row.LL_ZCM_XF) - parseFloat(row.LL_ZCM_T)
+      if (temp === 0) {
+        row.LL_ZCM_D = 0
+      } else {
+        row.LL_ZCM_D = formatCurrency(temp)
+      }
+    }
+    if (row.LL_ZB_KX !== '' && row.LL_ZB_KX !== null && row.LL_ZB_XF !== null && row.LL_ZB_XF !== null && row.LL_ZB_T !== null && row.LL_ZB_T !== null) {
+      let temp = parseFloat(row.LL_ZB_KX) + parseFloat(row.LL_ZB_XF) - parseFloat(row.LL_ZB_T)
+      if (temp === 0) {
+        row.LL_ZB_D = 0
+      } else {
+        row.LL_ZB_D = formatCurrency(temp)
+      }
+    }
+    if (row.YMT_ZB_KX !== '' && row.YMT_ZB_KX !== null && row.YMT_ZB_XF !== null && row.YMT_ZB_XF !== null && row.YMT_ZB_T !== null && row.YMT_ZB_T !== null) {
+      let temp = parseFloat(row.YMT_ZB_KX) + parseFloat(row.YMT_ZB_XF) - parseFloat(row.YMT_ZB_T)
+      if (temp === 0) {
+        row.YMT_ZB_D = 0
+      } else {
+        row.YMT_ZB_D = formatCurrency(temp)
+      }
+    }
+    if (row.LL_LQ_XN !== '' && row.LL_LQ_XN !== null && row.LL_XQ_XN !== null && row.LL_XQ_XN !== null && row.LL_XN_T !== null && row.LL_XN_T !== null) {
+      let temp = parseFloat(row.LL_LQ_XN) + parseFloat(row.LL_XQ_XN) - parseFloat(row.LL_XN_T)
+      if (temp === 0) {
+        row.LL_XN_D = 0
+      } else {
+        row.LL_XN_D = formatCurrency(temp)
+      }
+    }
+    if (row.YMT_LQ_XN !== '' && row.YMT_LQ_XN !== null && row.YMT_XQ_XN !== null && row.YMT_XQ_XN !== null && row.YMT_XN_T !== null && row.YMT_XN_T !== null) {
+      let temp = parseFloat(row.YMT_LQ_XN) + parseFloat(row.YMT_XQ_XN) - parseFloat(row.YMT_XN_T)
+      if (temp === 0) {
+        row.YMT_XN_D = 0
+      } else {
+        row.YMT_XN_D = formatCurrency(temp)
+      }
+    }
+    if ((changeItem(row.LL_ZCM_D) !== '' && changeItem(row.LL_ZCM_D) !== null) || (changeItem(row.LL_ZB_D) !== '' && changeItem(row.LL_ZB_D) !== null) || (changeItem(row.YMT_ZB_D) !== '' && changeItem(row.YMT_ZB_D) !== null) || (changeItem(row.LL_XN_D) !== '' && changeItem(row.LL_XN_D) !== null) || (changeItem(row.YMT_XN_D) !== '' && changeItem(row.YMT_XN_D) !== null)) {
+      let temp = Number(changeItem(row.LL_ZCM_D)) + Number(changeItem(row.LL_ZB_D)) + Number(changeItem(row.YMT_ZB_D))+ Number(changeItem(row.LL_XN_D))+ parseFloat(Number(row.YMT_XN_D))
+      if (temp === 0) {
+        row.TOTAL_AMT_D = 0
+      } else {
+        row.TOTAL_AMT_D = formatCurrency(temp)
+      }
+    }
 
-    if (row.LL_ZCM_D) {
+    /*if (row.LL_ZCM_D) {
       row.LL_ZCM_D = formatCurrency(row.LL_ZCM_D)
     }
     if (row.LL_ZB_D) {
@@ -101,7 +157,7 @@ function formatData(rows) {
     }
     if (row.TOTAL_AMT_D) {
       row.TOTAL_AMT_D = formatCurrency(row.TOTAL_AMT_D)
-    }
+    }*/
     return row
   })
 }

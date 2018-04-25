@@ -1262,6 +1262,24 @@ const changeFundAccountStatement = r =>
       ),
     "changeFundAccountStatement"
   );
+const channelStatistics = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/channelStatistics/channelStatistics")
+      ),
+    "channelStatistics"
+  );
+const channelSummaryStatistics = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/channelSummaryStatistics/channelSummaryStatistics")
+      ),
+    "channelSummaryStatistics"
+  );
 /**
  * icon : the icon show in the sidebar
  * hidden : if hidden:true will not show in the sidebar
@@ -2645,6 +2663,29 @@ export const asyncRouterMap = [
             meta: ["开心分期", "商城", "财务对账", "零钱资金账户明细表"]
           }
         ]
+      }
+    ]
+  },
+  {
+    path: "/period/market",
+    redirect: "/period/market/totalIncome",
+    icon: "elextra-icon-mall",
+    component: Layout,
+    name: "市场统计",
+    children: [
+      {
+        path: "/period/market/channelStatistics",
+        icon: "el-icon-star-on",
+        component: channelStatistics,
+        name: "渠道统计表",
+        meta: ["开心分期", "市场统计", "渠道统计表"]
+      },
+      {
+        path: "/period/market/channelSummaryStatistics",
+        icon: "el-icon-star-on",
+        component: channelSummaryStatistics,
+        name: "渠道统计汇总表",
+        meta: ["开心分期", "市场统计", "渠道统计汇总表"]
       }
     ]
   },

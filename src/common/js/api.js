@@ -3116,3 +3116,52 @@ export function getChangeFundAccountStatementRefresh (data) {
     data: data
   })
 }
+//渠道统计表
+export function getChannelStatistics (data) {
+  return fetch({
+    url: '/api/channelStatistics',
+    method: 'post',
+    data: data
+  })
+}
+//渠道统计表 统计
+export function getChannelStatisticsCount (data) {
+  return fetch({
+    url: '/api/channelStatistics/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道统计表 一键刷新
+export function getChannelStatisticsRefresh (data) {
+  return fetch({
+    url: '/api/channelStatistics/refresh',
+    method: 'post',
+    data: data
+  })
+}
+//渠道统计汇总表
+export function getChannelSummaryStatistics (data) {
+  return fetch({
+    url: '/api/channelSummaryStatistics',
+    method: 'post',
+    data: data
+  })
+}
+//渠道统计汇总表 统计
+export function getChannelSummaryStatisticsCount (data) {
+  return fetch({
+    url: '/api/channelSummaryStatistics/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道统计汇总表 一键刷新
+export function getChannelSummaryStatisticsRefresh (data) {
+  return fetch({
+    url: '/api/channelSummaryStatistics/refresh',
+    method: 'post',
+    data: data
+  })
+}
+

@@ -107,6 +107,7 @@ module.exports = {
     let queries = analysis(params, 't.d_date', 'w')
     let order = params.order || sql.financeAnalysis.reconciliationAnalysisQE.orderBy
     let query = sql.financeAnalysis.reconciliationAnalysisQE.selectAllFront + queries + order + sql.financeAnalysis.reconciliationAnalysisQE.selectAllBack
+    console.log(query)
     func.connPool1(query, [tableName.reconciliationAnalysisQE.t, tableName.reconciliationAnalysisQE.t1, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
@@ -121,6 +122,7 @@ module.exports = {
         }
         return
       }
+      console.log(rs[0])
       rs = formatData(rs)
       res.json(rs)
     })

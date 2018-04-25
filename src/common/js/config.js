@@ -1,4 +1,4 @@
-let parentTable = ['RMAB', '市场', '运营', '催收', '用户画像', '用户信息管理', '借款管理', '还款管理', '还款列表', '对账列表', '退款列表', '续期管理', '数据分析', '财务数据', '数据报表', '财务分析', '推广管理', '绩效考评', '权限管理', '现金借呗', '实验室', '企鹅抓娃娃', '市场分析', '埋点分析', '开心拍卖', '市场详情', '运营分析', '开心分期', '黑卡', '商城', '财务对账']
+let parentTable = ['RMAB', '市场', '运营', '催收', '用户画像', '用户信息管理', '借款管理', '还款管理', '还款列表', '对账列表', '退款列表', '续期管理', '数据分析', '财务数据', '数据报表', '财务分析', '推广管理', '绩效考评', '权限管理', '现金借呗', '实验室', '企鹅抓娃娃', '市场分析', '埋点分析', '开心拍卖', '市场详情', '运营分析', '开心分期', '黑卡', '商城', '财务对账', '市场统计']
 let address = {
   '新用户借款通过率': '/RMAB/market/newUserPassRate/tab1',
   '邀请活动': '/RMAB/operate/invitationEvent',
@@ -131,7 +131,9 @@ let address = {
   '每日商城订单报表': '/period/mall/finance/dailyMallOrderReport',
   '零钱充值对账分析': '/period/mall/finance/rechargeOfChangeReport',
   '商城月报表': '/period/mall/finance/mallMonthlyReport',
-  '零钱资金账户明细表': '/period/mall/finance/changeFundAccountStatement'
+  '零钱资金账户明细表': '/period/mall/finance/changeFundAccountStatement',
+  '渠道统计表': '/period/market/channelStatistics',
+  '渠道统计汇总表': '/period/market/channelSummaryStatistics'
 }
 
 export { parentTable, address }
