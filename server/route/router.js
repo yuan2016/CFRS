@@ -164,6 +164,8 @@ let dailyMallOrderReport = require('../controller/period/mall/dailyMallOrderRepo
 let rechargeOfChangeReport = require('../controller/period/mall/rechargeOfChangeReport/rechargeOfChangeReport')
 let mallMonthlyReport = require('../controller/period/mall/mallMonthlyReport/mallMonthlyReport')
 let changeFundAccountStatement = require('../controller/period/mall/changeFundAccountStatement/changeFundAccountStatement')
+let channelStatistics = require('../controller/period/market/channelStatistics/channelStatistics')
+let channelSummaryStatistics = require('../controller/period/market/channelSummaryStatistics/channelSummaryStatistics')
 let api = require('../api')
 
 let router = express.Router()
@@ -860,4 +862,15 @@ router.post(api.changeFundAccountStatementCount, changeFundAccountStatement.getC
 router.post(api.changeFundAccountStatement, changeFundAccountStatement.fetchAll)
 router.post(api.changeFundAccountStatementRefresh, changeFundAccountStatement.refreshData)
 router.get(api.changeFundAccountStatementExcel, changeFundAccountStatement.getExcelData)
+/***市场***/
+//渠道统计表
+router.post(api.channelStatisticsCount, channelStatistics.getCount)
+router.post(api.channelStatistics, channelStatistics.fetchAll)
+router.post(api.channelStatisticsRefresh, channelStatistics.refreshData)
+router.get(api.channelStatisticsExcel, channelStatistics.getExcelData)
+//渠道统计汇总表
+router.post(api.channelSummaryStatisticsCount, channelSummaryStatistics.getCount)
+router.post(api.channelSummaryStatistics, channelSummaryStatistics.fetchAll)
+router.post(api.channelSummaryStatisticsRefresh, channelSummaryStatistics.refreshData)
+router.get(api.channelSummaryStatisticsExcel, channelSummaryStatistics.getExcelData)
 module.exports = router

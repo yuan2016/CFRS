@@ -346,6 +346,10 @@ module.exports = {
     //商城月报表
     mallMonthlyReport: 'pr_cw_mall_month_kxfq',
     //零钱资金账户明细表
-    changeFundAccountStatement: 'pr_cw_pocket_mx_kxfq'
+    changeFundAccountStatement: 'pr_cw_pocket_mx_kxfq',
+    //渠道统计表
+    channelStatistics: 'PR_PM_CHANNEL_STATISTIC_KXFQ',
+    //渠道统计汇总表
+    channelSummaryStatistics: 'PR_PM_CHANNEL_STATISTIC_SUM_KXFQ'
   }
 }
