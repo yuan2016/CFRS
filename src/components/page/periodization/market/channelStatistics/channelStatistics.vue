@@ -25,7 +25,7 @@
       <li>
         <span class="managerFront">渠道：</span>
         <el-select v-model.trim="channel_name" filterable clearable size="mini" placeholder="不限"
-                   class="promoterSelect">
+                   class="channelStatisticsSelect">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -96,7 +96,8 @@
   import {
     getChannelStatistics,
     getChannelStatisticsCount,
-    getChannelStatisticsRefresh
+    getChannelStatisticsRefresh,
+    getChannelStatisticsSelect
   } from '../../../../../common/js/api'
   import {mapGetters} from 'vuex'
 
@@ -127,6 +128,7 @@
     },
     created() {
       this.loading = true
+      this.getSelectOptions()
       this.getDataInit()
       this.isShowRefreshAndExcel()
     },
@@ -135,7 +137,7 @@
     },
     computed: {
       mosaicLink() {
-        return 'api/channelStatistics/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"'
+        return 'api/channelStatistics/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"&channel_name="' + [this.channel_name, 'SELECT'] + '"'
       },
       ...mapGetters([
         'permission'
@@ -216,13 +218,15 @@
           offset: this.offset,
           startTime: [this.startTime, 'DATE'],
           endTime: [this.endTime, 'DATE'],
+          channel_name: [this.channel_name, 'SELECT'],
           order: this.order
         })
       },
       getCount() {
         return getChannelStatisticsCount({
           startTime: [this.startTime, 'DATE'],
-          endTime: [this.endTime, 'DATE']
+          endTime: [this.endTime, 'DATE'],
+          channel_name: [this.channel_name, 'SELECT']
         })
       },
       search() {
@@ -307,7 +311,12 @@
         } else {
           this.isShowExcel = false
         }
-      }
+      },
+      getSelectOptions() {
+        getChannelStatisticsSelect().then((response) => {
+          this.options = response.data
+        })
+      },
     }
   }
 </script>
@@ -319,6 +328,9 @@
       li
         .dateSelect
           width: 165px
+        .channelStatisticsSelect
+          width: 165px
+          
     .pop1
       display: none
       position: absolute

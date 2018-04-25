@@ -1116,7 +1116,8 @@ let sqlMap = {
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectAllExcel:
-        'select d_date as "日期",channel_name as "渠道",register_num as "注册人数",login_num as "登录人数",realname_auth_num as "实名认证",emergency_contact_num as "紧急联系人",operator_auth_num as "运营商认证",card_bound_num as "绑卡人数",all_auth_num as "全要素认证",jobinfo_auth_num as "工作信息人数",Sesame_auth_num as "芝麻信用",Alipay_auth_num as "支付宝",taobao_auth_num as "淘宝认证",credit_auth_num as "信用卡",gjj_auth_num as "公积金认证",Appl_quota_num as "申请额度人数",blacklist_num as "黑名单人数",succ_quota_num as "成功获取额度",Pass_rate as "通过率(成功激活人数/激活人数)",member_new_num as "购买会员(新用户)",member_old_num as "购买会员(老用户)",loan_new as "借款(新用户)",loan_old as "借款(老用户)",loan_amount_new as "放款金额(新用户)",loan_amount_old as "放款金额(老用户)",Overdue_rate as "逾期率",Overdue_rate_new as "新用户逾期率(金额)",Overdue_rate_old as "老用户逾期率(金额)" from ??'
+        'select d_date as "日期",channel_name as "渠道",register_num as "注册人数",login_num as "登录人数",realname_auth_num as "实名认证",emergency_contact_num as "紧急联系人",operator_auth_num as "运营商认证",card_bound_num as "绑卡人数",all_auth_num as "全要素认证",jobinfo_auth_num as "工作信息人数",Sesame_auth_num as "芝麻信用",Alipay_auth_num as "支付宝",taobao_auth_num as "淘宝认证",credit_auth_num as "信用卡",gjj_auth_num as "公积金认证",Appl_quota_num as "申请额度人数",blacklist_num as "黑名单人数",succ_quota_num as "成功获取额度",Pass_rate as "通过率(成功激活人数/激活人数)",member_new_num as "购买会员(新用户)",member_old_num as "购买会员(老用户)",loan_new as "借款(新用户)",loan_old as "借款(老用户)",loan_amount_new as "放款金额(新用户)",loan_amount_old as "放款金额(老用户)",Overdue_rate as "逾期率",Overdue_rate_new as "新用户逾期率(金额)",Overdue_rate_old as "老用户逾期率(金额)" from ??',
+      getSelectOptions: 'select distinct channel_name from ??'
     },
     channelSummaryStatistics: {
       selectAll: "select * from ?? ",

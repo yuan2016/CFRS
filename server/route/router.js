@@ -868,6 +868,7 @@ router.post(api.channelStatisticsCount, channelStatistics.getCount)
 router.post(api.channelStatistics, channelStatistics.fetchAll)
 router.post(api.channelStatisticsRefresh, channelStatistics.refreshData)
 router.get(api.channelStatisticsExcel, channelStatistics.getExcelData)
+router.post(api.channelStatisticsGetOptions, channelStatistics.getSelectOptions)
 //渠道统计汇总表
 router.post(api.channelSummaryStatisticsCount, channelSummaryStatistics.getCount)
 router.post(api.channelSummaryStatistics, channelSummaryStatistics.fetchAll)
