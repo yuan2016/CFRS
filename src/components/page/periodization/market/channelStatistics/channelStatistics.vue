@@ -330,7 +330,7 @@
           width: 165px
         .channelStatisticsSelect
           width: 165px
-          
+
     .pop1
       display: none
       position: absolute
