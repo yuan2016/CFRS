@@ -102,7 +102,7 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next({path: '/main'})
     } else {
-      if (store.getters.table.length === 0 && store.getters.table1.length === 0 && store.getters.table2.length === 0 && store.getters.table3.length === 0) {
+      if (store.getters.table.length === 0 && store.getters.table1.length === 0 && store.getters.table3.length === 0) {
         if (getPhone()) {
           store.dispatch('getInfo', getPhone()).then(res => {
             const productName = store.getters.productNames[0]

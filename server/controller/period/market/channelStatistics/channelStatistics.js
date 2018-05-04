@@ -262,17 +262,17 @@ module.exports = {
       pro.exec(shell.channelStatistics, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道统计表shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
           global.channelStatisticsCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道统计表shell脚本执行成功')
           res.json({code: '200'})
           global.channelStatisticsCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道统计表开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }

@@ -107,7 +107,7 @@
                   :props="defaultProps">
                 </el-tree>
               </el-carousel-item>
-              <el-carousel-item class="multiple-carousel-item">
+              <!--<el-carousel-item class="multiple-carousel-item">
                 <div class="multiple-carousel-item-title">开心拍卖</div>
                 <el-tree
                   :data="jpTable"
@@ -117,7 +117,7 @@
                   highlight-current
                   :props="defaultProps">
                 </el-tree>
-              </el-carousel-item>
+              </el-carousel-item>-->
               <el-carousel-item class="multiple-carousel-item">
                 <div class="multiple-carousel-item-title">开心分期</div>
                 <el-tree
@@ -226,7 +226,7 @@
                       :props="defaultProps">
                     </el-tree>
                   </el-carousel-item>
-                  <el-carousel-item class="employeeList-carousel-item">
+                  <!--<el-carousel-item class="employeeList-carousel-item">
                     <div class="employeeList-carousel-item-title">开心拍卖</div>
                     <el-tree
                       :data="jpTable"
@@ -236,7 +236,7 @@
                       highlight-current
                       :props="defaultProps">
                     </el-tree>
-                  </el-carousel-item>
+                  </el-carousel-item>-->
                   <el-carousel-item class="employeeList-carousel-item">
                     <div class="employeeList-carousel-item-title">开心分期</div>
                     <el-tree
@@ -349,7 +349,7 @@
                       :props="defaultProps">
                     </el-tree>
                   </el-carousel-item>
-                  <el-carousel-item class="employeeList-carousel-item">
+                  <!--<el-carousel-item class="employeeList-carousel-item">
                     <div class="employeeList-carousel-item-title">开心拍卖</div>
                     <el-tree
                       :data="jpTable"
@@ -359,7 +359,7 @@
                       highlight-current
                       :props="defaultProps">
                     </el-tree>
-                  </el-carousel-item>
+                  </el-carousel-item>-->
                   <el-carousel-item class="employeeList-carousel-item">
                     <div class="employeeList-carousel-item-title">开心分期</div>
                     <el-tree
@@ -877,84 +877,84 @@
             }]
           }]
         }],
-        jpTable: [{
-          label: '开心拍卖',
-          children: [{
-            label: '拍卖首页',
-            mark: ['拍卖首页', '开心拍卖']
-          }, {
-            label: '市场详情',
-            mark: ['市场详情', '开心拍卖'],
-            children: [{
-              label: '市场看板',
-              mark: ['市场看板', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道信息表',
-              mark: ['渠道信息表', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道推广效果统计',
-              mark: ['渠道推广效果统计', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道每日统计',
-              mark: ['渠道每日统计', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道每周统计',
-              mark: ['渠道每周统计', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道日环比数据',
-              mark: ['渠道日环比数据', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道周环比数据',
-              mark: ['渠道周环比数据', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道月环比数据',
-              mark: ['渠道月环比数据', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道季环比数据',
-              mark: ['渠道季环比数据', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道年环比数据',
-              mark: ['渠道年环比数据', '市场详情', '开心拍卖']
-            }, {
-              label: '渠道用户活跃情况',
-              mark: ['渠道用户活跃情况', '市场详情', '开心拍卖']
-            }]
-          }, {
-            label: '运营分析',
-            mark: ['运营分析', '开心拍卖'],
-            children: [{
-              label: '运营看板',
-              mark: ['运营看板', '运营分析', '开心拍卖']
-            }, {
-              label: '订单信息表',
-              mark: ['订单信息表', '运营分析', '开心拍卖']
-            }, {
-              label: '用户信息表',
-              mark: ['用户信息表', '运营分析', '开心拍卖']
-            }, {
-              label: '流量统计表',
-              mark: ['流量统计表', '运营分析', '开心拍卖']
-            }, {
-              label: '竞拍记录表',
-              mark: ['竞拍记录表', '运营分析', '开心拍卖']
-            }, {
-              label: '积分记录表',
-              mark: ['积分记录表', '运营分析', '开心拍卖']
-            }, {
-              label: '充值记录表',
-              mark: ['充值记录表', '运营分析', '开心拍卖']
-            }, {
-              label: '流量路径统计表',
-              mark: ['流量路径统计表', '运营分析', '开心拍卖']
-            }, {
-              label: '元素点击表',
-              mark: ['元素点击表', '运营分析', '开心拍卖']
-            }, {
-              label: '用户浏览行为表',
-              mark: ['用户浏览行为表', '运营分析', '开心拍卖']
-            }]
-          }]
-        }],
+//        jpTable: [{
+//          label: '开心拍卖',
+//          children: [{
+//            label: '拍卖首页',
+//            mark: ['拍卖首页', '开心拍卖']
+//          }, {
+//            label: '市场详情',
+//            mark: ['市场详情', '开心拍卖'],
+//            children: [{
+//              label: '市场看板',
+//              mark: ['市场看板', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道信息表',
+//              mark: ['渠道信息表', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道推广效果统计',
+//              mark: ['渠道推广效果统计', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道每日统计',
+//              mark: ['渠道每日统计', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道每周统计',
+//              mark: ['渠道每周统计', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道日环比数据',
+//              mark: ['渠道日环比数据', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道周环比数据',
+//              mark: ['渠道周环比数据', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道月环比数据',
+//              mark: ['渠道月环比数据', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道季环比数据',
+//              mark: ['渠道季环比数据', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道年环比数据',
+//              mark: ['渠道年环比数据', '市场详情', '开心拍卖']
+//            }, {
+//              label: '渠道用户活跃情况',
+//              mark: ['渠道用户活跃情况', '市场详情', '开心拍卖']
+//            }]
+//          }, {
+//            label: '运营分析',
+//            mark: ['运营分析', '开心拍卖'],
+//            children: [{
+//              label: '运营看板',
+//              mark: ['运营看板', '运营分析', '开心拍卖']
+//            }, {
+//              label: '订单信息表',
+//              mark: ['订单信息表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '用户信息表',
+//              mark: ['用户信息表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '流量统计表',
+//              mark: ['流量统计表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '竞拍记录表',
+//              mark: ['竞拍记录表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '积分记录表',
+//              mark: ['积分记录表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '充值记录表',
+//              mark: ['充值记录表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '流量路径统计表',
+//              mark: ['流量路径统计表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '元素点击表',
+//              mark: ['元素点击表', '运营分析', '开心拍卖']
+//            }, {
+//              label: '用户浏览行为表',
+//              mark: ['用户浏览行为表', '运营分析', '开心拍卖']
+//            }]
+//          }]
+//        }],
         fqTable: [{
           label: '开心分期',
           children: [{
@@ -1053,6 +1053,18 @@
             }, {
               label: '渠道统计汇总表',
               mark: ['渠道统计汇总表', '市场统计', '开心分期']
+            }, {
+              label: '渠道推广信息表',
+              mark: ['渠道推广信息表', '市场统计', '开心分期']
+            }, {
+              label: '推广员信息表',
+              mark: ['推广员信息表', '市场统计', '开心分期']
+            }, {
+              label: '注册量统计表',
+              mark: ['注册量统计表', '市场统计', '开心分期']
+            }, {
+              label: '推广统计-地区',
+              mark: ['推广统计-地区', '市场统计', '开心分期']
             }]
           }]
         }],
@@ -1479,7 +1491,7 @@
     },
     computed: {
       ...mapState({
-        addIp: state => state.user.name
+        addUserName: state => state.user.name
       })
     },
     methods: {
@@ -1504,21 +1516,22 @@
       submitMultiple() {
         let selectInfo = this.$refs.multiple.getCheckedNodes()
         let selectInfo1 = this.$refs.multiple1.getCheckedNodes()
-        let selectInfo2 = this.$refs.multiple2.getCheckedNodes()
+//        let selectInfo2 = this.$refs.multiple2.getCheckedNodes()
         let selectInfo3 = this.$refs.multiple3.getCheckedNodes()
-        if (selectInfo.length > 0 || selectInfo1.length > 0 || selectInfo2.length > 0 || selectInfo3.length > 0 && this.phones.length > 0) {
+        if (selectInfo.length > 0 || selectInfo1.length > 0 || selectInfo3.length > 0 && this.phones.length > 0) {
           let tables = this.filterArray(selectInfo, '|')
           let tables1 = this.filterArray(selectInfo1, '|')
-          let tables2 = this.filterArray(selectInfo2, '|')
+//          let tables2 = this.filterArray(selectInfo2, '|')
           let tables3 = this.filterArray(selectInfo3, '|')
           let phones = this.phones.join('|')
+          let addParam = this.addUserName + '在' + getNowFormatDate() + '修改了权限'
           return modifyMultiple({
             tables: tables,
             tables1: tables1,
-            tables2: tables2,
+//            tables2: tables2,
             tables3: tables3,
             phones: phones,
-            addIp: this.addIp
+            addIp: this.setAddIp('', addParam, 3)
           }).then((response) => {
             if (response.data.code === '404') {
               this.$router.push('./404')
@@ -1619,7 +1632,7 @@
       handleEdit(index, row) {
         let xjkdTables = []
         let zwwTables = []
-        let jpTables = []
+//        let jpTables = []
         let fqTables = []
         if (row.available_table) {
           xjkdTables = this.selectBaseTable(row.available_table)
@@ -1627,15 +1640,15 @@
         if (row.available_table_zww) {
           zwwTables = this.selectBaseTable(row.available_table_zww)
         }
-        if (row.available_table_jp) {
+        /*if (row.available_table_jp) {
           jpTables = this.selectBaseTable(row.available_table_jp)
-        }
+        }*/
         if (row.available_table_fq) {
           fqTables = this.selectBaseTable(row.available_table_fq)
         }
         this.$refs.tree.setCheckedKeys(xjkdTables)
         this.$refs.tree1.setCheckedKeys(zwwTables)
-        this.$refs.tree2.setCheckedKeys(jpTables)
+//        this.$refs.tree2.setCheckedKeys(jpTables)
         this.$refs.tree3.setCheckedKeys(fqTables)
         this.isShowDetail = !this.isShowDetail
         this.ruleForm = row
@@ -1661,7 +1674,7 @@
           this.hUser_permission = row.user_permission
           this.xjkdTables = row.available_table
           this.zwwTables = row.available_table_zww
-          this.jpTables = row.available_table_jp
+//          this.jpTables = row.available_table_jp
           this.fqTables = row.available_table_fq
         } else {
           this.ruleForm.user_name = this.hUser_name
@@ -1671,7 +1684,7 @@
           this.ruleForm.user_permission = this.hUser_permission
           row.available_table = this.xjkdTables
           row.available_table_zww = this.zwwTables
-          row.available_table_jp = this.jpTables
+//          row.available_table_jp = this.jpTables
           row.available_table_fq = this.fqTables
         }
       },
@@ -1720,19 +1733,19 @@
           if (valid) {
             let selectInfo = this.$refs.tree.getCheckedNodes()
             let selectInfo1 = this.$refs.tree1.getCheckedNodes()
-            let selectInfo2 = this.$refs.tree2.getCheckedNodes()
+//            let selectInfo2 = this.$refs.tree2.getCheckedNodes()
             let selectInfo3 = this.$refs.tree3.getCheckedNodes()
             let arrSet = this.filterArray(selectInfo)
             let arrSet1 = this.filterArray(selectInfo1)
-            let arrSet2 = this.filterArray(selectInfo2)
+//            let arrSet2 = this.filterArray(selectInfo2)
             let arrSet3 = this.filterArray(selectInfo3)
-            if (arrSet.length > -1 || arrSet1.length > -1 || arrSet2.length > -1 || arrSet3.length > -1) {
+            if (arrSet.length > -1 || arrSet1.length > -1 || arrSet3.length > -1) {
               let tableFlag = this.decideFlag(arrSet, this.xjkdTables)
               let tableFlag1 = this.decideFlag(arrSet1, this.zwwTables)
-              let tableFlag2 = this.decideFlag(arrSet2, this.jpTables)
+//              let tableFlag2 = this.decideFlag(arrSet2, this.jpTables)
               let tableFlag3 = this.decideFlag(arrSet3, this.fqTables)
               let allFlag = false
-              if (tableFlag & tableFlag1 & tableFlag2 & tableFlag3) {
+              if (tableFlag & tableFlag1 & tableFlag3) {
                 allFlag = true
               }
               if (this.hUser_name === this.ruleForm.user_name & this.hUser_sex === this.ruleForm.user_sex & this.hUser_department === this.ruleForm.department & this.hUser_phone === this.ruleForm.user_mobile & this.hUser_permission.toString() === this.ruleForm.user_permission.toString() & allFlag) {
@@ -1741,14 +1754,15 @@
                   type: 'warning'
                 })
               } else {
+                let addParam = this.addUserName + '在' + getNowFormatDate() + '修改了权限'
+                this.ruleForm.add_ip = this.setAddIp(this.ruleForm.add_ip, addParam, 3)
                 getEmployeeListModify({
                   ruleForm: this.ruleForm,
                   tables: arrSet.join('|'),
                   tables1: arrSet1.join('|'),
-                  tables2: arrSet2.join('|'),
+//                  tables2: arrSet2.join('|'),
                   tables3: arrSet3.join('|'),
-                  permission: Array.from(this.ruleForm.user_permission).join('|'),
-                  addIp: this.addIp
+                  permission: Array.from(this.ruleForm.user_permission).join('|')
                 }).then((response) => {
                   if (response.data.code === '404') {
                     this.$router.push('./404')
@@ -1838,19 +1852,20 @@
       insertForm(formName) {
         let selectInfo = this.$refs.treeAdd.getCheckedNodes()
         let selectInfo1 = this.$refs.treeAdd1.getCheckedNodes()
-        let selectInfo2 = this.$refs.treeAdd2.getCheckedNodes()
+//        let selectInfo2 = this.$refs.treeAdd2.getCheckedNodes()
         let selectInfo3 = this.$refs.treeAdd3.getCheckedNodes()
         let tables = this.filterArray(selectInfo, '|')
         let tables1 = this.filterArray(selectInfo1, '|')
-        let tables2 = this.filterArray(selectInfo2, '|')
+//        let tables2 = this.filterArray(selectInfo2, '|')
         let tables3 = this.filterArray(selectInfo3, '|')
-        if (tables.length > 0 || tables1.length > 0 || tables2.length > 0 || tables3.length > 0) {
+        if (tables.length > 0 || tables1.length > 0 || tables3.length > 0) {
           this.$refs[formName].validate((valid) => {
             if (valid) {
+              let addParam = this.addUserName + '在' + getNowFormatDate() + '初始化了权限'
               getEmployeeListAdd({
                 tables: tables,
                 tables1: tables1,
-                tables2: tables2,
+//                tables2: tables2,
                 tables3: tables3,
                 department: this.newRuleForm.department,
                 name: this.newRuleForm.user_name,
@@ -1858,7 +1873,7 @@
                 mobile: this.newRuleForm.user_mobile,
                 email: this.newRuleForm.user_email + '@xianjinkd.com',
                 permission: Array.from(this.newRuleForm.user_permission).join('|'),
-                addIp: this.addIp
+                addIp: this.setAddIp('', addParam, 3)
               }).then((response) => {
                 if (response.data.code === '404') {
                   this.$router.push('./404')
@@ -1907,7 +1922,7 @@
       resetChecked() {
         this.$refs.tree.setCheckedKeys([])
         this.$refs.tree1.setCheckedKeys([])
-        this.$refs.tree2.setCheckedKeys([])
+//        this.$refs.tree2.setCheckedKeys([])
         this.$refs.tree3.setCheckedKeys([])
         this.newRuleForm.department = ''
         this.newRuleForm.user_name = ''
@@ -1983,6 +1998,19 @@
         } else {
           return false
         }
+      },
+      setAddIp(addStr, addParam, n) {
+        if (addStr) {
+          let addArr = addStr.split('|')
+          if (addArr.length >= n) {
+            addArr.splice(0, addArr.length - n + 1)
+          }
+          addArr.push(addParam)
+          addStr = addArr.join('|')
+        } else {
+          addStr = addParam
+        }
+        return addStr
       }
     }
   }

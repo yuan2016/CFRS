@@ -146,7 +146,7 @@
     updated () {
       if (document.getElementsByClassName('el-table__row').length > 0) {
         let header = document.getElementsByClassName('el-table__header')[0]
-        let pops = [18]
+        let pops = ['18']
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
           if (!header.getElementsByTagName('thead')[0].getElementsByClassName('elextra-icon-info').length) {
@@ -158,14 +158,16 @@
         let clientWidth = document.documentElement.clientWidth
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseover', function (event) {
+          console.log(header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0])
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByClassName('elextra-icon-info')[0].addEventListener('mouseover', function (event) {
+            console.log('3333')
             let x = clientWidth - event.clientX + 20
             let y = event.clientY - 30
             popName[i].style.display = 'block'
             popName[i].style.top = y + 'px'
             popName[i].style.right = x + 'px'
           })
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseout', function () {
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByClassName('elextra-icon-info')[0].addEventListener('mouseout', function () {
             popName[i].style.display = 'none'
           })
         }
@@ -316,7 +318,7 @@
         getChannelStatisticsSelect().then((response) => {
           this.options = response.data
         })
-      },
+      }
     }
   }
 </script>

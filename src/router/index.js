@@ -1280,6 +1280,42 @@ const channelSummaryStatistics = r =>
       ),
     "channelSummaryStatistics"
   );
+const channelPromotionInformation = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/channelPromotionInformation/channelPromotionInformation")
+      ),
+    "channelPromotionInformation"
+  );
+const promotionInformation = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/promotionInformation/promotionInformation")
+      ),
+    "promotionInformation"
+  );
+const registrationStatisticsReportFQ = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/registrationStatisticsReport/registrationStatisticsReport")
+      ),
+    "registrationStatisticsReport"
+  );
+const promotionStatisticsArea = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/promotionStatisticsArea/promotionStatisticsArea")
+      ),
+    "promotionStatisticsArea"
+  );
 /**
  * icon : the icon show in the sidebar
  * hidden : if hidden:true will not show in the sidebar
@@ -1663,7 +1699,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
+  /*{
     path: "/auction",
     icon: "elextra-icon-market",
     component: Layout,
@@ -1842,7 +1878,7 @@ export const asyncRouterMap = [
         meta: ["运营分析", "用户浏览行为表"]
       }
     ]
-  },
+  },*/
   {
     path: "/user",
     component: Layout,
@@ -2669,7 +2705,7 @@ export const asyncRouterMap = [
   {
     path: "/period/market",
     redirect: "/period/market/totalIncome",
-    icon: "elextra-icon-mall",
+    icon: "elextra-icon-market2",
     component: Layout,
     name: "市场统计",
     children: [
@@ -2686,6 +2722,34 @@ export const asyncRouterMap = [
         component: channelSummaryStatistics,
         name: "渠道统计汇总表",
         meta: ["开心分期", "市场统计", "渠道统计汇总表"]
+      },
+      {
+        path: "/period/market/channelPromotionInformation",
+        icon: "el-icon-star-on",
+        component: channelPromotionInformation,
+        name: "渠道推广信息表",
+        meta: ["开心分期", "市场统计", "渠道推广信息表"]
+      },
+      {
+        path: "/period/market/promotionInformation",
+        icon: "el-icon-star-on",
+        component: promotionInformation,
+        name: "推广员信息表",
+        meta: ["开心分期", "市场统计", "推广员信息表"]
+      },
+      {
+        path: "/period/market/registrationStatisticsReportFQ",
+        icon: "el-icon-star-on",
+        component: registrationStatisticsReportFQ,
+        name: "注册量统计表",
+        meta: ["开心分期", "市场统计", "注册量统计表"]
+      },
+      {
+        path: "/period/market/promotionStatisticsArea",
+        icon: "el-icon-star-on",
+        component: promotionStatisticsArea,
+        name: "推广统计-地区",
+        meta: ["开心分期", "市场统计", "推广统计-地区"]
       }
     ]
   },

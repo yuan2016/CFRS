@@ -166,6 +166,10 @@ let mallMonthlyReport = require('../controller/period/mall/mallMonthlyReport/mal
 let changeFundAccountStatement = require('../controller/period/mall/changeFundAccountStatement/changeFundAccountStatement')
 let channelStatistics = require('../controller/period/market/channelStatistics/channelStatistics')
 let channelSummaryStatistics = require('../controller/period/market/channelSummaryStatistics/channelSummaryStatistics')
+let channelPromotionInformation = require('../controller/period/market/channelPromotionInformation/channelPromotionInformation')
+let promotionInformation = require('../controller/period/market/promotionInformation/promotionInformation')
+let registrationStatisticsReport = require('../controller/period/market/registrationStatisticsReport/registrationStatisticsReport')
+let promotionStatisticsArea = require('../controller/period/market/promotionStatisticsArea/promotionStatisticsArea')
 let api = require('../api')
 
 let router = express.Router()
@@ -874,4 +878,20 @@ router.post(api.channelSummaryStatisticsCount, channelSummaryStatistics.getCount
 router.post(api.channelSummaryStatistics, channelSummaryStatistics.fetchAll)
 router.post(api.channelSummaryStatisticsRefresh, channelSummaryStatistics.refreshData)
 router.get(api.channelSummaryStatisticsExcel, channelSummaryStatistics.getExcelData)
+//渠道推广信息表
+router.post(api.channelPromotionInformationCount, channelPromotionInformation.getCount)
+router.post(api.channelPromotionInformation, channelPromotionInformation.fetchAll)
+router.get(api.channelPromotionInformationExcel, channelPromotionInformation.getExcelData)
+//推广员信息表
+router.post(api.promotionInformationCount, promotionInformation.getCount)
+router.post(api.promotionInformation, promotionInformation.fetchAll)
+router.get(api.promotionInformationExcel, promotionInformation.getExcelData)
+//注册量统计表
+router.post(api.registrationStatisticsReportCount, registrationStatisticsReport.getCount)
+router.post(api.registrationStatisticsReport, registrationStatisticsReport.fetchAll)
+router.get(api.registrationStatisticsReportExcel, registrationStatisticsReport.getExcelData)
+//推广统计-地区
+router.post(api.promotionStatisticsAreaCount, promotionStatisticsArea.getCount)
+router.post(api.promotionStatisticsArea, promotionStatisticsArea.fetchAll)
+router.get(api.promotionStatisticsAreaExcel, promotionStatisticsArea.getExcelData)
 module.exports = router

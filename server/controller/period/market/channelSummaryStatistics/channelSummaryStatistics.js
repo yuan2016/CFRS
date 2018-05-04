@@ -10,7 +10,7 @@ let path = require('path')
 let fs = require('fs')
 let XLSXWriter = require('xlsx-writestream')
 
-global.channelStatisticsCount = 0
+global.channelSummaryStatisticsCount = 0
 
 function formatJson(filterVal, jsonData) {
   return jsonData.map(v => filterVal.map(j => v[j]))
@@ -201,9 +201,9 @@ module.exports = {
   fetchAll(req, res) {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
-    let order = params.order || sql.period.channelStatistics.order
-    let query = sql.period.channelStatistics.selectAll + queries + order + sql.period.channelStatistics.selectAllBack
-    func.connPool1(query, [tableName.period.channelStatistics, params.offset, params.limit], function (err, rs) {
+    let order = params.order || sql.period.channelSummaryStatistics.order
+    let query = sql.period.channelSummaryStatistics.selectAll + queries + order + sql.period.channelSummaryStatistics.selectAllBack
+    func.connPool1(query, [tableName.period.channelSummaryStatistics, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -225,8 +225,8 @@ module.exports = {
   getCount(req, res) {
     let params = req.body
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.channelStatistics.getCount + queries
-    func.connPool1(query, [tableName.period.channelStatistics], function (err, rs) {
+    let query = sql.period.channelSummaryStatistics.getCount + queries
+    func.connPool1(query, [tableName.period.channelSummaryStatistics], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
@@ -244,22 +244,22 @@ module.exports = {
     })
   },
   refreshData(req, res) {
-    if (global.channelStatisticsCount === 0) {
-      global.channelStatisticsCount++
-      pro.exec(shell.channelStatistics, function (error, stdout, stderr) {
+    if (global.channelSummaryStatisticsCount === 0) {
+      global.channelSummaryStatisticsCount++
+      pro.exec(shell.channelSummaryStatistics, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道汇总统计表shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
-          global.channelStatisticsCount = 0
+          global.channelSummaryStatisticsCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道汇总统计表shell脚本执行成功')
           res.json({code: '200'})
-          global.channelStatisticsCount = 0
+          global.channelSummaryStatisticsCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期收入结算明细表开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 开心分期渠道汇总统计表开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }
@@ -267,8 +267,8 @@ module.exports = {
   getExcelData(req, res) {
     let params = req.query
     let queries = analysis(params, 'd_date', 'w')
-    let query = sql.period.channelStatistics.selectAllExcel + queries + sql.period.channelStatistics.order
-    func.connPool1(query, [tableName.period.channelStatistics], function (err, rs) {
+    let query = sql.period.channelSummaryStatistics.selectAllExcel + queries + sql.period.channelSummaryStatistics.order
+    func.connPool1(query, [tableName.period.channelSummaryStatistics], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
         if (err.message === 'Query inactivity timeout') {
