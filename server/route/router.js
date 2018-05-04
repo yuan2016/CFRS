@@ -170,6 +170,7 @@ let channelPromotionInformation = require('../controller/period/market/channelPr
 let promotionInformation = require('../controller/period/market/promotionInformation/promotionInformation')
 let registrationStatisticsReport = require('../controller/period/market/registrationStatisticsReport/registrationStatisticsReport')
 let promotionStatisticsArea = require('../controller/period/market/promotionStatisticsArea/promotionStatisticsArea')
+let promotionStatisticalChannel = require('../controller/period/market/promotionStatisticalChannel/promotionStatisticalChannel')
 let api = require('../api')
 
 let router = express.Router()
@@ -894,4 +895,10 @@ router.get(api.registrationStatisticsReportExcel, registrationStatisticsReport.g
 router.post(api.promotionStatisticsAreaCount, promotionStatisticsArea.getCount)
 router.post(api.promotionStatisticsArea, promotionStatisticsArea.fetchAll)
 router.get(api.promotionStatisticsAreaExcel, promotionStatisticsArea.getExcelData)
+//推广统计-渠道
+router.post(api.promotionStatisticalChannelCount, promotionStatisticalChannel.getCount)
+router.post(api.promotionStatisticalChannel, promotionStatisticalChannel.fetchAll)
+router.post(api.promotionStatisticalChannelRefresh, promotionStatisticalChannel.refreshData)
+router.post(api.promotionStatisticalChannelGetOptions, promotionStatisticalChannel.getSelectOptions)
+router.get(api.promotionStatisticalChannelExcel, promotionStatisticalChannel.getExcelData)
 module.exports = router

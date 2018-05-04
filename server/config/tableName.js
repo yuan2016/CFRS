@@ -358,6 +358,8 @@ module.exports = {
     //注册量统计表
     registrationStatisticsReport: 'PR_DS_LOAN_DAY_KXFQ',
     //推广统计-地区
-    promotionStatisticsArea: 'PR_PM_PROMOTION_STATISTIC_REGION_KXFQ'
+    promotionStatisticsArea: 'PR_PM_PROMOTION_STATISTIC_REGION_KXFQ',
+    //推广统计-渠道
+    promotionStatisticalChannel: 'PR_PM_PROMOTION_STATISTIC_CHANNEL_KXFQ'
   }
 }

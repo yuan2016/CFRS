@@ -676,5 +676,11 @@ module.exports = {
   //推广统计-地区
   promotionStatisticsArea: path + '/promotionStatisticsArea',
   promotionStatisticsAreaCount: path + '/promotionStatisticsArea/count',
-  promotionStatisticsAreaExcel: path + '/promotionStatisticsArea/excel'
+  promotionStatisticsAreaExcel: path + '/promotionStatisticsArea/excel',
+  // 推广统计-渠道
+  promotionStatisticalChannel: path + '/promotionStatisticalChannel',
+  promotionStatisticalChannelCount: path + '/promotionStatisticalChannel/count',
+  promotionStatisticalChannelRefresh: path + '/promotionStatisticalChannel/refresh',
+  promotionStatisticalChannelGetOptions: path + '/promotionStatisticalChannel/getSelectOptions',
+  promotionStatisticalChannelExcel: path + '/promotionStatisticalChannel/excel'
 }

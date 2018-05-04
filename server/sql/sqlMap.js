@@ -1156,6 +1156,15 @@ let sqlMap = {
       getCount: "select count(*) as count from ??",
       selectAllExcel:
         'select d_date as "日期", Province as "省份", city as "城市", register_num as "注册量", realname_auth_num as "实名认证",card_bound_num as "绑卡人数",emergency_contact_num as "紧急联系人",operator_auth_num as "运营商认证", Alipay_auth_num as "支付宝认证人数", Sesame_auth_num as "芝麻认证人数", jobinfo_auth_num as "工作信息", apply_loan_num as "申请借款人数",apply_succ_num as "申请成功人数", Pass_rate as "通过率", loan_amount as "放款金额(元)", blacklist_num as "黑名单人数", overdue_num as "逾期人数" from ?? '
+    },
+    promotionStatisticalChannel: {
+      selectAllFront: 'select * from ??',
+      selectAllBack: " limit ?,?",
+      order: " order by d_date desc",
+      getCount: 'select count(*) as count from ??',
+      getSelectOptions: "select channel_trader_name from ?? group by channel_trader_name",
+      selectAllExcel:
+        'select d_date as "日期", channel_trader_name as "渠道商名称", settle_method as "结算方式", effe_cust_acqu_cost as "有效获客成本(元)",day_consumption as "当日消耗(元)",register_num as "注册量",all_fact_auth_num as "全要素认证人数",apply_loan_num as "申请借款人数",apply_loan_num_new as "新用户申请借款人数",apply_loan_num_old as "老用户申请借款人数",blacklist_num as "黑名单人数",nuser_apply_succ_num as "新用户申请成功人数", ouser_apply_succ_num as "老用户申请成功人数", nuser_loan_ratio as "新用户借款率",nuser_adoption_rate as "新用户通过率",nuser_loan_amount as "新用户放款金额(元)",ouser_adoption_rate as "老用户通过率",ouser_loan_amount as "老用户放款金额(元)",DUE_AMOUNT as "到期金额(元)",overdue_num as "逾期人数", OVERDUE_AMOUNT as "逾期金额(元)", BADDEBT_RATE as "坏账率", BADDEBT_amount as "坏账金额(元)", UNITGROSS_PROFIT as "单位毛利润(元)",baddebt_amount_unit as "单位坏账金额(元)" from ??'
     }
   }
 }

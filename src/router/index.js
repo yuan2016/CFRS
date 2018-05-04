@@ -1316,6 +1316,15 @@ const promotionStatisticsArea = r =>
       ),
     "promotionStatisticsArea"
   );
+const promotionStatisticalChannel = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/periodization/market/promotionStatisticalChannel/promotionStatisticalChannel")
+      ),
+    "promotionStatisticalChannel"
+  );
 /**
  * icon : the icon show in the sidebar
  * hidden : if hidden:true will not show in the sidebar
@@ -2750,6 +2759,13 @@ export const asyncRouterMap = [
         component: promotionStatisticsArea,
         name: "推广统计-地区",
         meta: ["开心分期", "市场统计", "推广统计-地区"]
+      },
+      {
+        path: "/period/market/promotionStatisticalChannel",
+        icon: "el-icon-star-on",
+        component: promotionStatisticalChannel,
+        name: "推广统计-渠道",
+        meta: ["开心分期", "市场统计", "推广统计-渠道"]
       }
     ]
   },

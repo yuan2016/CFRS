@@ -551,6 +551,10 @@
     {
       "value": "推广统计-地区",
       "address": "/period/market/promotionStatisticsArea"
+    },
+    {
+      "value": "推广统计-渠道",
+      "address": "/period/market/promotionStatisticalChannel"
     }
   ]
 }

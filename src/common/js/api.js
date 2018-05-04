@@ -3236,3 +3236,33 @@ export function getPromotionStatisticsAreaCount (data) {
     data: data
   })
 }
+//推广统计(渠道)
+export function getPromotionStatisticalChannel (data) {
+  return fetch({
+    url: '/api/promotionStatisticalChannel',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(渠道)数量
+export function getPromotionStatisticalChannelCount (data) {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/count',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(渠道)select
+export function getPromotionStatisticalChannelSelect () {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/getSelectOptions',
+    method: 'post'
+  })
+}
+//推广统计(渠道)一件刷新
+export function getPromotionStatisticalChannelRefresh () {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/refresh',
+    method: 'post'
+  })
+}

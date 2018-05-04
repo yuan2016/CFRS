@@ -137,7 +137,8 @@ let address = {
   '渠道推广信息表': '/period/market/channelPromotionInformation',
   '推广员信息表': '/period/market/promotionInformation',
   '注册量统计表': '/period/market/registrationStatisticsReport',
-  '推广统计-地区': '/period/market/promotionStatisticsArea'
+  '推广统计-地区': '/period/market/promotionStatisticsArea',
+  '推广统计-渠道': '/period/market/promotionStatisticalChannel'
 }
 
 export { parentTable, address }
