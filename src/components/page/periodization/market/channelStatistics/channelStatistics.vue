@@ -316,7 +316,7 @@
         getChannelStatisticsSelect().then((response) => {
           this.options = response.data
         })
-      },
+      }
     }
   }
 </script>
