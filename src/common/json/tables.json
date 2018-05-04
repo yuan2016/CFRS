@@ -535,6 +535,26 @@
     {
       "value": "渠道统计汇总表",
       "address": "/period/market/channelSummaryStatistics"
+    },
+    {
+      "value": "渠道推广信息表",
+      "address": "/period/market/channelPromotionInformation"
+    },
+    {
+      "value": "推广员信息表",
+      "address": "/period/market/promotionInformation"
+    },
+    {
+      "value": "注册量统计表",
+      "address": "/period/market/registrationStatisticsReport"
+    },
+    {
+      "value": "推广统计-地区",
+      "address": "/period/market/promotionStatisticsArea"
+    },
+    {
+      "value": "推广统计-渠道",
+      "address": "/period/market/promotionStatisticalChannel"
     }
   ]
 }

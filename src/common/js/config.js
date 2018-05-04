@@ -133,7 +133,12 @@ let address = {
   '商城月报表': '/period/mall/finance/mallMonthlyReport',
   '零钱资金账户明细表': '/period/mall/finance/changeFundAccountStatement',
   '渠道统计表': '/period/market/channelStatistics',
-  '渠道统计汇总表': '/period/market/channelSummaryStatistics'
+  '渠道统计汇总表': '/period/market/channelSummaryStatistics',
+  '渠道推广信息表': '/period/market/channelPromotionInformation',
+  '推广员信息表': '/period/market/promotionInformation',
+  '注册量统计表': '/period/market/registrationStatisticsReport',
+  '推广统计-地区': '/period/market/promotionStatisticsArea',
+  '推广统计-渠道': '/period/market/promotionStatisticalChannel'
 }
 
 export { parentTable, address }

@@ -141,14 +141,14 @@
         let clientWidth = document.documentElement.clientWidth
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseover', function (event) {
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByClassName('elextra-icon-info')[0].addEventListener('mouseover', function (event) {
             let x = clientWidth - event.clientX + 20
             let y = event.clientY - 30
             popName[i].style.display = 'block'
             popName[i].style.top = y + 'px'
             popName[i].style.right = x + 'px'
           })
-          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseout', function () {
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByClassName('elextra-icon-info')[0].addEventListener('mouseout', function () {
             popName[i].style.display = 'none'
           })
         }

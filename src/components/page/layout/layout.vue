@@ -245,7 +245,7 @@
         } else if (command === '开心拍卖') {
           value = this.$store.getters.table2.split('|')
           key = 2
-        } else {
+        } else if (command === '开心分期') {
           value = this.$store.getters.table3.split('|')
           key = 3
         }
@@ -458,7 +458,7 @@
         department: state => state.user.department,
         email: state => getEmail() + '@xianjinkd.com',
         phone: state => state.user.phone,
-        productNames: state => state.user.productName,
+        productNames: state => state.user.productName.reverse(),
         currentProduct: state => state.permission.currentProduct
       })
     }

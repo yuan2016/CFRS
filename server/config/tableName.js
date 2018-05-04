@@ -350,6 +350,16 @@ module.exports = {
     //渠道统计表
     channelStatistics: 'PR_PM_CHANNEL_STATISTIC_KXFQ',
     //渠道统计汇总表
-    channelSummaryStatistics: 'PR_PM_CHANNEL_STATISTIC_SUM_KXFQ'
+    channelSummaryStatistics: 'PR_PM_CHANNEL_STATISTIC_SUM_KXFQ',
+    //渠道推广信息
+    channelPromotionInformation: 'PR_FA_CHANNEL_INFO_KXFQ',
+    //推广员信息
+    promotionInformation: 'PR_FA_PROMOTERS_INFO_KXFQ',
+    //注册量统计表
+    registrationStatisticsReport: 'PR_DS_LOAN_DAY_KXFQ',
+    //推广统计-地区
+    promotionStatisticsArea: 'PR_PM_PROMOTION_STATISTIC_REGION_KXFQ',
+    //推广统计-渠道
+    promotionStatisticalChannel: 'PR_PM_PROMOTION_STATISTIC_CHANNEL_KXFQ'
   }
 }

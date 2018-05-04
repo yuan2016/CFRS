@@ -660,5 +660,27 @@ module.exports = {
   channelSummaryStatistics: path + '/channelSummaryStatistics',
   channelSummaryStatisticsCount: path + '/channelSummaryStatistics/count',
   channelSummaryStatisticsRefresh: path + '/channelSummaryStatistics/refresh',
-  channelSummaryStatisticsExcel: path + '/channelSummaryStatistics/excel'
+  channelSummaryStatisticsExcel: path + '/channelSummaryStatistics/excel',
+  //渠道推广信息表
+  channelPromotionInformation: path + '/channelPromotionInformation',
+  channelPromotionInformationCount: path + '/channelPromotionInformation/count',
+  channelPromotionInformationExcel: path + '/channelPromotionInformation/excel',
+  //推广员信息表
+  promotionInformation: path + '/promotionInformation',
+  promotionInformationCount: path + '/promotionInformation/count',
+  promotionInformationExcel: path + '/promotionInformation/excel',
+  //注册量统计表
+  registrationStatisticsReport: path + '/registrationStatisticsReport',
+  registrationStatisticsReportCount: path + '/registrationStatisticsReport/count',
+  registrationStatisticsReportExcel: path + '/registrationStatisticsReport/excel',
+  //推广统计-地区
+  promotionStatisticsArea: path + '/promotionStatisticsArea',
+  promotionStatisticsAreaCount: path + '/promotionStatisticsArea/count',
+  promotionStatisticsAreaExcel: path + '/promotionStatisticsArea/excel',
+  // 推广统计-渠道
+  promotionStatisticalChannel: path + '/promotionStatisticalChannel',
+  promotionStatisticalChannelCount: path + '/promotionStatisticalChannel/count',
+  promotionStatisticalChannelRefresh: path + '/promotionStatisticalChannel/refresh',
+  promotionStatisticalChannelGetOptions: path + '/promotionStatisticalChannel/getSelectOptions',
+  promotionStatisticalChannelExcel: path + '/promotionStatisticalChannel/excel'
 }

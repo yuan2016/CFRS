@@ -3172,4 +3172,97 @@ export function getChannelSummaryStatisticsRefresh (data) {
     data: data
   })
 }
-
+//渠道推广信息表
+export function getChannelPromotionInformation (data) {
+  return fetch({
+    url: '/api/channelPromotionInformation',
+    method: 'post',
+    data: data
+  })
+}
+//渠道推广信息表 统计
+export function getChannelPromotionInformationCount (data) {
+  return fetch({
+    url: '/api/channelPromotionInformation/count',
+    method: 'post',
+    data: data
+  })
+}
+//推广员信息表
+export function getPromotionInformation (data) {
+  return fetch({
+    url: '/api/promotionInformation',
+    method: 'post',
+    data: data
+  })
+}
+//推广员信息表 统计
+export function getPromotionInformationCount (data) {
+  return fetch({
+    url: '/api/promotionInformation/count',
+    method: 'post',
+    data: data
+  })
+}
+//注册量统计报表
+export function getRegistrationStatisticsReportFQ (data) {
+  return fetch({
+    url: '/api/registrationStatisticsReport',
+    method: 'post',
+    data: data
+  })
+}
+//注册量统计报表数量
+export function getRegistrationStatisticsReportFQCount (data) {
+  return fetch({
+    url: '/api/registrationStatisticsReport/count',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(地区)
+export function getPromotionStatisticsArea (data) {
+  return fetch({
+    url: '/api/promotionStatisticsArea',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(地区)数量
+export function getPromotionStatisticsAreaCount (data) {
+  return fetch({
+    url: '/api/promotionStatisticsArea/count',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(渠道)
+export function getPromotionStatisticalChannel (data) {
+  return fetch({
+    url: '/api/promotionStatisticalChannel',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(渠道)数量
+export function getPromotionStatisticalChannelCount (data) {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/count',
+    method: 'post',
+    data: data
+  })
+}
+//推广统计(渠道)select
+export function getPromotionStatisticalChannelSelect () {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/getSelectOptions',
+    method: 'post'
+  })
+}
+//推广统计(渠道)一件刷新
+export function getPromotionStatisticalChannelRefresh () {
+  return fetch({
+    url: '/api/promotionStatisticalChannel/refresh',
+    method: 'post'
+  })
+}

@@ -98,12 +98,12 @@
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2_X" label="新网" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2" label="合计" min-width=100></el-table-column>
       </el-table-column>
-      <el-table-column label="S3总和催回率">
+      <el-table-column label="M2总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3_X" label="新网" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3" label="合计" min-width=100></el-table-column>
       </el-table-column>
-      <el-table-column label="S3当期催回率">
+      <el-table-column label="M2当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_S3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_S3_X" label="新网" min-width=100></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_S3" label="合计" min-width=100></el-table-column>
