@@ -18,9 +18,10 @@
       <el-table-column property="operator_name" label="负责人" min-width="100"></el-table-column>
       <el-table-column property="channel_tel" label="联系方式" min-width="100"></el-table-column>
       <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间" min-width="140"></el-table-column>
-      <el-table-column prop="rel_path" label="推广二维码" min-width="100">
+      <el-table-column property="rel_path" sortable="custom" label="推广二维码" min-width="140"></el-table-column>
+<!--      <el-table-column prop="rel_path" label="推广二维码" min-width="100">
         <template slot-scope="scope"><a :href="scope.row.rel_path">点击查看</a></template>
-      </el-table-column>
+      </el-table-column>-->
       <el-table-column prop="remark" label="推广链接" min-width="100">
         <template slot-scope="scope"><a :href="scope.row.remark">点击查看</a></template>
       </el-table-column>

@@ -114,7 +114,7 @@ function formatExcelData (rows) {
     if (row.修改时间) {
       row.修改时间 = moment(row.修改时间).format('YYYY-MM-DD HH:mm:ss')
     }
-    if (row.注册人数) {
+    /*if (row.注册人数) {
       row.注册人数 = formatInt(row.注册人数)
     }
     if (row.登录人数) {
@@ -162,9 +162,6 @@ function formatExcelData (rows) {
     if (row.成功获取额度) {
       row.成功获取额度 = formatInt(row.成功获取额度)
     }
-    if (row.通过率) {
-      row.通过率 = (row.通过率 * 100).toFixed(2) + '%'
-    }
     if (row['购买会员(新用户)']) {
       row['购买会员(新用户)'] = formatInt(row['购买会员(新用户)'])
     }
@@ -182,6 +179,9 @@ function formatExcelData (rows) {
     }
     if (row['放款金额(老用户)']) {
       row['放款金额(老用户)'] = formatCurrency(row['放款金额(老用户)'])
+    }*/
+    if (row['通过率(成功激活人数/激活人数)']) {
+      row['通过率(成功激活人数/激活人数)'] = (row['通过率(成功激活人数/激活人数)'] * 100).toFixed(2) + '%'
     }
     if (row.逾期率) {
       row.逾期率 = (row.逾期率 * 100).toFixed(2) + '%'

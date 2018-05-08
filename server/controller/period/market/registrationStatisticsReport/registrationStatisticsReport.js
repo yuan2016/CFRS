@@ -39,7 +39,7 @@ function formatExcelData (rows) {
     if (row.修改时间) {
       row.修改时间 = moment(row.修改时间).format('YYYY-MM-DD HH:mm:ss')
     }
-    if (row.注册人数) {
+    /*if (row.注册人数) {
       row.注册人数 = formatInt(row.注册人数)
     }
     if (row['放款总额(元)']) {
@@ -50,7 +50,7 @@ function formatExcelData (rows) {
     }
     if (row['新用户放款总额(元)']) {
       row['新用户放款总额(元)'] = formatCurrency(row['新用户放款总额(元)'])
-    }
+    }*/
     return row
   })
 }

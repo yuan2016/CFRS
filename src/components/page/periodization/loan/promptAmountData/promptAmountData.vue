@@ -36,147 +36,147 @@
       <el-table-column label="当日催回率">
         <el-table-column property="OVERDUE_RATE_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="OVERDUE_RATE_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="OVERDUE_RATE" label="合计" min-width=100></el-table-column>
+        <el-table-column property="OVERDUE_RATE" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="当日入催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DAY_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DAY_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DAY" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DAY" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S1在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_S1_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_S1_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_S1" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_S1" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S1在催本金比例">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S1_Z" label="招财猫"></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S1_X" label="新网"></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S1" label="合计"></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S1" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S1总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S1_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S1_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S1" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S1" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S1当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_S1_Z" label="招财猫"></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_S1_X" label="新网"></el-table-column>
-        <el-table-column property="CURRENT_COLLECTION_RATE_S1" label="合计"></el-table-column>
+        <el-table-column property="CURRENT_COLLECTION_RATE_S1" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S2在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_S2_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_S2_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_S2" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_S2" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S2在催本金比例">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S2_Z" label="招财猫"></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S2_X" label="新网"></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S2" label="合计"></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_S2" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S2总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S2_Z" label="招财猫"></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S2_X" label="新网"></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S2" label="合计"></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S2" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S2当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_S2_Z" label="招财猫"></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_S2_X" label="新网"></el-table-column>
-        <el-table-column property="CURRENT_COLLECTION_RATE_S2" label="合计"></el-table-column>
+        <el-table-column property="CURRENT_COLLECTION_RATE_S2" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="M2在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M2_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M2_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M2" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M2" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M2在催本金比例">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M2" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M2总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_RATE_S3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M2当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_S3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_S3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="CURRENT_COLLECTION_RATE_S3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="CURRENT_COLLECTION_RATE_S3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3在催本金比例">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_M3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_M3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="CURRENT_COLLECTION_RATE_M3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="CURRENT_COLLECTION_RATE_M3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3+在催本金(元)">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3PLUS_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3PLUS_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3PLUS" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_M3PLUS" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3+在催本金比例">
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3PLUS_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3PLUS_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3PLUS" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_DOING_RATE_M3PLUS" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3+总和催回率">
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3PLUS_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3PLUS_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3PLUS" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_PRINCIPAL_RATE_M3PLUS" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3+当期催回率">
         <el-table-column property="CURRENT_COLLECTION_RATE_M3PLUS_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="CURRENT_COLLECTION_RATE_M3PLUS_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="CURRENT_COLLECTION_RATE_M3PLUS" label="合计" min-width=100></el-table-column>
+        <el-table-column property="CURRENT_COLLECTION_RATE_M3PLUS" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S1在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_S1_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_S1_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING_S1" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING_S1" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S2在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_S2_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_S2_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING_S2" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING_S2" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M2在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M2_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M2_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING_M2" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING_M2" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M3_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M3_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING_M3" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING_M3" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="M3+在催滞纳金(元)">
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M3PLUS_Z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="COLLECTION_LATE_FEE_DOING_M3PLUS_X" label="新网" min-width=100></el-table-column>
-        <el-table-column property="COLLECTION_LATE_FEE_DOING_M3PLUS" label="合计" min-width=100></el-table-column>
+        <el-table-column property="COLLECTION_LATE_FEE_DOING_M3PLUS" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column property="UPDATE_TIME" label="更新时间" min-width="140"></el-table-column>
     </el-table>
@@ -392,6 +392,9 @@
       li
         .dateSelect
           width: 165px
+    .fontBold
+      .cell
+        font-weight:bold
 
 </style>
 

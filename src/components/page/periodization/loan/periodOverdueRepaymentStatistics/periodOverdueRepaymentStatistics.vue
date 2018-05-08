@@ -36,82 +36,82 @@
       <el-table-column label="当前借款总数量">
         <el-table-column property="loan_amount_total_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_amount_total_x" label="新网"></el-table-column>
-        <el-table-column property="loan_amount_total" label="合计"></el-table-column>
+        <el-table-column property="loan_amount_total" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="当前借款总额(元)">
         <el-table-column property="loan_money_total_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="loan_money_total_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loan_money_total" label="合计" min-width=100></el-table-column>
+        <el-table-column property="loan_money_total" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="已经还款总数量">
         <el-table-column property="repayment_amount_total_z" label="招财猫"></el-table-column>
         <el-table-column property="repayment_amount_total_x" label="新网"></el-table-column>
-        <el-table-column property="repayment_amount_total" label="合计"></el-table-column>
+        <el-table-column property="repayment_amount_total" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="已经还款总额(元)">
         <el-table-column property="repayment_money_total_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="repayment_money_total_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="repayment_money_total" label="合计" min-width=100></el-table-column>
+        <el-table-column property="repayment_money_total" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="逾期中数量">
         <el-table-column property="quantity_overdue_z" label="招财猫"></el-table-column>
         <el-table-column property="quantity_overdue_x" label="新网"></el-table-column>
-        <el-table-column property="quantity_overdue" label="合计"></el-table-column>
+        <el-table-column property="quantity_overdue" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="逾期中总额(元)">
         <el-table-column property="total_overdue_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="total_overdue_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="total_overdue" label="合计" min-width=100></el-table-column>
+        <el-table-column property="total_overdue" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="逾期十天以上总金额(元)">
         <el-table-column property="overdue_money_10d_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="overdue_money_10d_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="overdue_money_10d" label="合计" min-width=100></el-table-column>
+        <el-table-column property="overdue_money_10d" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="14天期限逾期十天以上总金额(元)">
         <el-table-column property="overdue_money_10d_14_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="overdue_money_10d_14_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="overdue_money_10d_14" label="合计" min-width=100></el-table-column>
+        <el-table-column property="overdue_money_10d_14" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="S1级逾期率(按金额)">
         <el-table-column property="M_overdue_rate_s1_z" label="招财猫"></el-table-column>
         <el-table-column property="M_overdue_rate_s1_x" label="新网"></el-table-column>
-        <el-table-column property="M_overdue_rate_s1" label="合计"></el-table-column>
+        <el-table-column property="M_overdue_rate_s1" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S2级逾期率(按金额)">
         <el-table-column property="M_overdue_rate_s2_z" label="招财猫"></el-table-column>
         <el-table-column property="M_overdue_rate_s2_x" label="新网"></el-table-column>
-        <el-table-column property="M_overdue_rate_s2" label="合计"></el-table-column>
+        <el-table-column property="M_overdue_rate_s2" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S3级逾期率(按金额)">
         <el-table-column property="M_overdue_rate_s3_z" label="招财猫"></el-table-column>
         <el-table-column property="M_overdue_rate_s3_x" label="新网"></el-table-column>
-        <el-table-column property="M_overdue_rate_s3" label="合计"></el-table-column>
+        <el-table-column property="M_overdue_rate_s3" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="M3级逾期率(按金额)">
         <el-table-column property="M_overdue_rate_m3_z" label="招财猫"></el-table-column>
         <el-table-column property="M_overdue_rate_m3_x" label="新网"></el-table-column>
-        <el-table-column property="M_overdue_rate_m3" label="合计"></el-table-column>
+        <el-table-column property="M_overdue_rate_m3" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S1级逾期率(按单数)">
         <el-table-column property="N_overdue_rate_s1_z" label="招财猫"></el-table-column>
         <el-table-column property="N_overdue_rate_s1_x" label="新网"></el-table-column>
-        <el-table-column property="N_overdue_rate_s1" label="合计"></el-table-column>
+        <el-table-column property="N_overdue_rate_s1" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S2级逾期率(按单数)">
         <el-table-column property="N_overdue_rate_s2_z" label="招财猫"></el-table-column>
         <el-table-column property="N_overdue_rate_s2_x" label="新网"></el-table-column>
-        <el-table-column property="N_overdue_rate_s2" label="合计"></el-table-column>
+        <el-table-column property="N_overdue_rate_s2" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="S3级逾期率(按单数)">
         <el-table-column property="N_overdue_rate_s3_z" label="招财猫"></el-table-column>
         <el-table-column property="N_overdue_rate_s3_x" label="新网"></el-table-column>
-        <el-table-column property="N_overdue_rate_s3" label="合计"></el-table-column>
+        <el-table-column property="N_overdue_rate_s3" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="M3级逾期率(按单数)">
         <el-table-column property="N_overdue_rate_m3_z" label="招财猫"></el-table-column>
         <el-table-column property="N_overdue_rate_m3_x" label="新网"></el-table-column>
-        <el-table-column property="N_overdue_rate_m3" label="合计"></el-table-column>
+        <el-table-column property="N_overdue_rate_m3" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column property="create_time" label="更新时间" min-width="140"></el-table-column>
     </el-table>
@@ -327,6 +327,9 @@
       li
         .dateSelect
           width: 165px
+    .fontBold
+      .cell
+        font-weight:bold
 
 </style>
 
