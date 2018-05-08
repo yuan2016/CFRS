@@ -378,42 +378,42 @@ export function getPromotionChannelStatisticsQESelect (data) {
   })
 }
 //企鹅推广统计（OPPO）
-export function getPromotionOPPOStatisticsQE (data) {
+export function getpromotionStatisticsQEClassify (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE',
+    url: '/api/promotionStatisticsQEClassify',
     method: 'post',
     data: data
   })
 }
 //企鹅推广统计（OPPO）
-export function getPromotionOPPOStatisticsQEChannelName (data) {
+export function getpromotionStatisticsQEClassifyChannelName (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/ChannelName',
+    url: '/api/promotionStatisticsQEClassify/ChannelName',
     method: 'post',
     data: data
   })
 }
 
 //企鹅推广统计（OPPO）数量
-export function getPromotionOPPOStatisticsQECount (data) {
+export function getpromotionStatisticsQEClassifyCount (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/count',
+    url: '/api/promotionStatisticsQEClassify/count',
     method: 'post',
     data: data
   })
 }
 //企鹅推广统计（OPPO）一键刷新
-export function getPromotionOPPOStatisticsQERefresh (data) {
+export function getpromotionStatisticsQEClassifyRefresh (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/refresh',
+    url: '/api/promotionStatisticsQEClassify/refresh',
     method: 'post',
     data: data
   })
 }
 //企鹅推广统计（OPPO）和
-export function getPromotionOPPOStatisticsQESUM (data) {
+export function getpromotionStatisticsQEClassifySUM (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/sum',
+    url: '/api/promotionStatisticsQEClassify/sum',
     method: 'post',
     data: data
   })
@@ -421,15 +421,15 @@ export function getPromotionOPPOStatisticsQESUM (data) {
 //企鹅推广统计（OPPO）更新数据
 export function updataOPPOQEData (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/update',
+    url: '/api/promotionStatisticsQEClassify/update',
     method: 'post',
     data: data
   })
 }
 //企鹅推广统计（OPPO）渠道名称
-export function getPromotionOPPOStatisticsQESelect (data) {
+export function getpromotionStatisticsQEClassifySelect (data) {
   return fetch({
-    url: '/api/promotionOPPOStatisticsQE/getSelectOptions',
+    url: '/api/promotionStatisticsQEClassify/getSelectOptions',
     method: 'post',
     data: data
   })

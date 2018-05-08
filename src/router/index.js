@@ -233,14 +233,14 @@ const promotionChannelStatisticsQE = r =>
       ),
     "promotionChannelStatisticsQE"
   );
-const promotionOPPOStatisticsQE = r =>
+const promotionStatisticsQEClassify = r =>
   require.ensure(
     [],
     () =>
       r(
-        require("../components/page/toyGrab/market/promotionOPPOStatisticsQE/promotionOPPOStatisticsQE")
+        require("../components/page/toyGrab/market/promotionStatisticsQEClassify/promotionStatisticsQEClassify")
       ),
-    "promotionOPPOStatisticsQE"
+    "promotionStatisticsQEClassify"
   );
 const onlineStatisticsHourlyQE = r =>
   require.ensure(
@@ -1559,9 +1559,9 @@ export const asyncRouterMap = [
         meta: ["市场分析", "企鹅推广统计(渠道)"]
       },
       {
-        path: "/toyGrab/market/promotionOPPOStatisticsQE",
+        path: "/toyGrab/market/promotionStatisticsQEClassify",
         icon: "el-icon-star-on",
-        component: promotionOPPOStatisticsQE,
+        component: promotionStatisticsQEClassify,
         name: "企鹅推广统计(厂商)",
         meta: ["市场分析", "企鹅推广统计(厂商)"]
       },

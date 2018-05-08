@@ -1,5 +1,5 @@
 <template>
-  <div class="promotionOPPOStatisticsQE" v-loading.body="loading" element-loading-text="拼命加载中">
+  <div class="promotionStatisticsQEClassify" v-loading.body="loading" element-loading-text="拼命加载中">
     <banner></banner>
     <div class="date-filter">
       <li>
@@ -52,7 +52,7 @@
             <div class="title">修改数据</div>
             <span class="formula">公式：付费用户成本=当日消耗/每日充值人数</span>
             <el-form :label-position="labelPosition" label-width="120px" :rules="loginRules" :model="formLabelAlign"
-                     class="promotionOPPOStatisticsQE-form" ref="ruleForm">
+                     class="promotionStatisticsQEClassify-form" ref="ruleForm">
               <el-form-item prop="day_consumption" size="mini" label="当日消耗:">
                 <el-input v-model.trim="formLabelAlign.day_consumption" @change="calcultate"></el-input>
               </el-form-item>
@@ -60,7 +60,7 @@
                 <el-input v-model.trim="formLabelAlign.payuser_cost" disabled></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" class="promotionOPPOStatisticsQE-button" @click="saveData('ruleForm')">
+                <el-button type="primary" class="promotionStatisticsQEClassify-button" @click="saveData('ruleForm')">
                   立即修改
                 </el-button>
               </el-form-item>
@@ -79,13 +79,13 @@
   import banner from '../../../../common/banner/banner'
   import {getNowFormatDate, formatDate} from '../../../../../common/js/utils'
   import {
-    getPromotionOPPOStatisticsQE,
-    getPromotionOPPOStatisticsQECount,
-    getPromotionOPPOStatisticsQERefresh,
-    getPromotionOPPOStatisticsQESUM,
-    getPromotionOPPOStatisticsQEChannelName,
+    getpromotionStatisticsQEClassify,
+    getpromotionStatisticsQEClassifyCount,
+    getpromotionStatisticsQEClassifyRefresh,
+    getpromotionStatisticsQEClassifySUM,
+    getpromotionStatisticsQEClassifyChannelName,
     updataOPPOQEData,
-    getPromotionOPPOStatisticsQESelect
+    getpromotionStatisticsQEClassifySelect
   } from '../../../../../common/js/api'
   import {mapState, mapGetters} from 'vuex'
 
@@ -164,9 +164,9 @@
     computed: {
        mosaicLink() {
          if (this.startTime === this.endTime || this.startTime === formatDate(new Date(), 'yyyy-MM-dd') || (!this.startTime && !this.endTime)) {
-           return 'api/promotionOPPOStatisticsQE/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"&channel_name="' + [this.channel_name, 'SELECT'] + '"'
+           return 'api/promotionStatisticsQEClassify/excel?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"&channel_name="' + [this.channel_name, 'SELECT'] + '"'
          } else {
-           return 'api/promotionOPPOStatisticsQE/excelSUM?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"&channel_name="' + [this.channel_name, 'SELECT'] + '"'
+           return 'api/promotionStatisticsQEClassify/excelSUM?startTime="' + [this.startTime, 'DATE'] + '"&endTime="' + [this.endTime, 'DATE'] + '"&channel_name="' + [this.channel_name, 'SELECT'] + '"'
          }
        },
       ...mapGetters([
@@ -183,7 +183,7 @@
         })
       },
       getChannelName() {
-        return getPromotionOPPOStatisticsQEChannelName({
+        return getpromotionStatisticsQEClassifyChannelName({
           name: this.name
         })
       },
@@ -278,7 +278,7 @@
         })
       },
       getData() {
-        return getPromotionOPPOStatisticsQE({
+        return getpromotionStatisticsQEClassify({
           channel_name: [this.channel_name, 'SELECT'],
           startTime: [this.startTime, 'DATE'],
           endTime: [this.endTime, 'DATE'],
@@ -288,14 +288,14 @@
         })
       },
       getDataSUM() {
-        return getPromotionOPPOStatisticsQESUM({
+        return getpromotionStatisticsQEClassifySUM({
           channel_name: [this.channel_name, 'SELECT'],
           startTime: [this.startTime, 'DATE'],
           endTime: [this.endTime, 'DATE']
         })
       },
       getCount() {
-        return getPromotionOPPOStatisticsQECount({
+        return getpromotionStatisticsQEClassifyCount({
           channel_name: [this.channel_name, 'SELECT'],
           startTime: [this.startTime, 'DATE'],
           endTime: [this.endTime, 'DATE']
@@ -395,7 +395,7 @@
         })
       },
       getSelectOptions() {
-        getPromotionOPPOStatisticsQESelect().then((response) => {
+        getpromotionStatisticsQEClassifySelect().then((response) => {
           this.options = response.data
         })
       }
@@ -404,13 +404,13 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .promotionOPPOStatisticsQE
+  .promotionStatisticsQEClassify
     height: 100%
     .date-filter
       li
         .managerText
           width: 160px
-        .promotionChannelSelect, .userListTimeSelect, .promotionOPPOStatisticsQESelect
+        .promotionChannelSelect, .userListTimeSelect, .promotionStatisticsQEClassifySelect
           width: 160px
     .detail
       position: fixed
@@ -460,9 +460,9 @@
             display: inline-block
             margin: 30px 0 10px -50px
             color: #3a8ee6
-          .promotionOPPOStatisticsQE-form
+          .promotionStatisticsQEClassify-form
             margin: 20px 20px 20px 0
-          .promotionOPPOStatisticsQE-button
+          .promotionStatisticsQEClassify-button
             width: 200px
       .detail-close
         position: absolute

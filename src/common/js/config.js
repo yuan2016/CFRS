@@ -8,7 +8,7 @@ let address = {
   '运营用户画像': '/RMAB/userPortrait/operationUserPortrait',
   '数据概览': '/toyGrab/market/dataOverview',
   '企鹅推广统计(渠道)': '/toyGrab/market/promotionChannelStatisticsQE',
-  '企鹅推广统计(厂商)': '/toyGrab/market/promotionOPPOStatisticsQE',
+  '企鹅推广统计(厂商)': '/toyGrab/market/promotionStatisticsQEClassify',
   '企鹅在线人数统计': '/toyGrab/market/onlineStatisticsHourlyQE',
   '留存用户': '/toyGrab/userBehaviorAnalysis/retainedUser',
   '使用时长': '/toyGrab/userBehaviorAnalysis/hoursUsed',

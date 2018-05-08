@@ -225,7 +225,7 @@ let sqlMap = {
           'select ? as "日期",channel_name as "渠道名称",null "当日消耗(元)",sum(login_num) as "登录人数",sum(register_num) as "注册数",sum(user_device_num) as "注册设备数",sum(recharge_user_num) as "每日充值用户人数",sum(recharge_drnum) as "注册新用户当日充值人数",sum(recharge_user_num)/sum(register_num) as "充值用户转化率",sum(recharge_drnum)/sum(user_device_num) as "新用户当日充值率",sum(recharge_user_amt) as "充值总金额(元)",sum(recharge_user_amt)/sum(recharge_user_num) as "平均用户充值金额(元)",sum(recharge_dramt) as "注册新用户当日充值金额(元)",sum(recharge_dramt)/sum(recharge_all) as "当日注册用户充值金额占比",null "付费用户成本(元)" from ??',
         getSelectOptions: "select channel_name from ?? group by channel_name"
       },
-      promotionOPPOStatisticsQE: {
+      promotionStatisticsQEClassify: {
         selectAll:
           'select d_date,login_num,channel_name,day_consumption,register_num,user_device_num,recharge_user_num,recharge_user_rate,sum(recharge_drnum)/sum(user_device_num) as new_recharge_rate,recharge_money,avg_recharge_money,register_recharge_rate,payuser_cost,recharge_dramt,recharge_drnum,modified_time from ?? where ',
         order: " order by d_date desc,channel_name",
