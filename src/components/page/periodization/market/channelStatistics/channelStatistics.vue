@@ -158,9 +158,7 @@
         let clientWidth = document.documentElement.clientWidth
         for (let i = 0; i < pops.length; i++) {
           let j = pops[i]
-          console.log(header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0])
           header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByClassName('elextra-icon-info')[0].addEventListener('mouseover', function (event) {
-            console.log('3333')
             let x = clientWidth - event.clientX + 20
             let y = event.clientY - 30
             popName[i].style.display = 'block'

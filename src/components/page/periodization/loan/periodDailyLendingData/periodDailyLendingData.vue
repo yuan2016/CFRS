@@ -37,87 +37,87 @@
       <el-table-column label="借款人数">
         <el-table-column property="loan_num_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_num_x" label="新网"></el-table-column>
-        <el-table-column property="loan_num" label="合计"></el-table-column>
+        <el-table-column property="loan_num" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="成功借款人数">
         <el-table-column property="success_loan_num_z" label="招财猫"></el-table-column>
         <el-table-column property="success_loan_num_x" label="新网"></el-table-column>
-        <el-table-column property="success_loan_num" label="合计"></el-table-column>
+        <el-table-column property="success_loan_num" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="新用户借款占比">
         <el-table-column property="newuser_loan_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="newuser_loan_rate_x" label="新网"></el-table-column>
-        <el-table-column property="newuser_loan_rate" label="合计"></el-table-column>
+        <el-table-column property="newuser_loan_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="老用户借款占比">
         <el-table-column property="olduser_loan_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="olduser_loan_rate_x" label="新网"></el-table-column>
-        <el-table-column property="olduser_loan_rate" label="合计"></el-table-column>
+        <el-table-column property="olduser_loan_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="累计新用户借款占比">
         <el-table-column property="accunewuser_loan_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="accunewuser_loan_rate_x" label="新网"></el-table-column>
-        <el-table-column property="accunewuser_loan_rate" label="合计"></el-table-column>
+        <el-table-column property="accunewuser_loan_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="累计老用户借款占比">
         <el-table-column property="accuolduser_loan_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="accuolduser_loan_rate_x" label="新网"></el-table-column>
-        <el-table-column property="accuolduser_loan_rate" label="合计"></el-table-column>
+        <el-table-column property="accuolduser_loan_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="放款单数">
         <el-table-column property="loan_singular_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_singular_x" label="新网"></el-table-column>
-        <el-table-column property="loan_singular" label="合计"></el-table-column>
+        <el-table-column property="loan_singular" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="放款总额(元)">
         <el-table-column property="loans_total_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="loans_total_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loans_total" label="合计" min-width=100></el-table-column>
+        <el-table-column property="loans_total" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="14天期限放款单数">
         <el-table-column property="loan_singular_14day_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_singular_14day_x" label="新网"></el-table-column>
-        <el-table-column property="loan_singular_14day" label="合计"></el-table-column>
+        <el-table-column property="loan_singular_14day" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="14天期限放款总额(元)">
         <el-table-column property="loans_total_14day_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="loans_total_14day_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loans_total_14day" label="合计" min-width=100></el-table-column>
+        <el-table-column property="loans_total_14day" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="老用户放款单数">
         <el-table-column property="loan_singular_ouser_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_singular_ouser_x" label="新网"></el-table-column>
-        <el-table-column property="loan_singular_ouser" label="合计"></el-table-column>
+        <el-table-column property="loan_singular_ouser" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="老用户放款总额(元)">
         <el-table-column property="loans_total_ouser_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="loans_total_ouser_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loans_total_ouser" label="合计" min-width=100></el-table-column>
+        <el-table-column property="loans_total_ouser" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="新用户放款单数">
         <el-table-column property="loan_singular_nuser_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_singular_nuser_x" label="新网"></el-table-column>
-        <el-table-column property="loan_singular_nuser" label="合计"></el-table-column>
+        <el-table-column property="loan_singular_nuser" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="新用户放款总额(元)">
         <el-table-column property="loans_total_nuser_z" label="招财猫" min-width=100></el-table-column>
         <el-table-column property="loans_total_nuser_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loans_total_nuser" label="合计" min-width=100></el-table-column>
+        <el-table-column property="loans_total_nuser" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="满额率">
         <el-table-column property="full_amount_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="full_amount_rate_x" label="新网"></el-table-column>
-        <el-table-column property="full_amount_rate" label="合计"></el-table-column>
+        <el-table-column property="full_amount_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="新用户满额率">
         <el-table-column property="nuser_full_amount_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="nuser_full_amount_rate_x" label="新网"></el-table-column>
-        <el-table-column property="nuser_full_amount_rate" label="合计"></el-table-column>
+        <el-table-column property="nuser_full_amount_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="老用户满额率">
         <el-table-column property="ouser_full_amount_rate_z" label="招财猫"></el-table-column>
         <el-table-column property="ouser_full_amount_rate_x" label="新网"></el-table-column>
-        <el-table-column property="ouser_full_amount_rate" label="合计"></el-table-column>
+        <el-table-column property="ouser_full_amount_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column property="create_time" label="更新时间" min-width="140"></el-table-column>
     </el-table>
@@ -333,6 +333,9 @@
       li
         .dateSelect
           width: 165px
+    .fontBold
+      .cell
+        font-weight:bold
 
 </style>
 

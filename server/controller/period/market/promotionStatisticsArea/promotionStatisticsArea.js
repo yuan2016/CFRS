@@ -71,7 +71,7 @@ function formatExcelData (rows) {
     row.通过率 = (row.通过率 * 100).toFixed(2) + '%'
   }
 
-  if (row.注册量) {
+  /*if (row.注册量) {
     row.注册量 = formatInt(row.注册量)
   }
   if (row.实名认证) {
@@ -109,7 +109,7 @@ function formatExcelData (rows) {
   }
   if (row.逾期人数) {
     row.逾期人数 = formatInt(row.逾期人数)
-  }
+  }*/
   return row
 })
 }

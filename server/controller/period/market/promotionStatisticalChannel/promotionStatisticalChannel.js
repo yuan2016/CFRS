@@ -105,7 +105,7 @@ function formatExcelData (rows) {
       row.坏账率 = (row.坏账率 * 100).toFixed(2) + '%'
     }
 
-    if (row['单位毛利润(元)']) {
+    /*if (row['单位毛利润(元)']) {
       row['单位毛利润(元)'] = formatCurrency(row['单位毛利润(元)'])
     }
     if (row['有效获客成本(元)']) {
@@ -155,7 +155,7 @@ function formatExcelData (rows) {
     }
     if (row['单位坏账金额(元)']) {
       row['单位坏账金额(元)'] = formatCurrency(row['单位坏账金额(元)'])
-    }
+    }*/
     return row
   })
 }
