@@ -143,7 +143,7 @@ function packageRows(rows) {
 module.exports = {
   fetchAll(req, res) {
     let params = req.body
-    let queries = analysis(params, 'd_date', 'a')
+    let queries = analysis(params, 'd_date')
     let order = params.order || sql.toyGrab.market.promotionOPPOStatisticsQE.order
     let query = sql.toyGrab.market.promotionOPPOStatisticsQE.selectAll + queries + sql.toyGrab.market.promotionOPPOStatisticsQE.groupByD + order + sql.toyGrab.market.promotionOPPOStatisticsQE.selectAllBack
     func.connPool1(query, [tableName.QEpromotionChannelStatistics, params.offset, params.limit], function (err, rs) {
@@ -164,16 +164,36 @@ module.exports = {
       res.json(rs)
     })
   },
+  getChannelName(req, res) {
+    let params = req.body
+    let name = params.name
+    let query = sql.toyGrab.market.promotionOPPOStatisticsQE.selectChannelName
+    func.connPool1(query, [tableName.login, name], function (err, rs) {
+      if (err) {
+        console.log('[query] - :' + err)
+        if (err.message === 'Query inactivity timeout') {
+          res.json({
+            code: '1024'
+          })
+        } else {
+          res.json({
+            code: '404'
+          })
+        }
+        return false
+      }
+      res.json(rs)
+    })
+  },
   getCount(req, res) {
     let params = req.body
-    let queries = analysis(params, 'd_date', 'a')
+    let queries = analysis(params, 'd_date')
     let query
     if (params.startTime[0] === params.endTime[0] || params.startTime[0] === moment(new Date()).format('YYYY-MM-DD')  || (!params.startTime[0] && !params.endTime[0])) {
       query = sql.toyGrab.market.promotionOPPOStatisticsQE.getCount + queries
     } else {
       query = sql.toyGrab.market.promotionOPPOStatisticsQE.getCountD + queries
     }
-
     func.connPool1(query, [tableName.QEpromotionChannelStatistics], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
@@ -193,9 +213,8 @@ module.exports = {
   },
   getExcelData(req, res) {
     let params = req.query
-    let queries = analysis(params, 'd_date', 'a')
+    let queries = analysis(params, 'd_date')
     let query = sql.toyGrab.market.promotionOPPOStatisticsQE.selectAllExcel + queries + sql.toyGrab.market.promotionOPPOStatisticsQE.order
-
     func.connPool1(query, [tableName.QEpromotionChannelStatistics], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
@@ -233,7 +252,7 @@ module.exports = {
           if (err) {
             console.log(err)
             res.sendFile(path.join(process.cwd(), 'error.html'))
-            return
+            return false
           } else {
             console.log('Sent:', fileName)
             fs.unlink(currFilePath, function (err) {
@@ -298,7 +317,7 @@ module.exports = {
   },
   fetchAllSUM(req, res) {
     let params = req.body
-    let queries = analysis(params, 'd_date', 'a')
+    let queries = analysis(params, 'd_date')
     let t1 = ''
     let t2 = ''
     let t = ''
@@ -308,7 +327,6 @@ module.exports = {
       t = t1 + ' / ' + t2
     }
     let query = sql.toyGrab.market.promotionOPPOStatisticsQE.selectALLSUM + queries + sql.toyGrab.market.promotionOPPOStatisticsQE.groupBy + sql.toyGrab.market.promotionOPPOStatisticsQE.order
-
     func.connPool1(query, [t, tableName.QEpromotionChannelStatistics], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)
@@ -329,7 +347,7 @@ module.exports = {
   },
   getExcelSUMData(req, res) {
     let params = req.query
-    let queries = analysis(params, 'd_date', 'a')
+    let queries = analysis(params, 'd_date')
     let startT = params.startTime.replace(/["]/g, '').split(',')
     let endT = params.endTime.replace(/["]/g, '').split(',')
     let t1 = ''
@@ -379,7 +397,7 @@ module.exports = {
           if (err) {
             console.log(err)
             res.sendFile(path.join(process.cwd(), 'error.html'))
-            return
+            return false
           } else {
             console.log('Sent:', fileName)
             fs.unlink(currFilePath, function (err) {

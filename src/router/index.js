@@ -1562,8 +1562,8 @@ export const asyncRouterMap = [
         path: "/toyGrab/market/promotionOPPOStatisticsQE",
         icon: "el-icon-star-on",
         component: promotionOPPOStatisticsQE,
-        name: "企鹅推广统计(OPPO)",
-        meta: ["市场分析", "企鹅推广统计(OPPO)"]
+        name: "企鹅推广统计(厂商)",
+        meta: ["市场分析", "企鹅推广统计(厂商)"]
       },
       {
         path: "/toyGrab/market/onlineStatisticsHourlyQE",

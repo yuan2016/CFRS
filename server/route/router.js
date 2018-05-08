@@ -318,6 +318,7 @@ router.post(api.promotionChannelStatisticsQESUM, promotionChannelStatisticsQE.fe
 router.post(api.promotionChannelStatisticsQEGetOptions, promotionChannelStatisticsQE.getSelectOptions)
 //推广统计（OPPO）
 router.post(api.promotionOPPOStatisticsQECount, promotionOPPOStatisticsQE.getCount)
+router.post(api.promotionOPPOStatisticsQEChanneName, promotionOPPOStatisticsQE.getChannelName)
 router.post(api.promotionOPPOStatisticsQE, promotionOPPOStatisticsQE.fetchAll)
 router.post(api.promotionOPPOStatisticsQEUpdate, promotionOPPOStatisticsQE.update)
 router.get(api.promotionOPPOStatisticsQEExcel, promotionOPPOStatisticsQE.getExcelData)

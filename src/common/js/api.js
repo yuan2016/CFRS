@@ -385,6 +385,14 @@ export function getPromotionOPPOStatisticsQE (data) {
     data: data
   })
 }
+//企鹅推广统计（OPPO）
+export function getPromotionOPPOStatisticsQEChannelName (data) {
+  return fetch({
+    url: '/api/promotionOPPOStatisticsQE/ChannelName',
+    method: 'post',
+    data: data
+  })
+}
 
 //企鹅推广统计（OPPO）数量
 export function getPromotionOPPOStatisticsQECount (data) {

@@ -83,6 +83,7 @@
     getPromotionOPPOStatisticsQECount,
     getPromotionOPPOStatisticsQERefresh,
     getPromotionOPPOStatisticsQESUM,
+    getPromotionOPPOStatisticsQEChannelName,
     updataOPPOQEData,
     getPromotionOPPOStatisticsQESelect
   } from '../../../../../common/js/api'
@@ -150,8 +151,11 @@
     },
     created() {
       this.loading = true
-      this.getDataInit()
-      this.getSelectOptions()
+      this.getChannelName().then((resp) => {
+          this.channel_name = resp.data[0].channel_name
+        }).then(() => {
+          this.getDataInit()
+          })
       this.isShowRefreshAndExcel()
     },
     mounted() {
@@ -173,6 +177,16 @@
       })
     },
     methods: {
+      getAsyncChannelName() {
+        this.getChannelName().then((resp) => {
+          this.channel_name = resp.data[0].channel_name
+        })
+      },
+      getChannelName() {
+        return getPromotionOPPOStatisticsQEChannelName({
+          name: this.name
+        })
+      },
       calcultate(a) {
         if (this.peopleNum) {
           if (a.indexOf(',') !== -1) {

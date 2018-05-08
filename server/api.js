@@ -107,6 +107,7 @@ module.exports = {
   onlineStatisticsHourly: path + '/onlineStatisticsHourly', //在线统计图
   //推广统计（OPPO）
   promotionOPPOStatisticsQE: path + '/promotionOPPOStatisticsQE',
+  promotionOPPOStatisticsQEChanneName: path + '/promotionOPPOStatisticsQE/channelName',
   promotionOPPOStatisticsQECount: path + '/promotionOPPOStatisticsQE/count',
   promotionOPPOStatisticsQERefresh: path + '/promotionOPPOStatisticsQE/refresh',
   promotionOPPOStatisticsQEGetOptions: path + '/promotionOPPOStatisticsQE/getSelectOptions',

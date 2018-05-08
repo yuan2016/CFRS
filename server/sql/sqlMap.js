@@ -227,25 +227,25 @@ let sqlMap = {
       },
       promotionOPPOStatisticsQE: {
         selectAll:
-          'select d_date,login_num,channel_name,day_consumption,register_num,user_device_num,recharge_user_num,recharge_user_rate,sum(recharge_drnum)/sum(user_device_num) as new_recharge_rate,recharge_money,avg_recharge_money,register_recharge_rate,payuser_cost,recharge_dramt,recharge_drnum,modified_time from ?? where channel_id="206"',
+          'select d_date,login_num,channel_name,day_consumption,register_num,user_device_num,recharge_user_num,recharge_user_rate,sum(recharge_drnum)/sum(user_device_num) as new_recharge_rate,recharge_money,avg_recharge_money,register_recharge_rate,payuser_cost,recharge_dramt,recharge_drnum,modified_time from ?? where ',
         order: " order by d_date desc,channel_name",
+        selectChannelName: 'select channel_name from ?? where user_name = ?',
         selectAllBack: " limit ?,?",
-        getCount: 'select count(*) as count from ?? where channel_id="206"',
+        getCount: 'select count(*) as count from ?? where ',
         getCountD:
-          'select count(distinct channel_name) as count from ?? where channel_id="206"',
+          'select count(distinct channel_name) as count from ?? where ',
         update:
           "update ?? set day_consumption=?,payuser_cost=?,modifier=? where d_date=?",
         getOnlineNumber:
           "select time_interval, online_num from ?? where d_date=?",
         selectALLSUM:
-          'select ? as d_date,channel_name,null day_consumption,sum(login_num) as login_num,sum(register_num) as register_num,sum(user_device_num) as user_device_num,sum(recharge_user_num) as recharge_user_num,sum(recharge_drnum) as recharge_drnum,sum(recharge_user_num)/sum(login_device_num) as recharge_user_rate,sum(recharge_drnum)/sum(user_device_num) as new_recharge_rate,sum(recharge_user_amt) as recharge_money,sum(recharge_user_amt)/sum(recharge_user_num) as avg_recharge_money,sum(recharge_dramt) as recharge_dramt,sum(recharge_dramt)/sum(recharge_all) as register_recharge_rate,null payuser_cost from ?? where channel_id="206"',
+          'select ? as d_date,channel_name,null day_consumption,sum(login_num) as login_num,sum(register_num) as register_num,sum(user_device_num) as user_device_num,sum(recharge_user_num) as recharge_user_num,sum(recharge_drnum) as recharge_drnum,sum(recharge_user_num)/sum(login_device_num) as recharge_user_rate,sum(recharge_drnum)/sum(user_device_num) as new_recharge_rate,sum(recharge_user_amt) as recharge_money,sum(recharge_user_amt)/sum(recharge_user_num) as avg_recharge_money,sum(recharge_dramt) as recharge_dramt,sum(recharge_dramt)/sum(recharge_all) as register_recharge_rate,null payuser_cost from ?? where ',
         groupBy: " group by channel_name",
         groupByD: " group by d_date,channel_id,channel_name",
         selectAllExcel:
-          'select d_date as "日期",channel_name as "渠道名称",day_consumption as "当日消耗(元)",login_num as "登录人数",register_num as "注册数",user_device_num as "注册设备数",recharge_user_num as "每日充值用户人数",recharge_drnum as "注册新用户当日充值人数",recharge_user_rate as "充值用户转化率",recharge_drnum/user_device_num as "新用户当日充值率", recharge_money as "充值总金额(元)",avg_recharge_money as "平均用户充值金额(元)",recharge_dramt as "注册新用户当日充值金额(元)",register_recharge_rate as "当日注册用户充值金额占比",payuser_cost as "付费用户成本(元)" from ?? where channel_id="206"',
+          'select d_date as "日期",channel_name as "渠道名称",day_consumption as "当日消耗(元)",login_num as "登录人数",register_num as "注册数",user_device_num as "注册设备数",recharge_user_num as "每日充值用户人数",recharge_drnum as "注册新用户当日充值人数",recharge_user_rate as "充值用户转化率",recharge_drnum/user_device_num as "新用户当日充值率", recharge_money as "充值总金额(元)",avg_recharge_money as "平均用户充值金额(元)",recharge_dramt as "注册新用户当日充值金额(元)",register_recharge_rate as "当日注册用户充值金额占比",payuser_cost as "付费用户成本(元)" from ?? where ',
         selectALLSUMExcel:
-          'select ? as "日期",channel_name as "渠道名称",null "当日消耗(元)",sum(login_num) as "登录人数",sum(register_num) as "注册数",sum(user_device_num) as "注册设备数",sum(recharge_user_num) as "每日充值用户人数",sum(recharge_drnum) as "注册新用户当日充值人数",sum(recharge_user_num)/sum(register_num) as "充值用户转化率",sum(recharge_drnum)/sum(user_device_num) as "新用户当日充值率",sum(recharge_user_amt) as "充值总金额(元)",sum(recharge_user_amt)/sum(recharge_user_num) as "平均用户充值金额(元)",sum(recharge_dramt) as "注册新用户当日充值金额(元)",sum(recharge_dramt)/sum(recharge_all) as "当日注册用户充值金额占比",null "付费用户成本(元)" from ?? where channel_id="206"',
-        getSelectOptions: "select channel_name from ?? group by channel_name"
+          'select ? as "日期",channel_name as "渠道名称",null "当日消耗(元)",sum(login_num) as "登录人数",sum(register_num) as "注册数",sum(user_device_num) as "注册设备数",sum(recharge_user_num) as "每日充值用户人数",sum(recharge_drnum) as "注册新用户当日充值人数",sum(recharge_user_num)/sum(register_num) as "充值用户转化率",sum(recharge_drnum)/sum(user_device_num) as "新用户当日充值率",sum(recharge_user_amt) as "充值总金额(元)",sum(recharge_user_amt)/sum(recharge_user_num) as "平均用户充值金额(元)",sum(recharge_dramt) as "注册新用户当日充值金额(元)",sum(recharge_dramt)/sum(recharge_all) as "当日注册用户充值金额占比",null "付费用户成本(元)" from ?? where '
       },
       userRechargeIntervalAnalysis: {
         selectAll: "select * from ??",
