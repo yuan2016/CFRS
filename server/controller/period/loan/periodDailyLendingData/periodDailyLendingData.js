@@ -9,11 +9,21 @@ let pro = require('child_process')
 let path = require('path')
 let fs = require('fs')
 
-const tHeader = [['', '', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', ''], ['日期', '注册人数', '借款人数', '', '成功借款人数', '', '新用户借款占比', '', '老用户借款占比', '', '累计新用户借款占比', '', '累计老用户借款占比', '', '放款单数', '', '放款总额', '', '14天期限放款单数', '', '14天期限放款总额', '', '老用户放款单数', '', '老用户放款总额', '', '新用户放款单数', '', '新用户放款总额', '', '满额率', '', '新用户满额率', '', '老用户满额率', '', '更新时间']]
-const filterVal = ['d_date', 'register_num', 'loan_num_z', 'loan_num_x', 'loan_num', 'success_loan_num_z', 'success_loan_num_x', 'success_loan_num', 'newuser_loan_rate_z', 'newuser_loan_rate_x', 'newuser_loan_rate', 'olduser_loan_rate_z', 'olduser_loan_rate_x', 'olduser_loan_rate', 'accunewuser_loan_rate_z', 'accunewuser_loan_rate_x', 'accunewuser_loan_rate', 'accuolduser_loan_rate_z', 'accuolduser_loan_rate_x', 'accuolduser_loan_rate', 'loan_singular_z', 'loan_singular_x', 'loan_singular', 'loan_singular_14day_z', 'loan_singular_14day_x', 'loan_singular_14day', 'loans_total_z', 'loans_total_x', 'loans_total', 'loans_total_14day_z', 'loans_total_14day_x', 'loans_total_14day', 'loan_singular_ouser_z', 'loan_singular_ouser_x', 'loan_singular_ouser', 'loans_total_ouser_z', 'loans_total_ouser_x', 'loans_total_ouser', 'loan_singular_nuser_z', 'loan_singular_nuser_x', 'loan_singular_nuser', 'loans_total_nuser_z', 'loans_total_nuser_x', 'loans_total_nuser', 'full_amount_rate_z', 'full_amount_rate_x', 'full_amount_rate', 'nuser_full_amount_rate_z', 'nuser_full_amount_rate_x', 'nuser_full_amount_rate', 'ouser_full_amount_rate_z', 'ouser_full_amount_rate_x', 'ouser_full_amount_rate', 'create_time']
+const tHeader = [['', '', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', ''], ['日期', '注册人数', '借款人数', '', '成功借款人数', '', '新用户借款占比', '', '老用户借款占比', '', '累计新用户借款占比', '', '累计老用户借款占比', '', '放款单数', '', '7天期限放款单数', '', '14天期限放款单数', '', '放款总额', '', '7天期限放款总额', '',  '14天期限放款总额', '', '老用户放款单数', '', '老用户放款总额', '', '新用户放款单数', '', '新用户放款总额', '', '满额率', '', '新用户满额率', '', '老用户满额率', '']]
+const filterVal = ['d_date', 'register_num', 'loan_num_z', 'loan_num_x', 'loan_num', 'success_loan_num_z', 'success_loan_num_x', 'success_loan_num', 'newuser_loan_rate_z', 'newuser_loan_rate_x', 'newuser_loan_rate', 'olduser_loan_rate_z', 'olduser_loan_rate_x', 'olduser_loan_rate', 'accunewuser_loan_rate_z', 'accunewuser_loan_rate_x', 'accunewuser_loan_rate', 'accuolduser_loan_rate_z', 'accuolduser_loan_rate_x', 'accuolduser_loan_rate',
+  'loan_singular_z', 'loan_singular_x', 'loan_singular',
+  'loan_singular_7day_z', 'loan_singular_7day_x', 'loan_singular_7day',
+  'loan_singular_14day_z', 'loan_singular_14day_x', 'loan_singular_14day',
+  'loans_total_z', 'loans_total_x', 'loans_total',
+  'loans_total_7day_z', 'loans_total_7day_x', 'loans_total_7day',
+  'loans_total_14day_z', 'loans_total_14day_x', 'loans_total_14day',
+  'loan_singular_ouser_z', 'loan_singular_ouser_x', 'loan_singular_ouser',
+  'loans_total_ouser_z', 'loans_total_ouser_x', 'loans_total_ouser',
+  'loan_singular_nuser_z', 'loan_singular_nuser_x', 'loan_singular_nuser',
+  'loans_total_nuser_z', 'loans_total_nuser_x', 'loans_total_nuser', 'full_amount_rate_z', 'full_amount_rate_x', 'full_amount_rate', 'nuser_full_amount_rate_z', 'nuser_full_amount_rate_x', 'nuser_full_amount_rate', 'ouser_full_amount_rate_z', 'ouser_full_amount_rate_x', 'ouser_full_amount_rate']
 //横坐标纵坐标
-const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 4, 0], [5, 0, 7, 0], [8, 0, 10, 0], [11, 0, 13, 0], [14, 0, 16, 0], [17, 0, 19, 0], [20, 0, 22, 0], [23, 0, 25, 0], [26, 0, 28, 0], [29, 0, 31, 0], [32, 0, 34, 0], [35, 0, 37, 0], [38, 0, 40, 0], [41, 0, 43, 0], [44, 0, 46, 0], [47, 0, 49, 0], [50, 0, 52, 0], [53, 0, 53, 0]]
-const change = [['A1', '    日期'], ['B1', '  注册人数'], ['C1', '  借款人数'], ['F1', '  成功借款人数'], ['I1', '  新用户借款占比'], ['L1', ' 老用户借款占比'], ['O1', ' 累计新用户借款占比'], ['R1', ' 累计老用户借款占比'], ['U1', ' 放款单数'], ['X1', ' 放款总额(元)'], ['AA1', ' 14天期限放款单数'], ['AD1', ' 14天期限放款总额(元)'], ['AG1', ' 老用户放款单数'], ['AJ1', ' 老用户放款总额(元)'], ['AM1', ' 新用户放款单数'], ['AP1', ' 新用户放款总额(元)'], ['AS1', ' 满额率'], ['AV1', ' 新用户满额率'], ['AY1', ' 老用户满额率']]
+const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 4, 0], [5, 0, 7, 0], [8, 0, 10, 0], [11, 0, 13, 0], [14, 0, 16, 0], [17, 0, 19, 0], [20, 0, 22, 0], [23, 0, 25, 0], [26, 0, 28, 0], [29, 0, 31, 0], [32, 0, 34, 0], [35, 0, 37, 0], [38, 0, 40, 0], [41, 0, 43, 0], [44, 0, 46, 0], [47, 0, 49, 0], [50, 0, 52, 0], [53, 0, 55, 0], [56, 0, 58, 0]]
+const change = [['A1', '    日期'], ['B1', '  注册人数'], ['C1', '  借款人数'], ['F1', '  成功借款人数'], ['I1', '  新用户借款占比'], ['L1', ' 老用户借款占比'], ['O1', ' 累计新用户借款占比'], ['R1', ' 累计老用户借款占比'], ['U1', ' 放款单数'], ['X1', ' 7天期限放款单数(元)'], ['AA1', ' 14天期限放款单数(元)'], ['AD1', ' 放款总额'], ['AG1', ' 7天期限放款总额(元)'], ['AJ1', ' 14天期限放款总额(元)'], ['AM1', ' 老用户放款单数'], ['AP1', ' 老用户放款总额(元)'], ['AS1', ' 新用户放款单数'], ['AV1', ' 新用户放款总额(元)'], ['AY1', ' 满额率'], ['BB1', ' 新用户满额率'], ['BE1', ' 老用户满额率']]
 
 global.periodDailyLendingCount = 0
 
@@ -38,6 +48,15 @@ function formatData(rows) {
     }
     if (row.loans_total) {
       row.loans_total = formatCurrency(row.loans_total)
+    }
+    if (row.loans_total_7day_z) {
+      row.loans_total_7day_z = formatCurrency(row.loans_total_7day_z)
+    }
+    if (row.loans_total_7day_x) {
+      row.loans_total_7day_x = formatCurrency(row.loans_total_7day_x)
+    }
+    if (row.loans_total_7day) {
+      row.loans_total_7day = formatCurrency(row.loans_total_7day)
     }
     if (row.loans_total_14day_z) {
       row.loans_total_14day_z = formatCurrency(row.loans_total_14day_z)
@@ -96,6 +115,15 @@ function formatData(rows) {
     }
     if (row.loan_singular) {
       row.loan_singular = formatInt(row.loan_singular)
+    }
+    if (row.loan_singular_7day_z) {
+      row.loan_singular_7day_z = formatInt(row.loan_singular_7day_z)
+    }
+    if (row.loan_singular_7day_x) {
+      row.loan_singular_7day_x = formatInt(row.loan_singular_7day_x)
+    }
+    if (row.loan_singular_7day) {
+      row.loan_singular_7day = formatInt(row.loan_singular_7day)
     }
     if (row.loan_singular_14day_z) {
       row.loan_singular_14day_z = formatInt(row.loan_singular_14day_z)
