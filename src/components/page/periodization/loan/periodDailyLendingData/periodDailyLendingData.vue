@@ -69,15 +69,25 @@
         <el-table-column property="loan_singular_x" label="新网"></el-table-column>
         <el-table-column property="loan_singular" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
-      <el-table-column label="放款总额(元)">
-        <el-table-column property="loans_total_z" label="招财猫" min-width=100></el-table-column>
-        <el-table-column property="loans_total_x" label="新网" min-width=100></el-table-column>
-        <el-table-column property="loans_total" class-name="fontBold" label="合计" min-width=100></el-table-column>
+      <el-table-column label="7天期限放款单数">
+        <el-table-column property="loan_singular_7day_z" label="招财猫"></el-table-column>
+        <el-table-column property="loan_singular_7day_x" label="新网"></el-table-column>
+        <el-table-column property="loan_singular_7day" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
       <el-table-column label="14天期限放款单数">
         <el-table-column property="loan_singular_14day_z" label="招财猫"></el-table-column>
         <el-table-column property="loan_singular_14day_x" label="新网"></el-table-column>
         <el-table-column property="loan_singular_14day" class-name="fontBold" label="合计"></el-table-column>
+      </el-table-column>
+      <el-table-column label="放款总额(元)">
+        <el-table-column property="loans_total_z" label="招财猫" min-width=100></el-table-column>
+        <el-table-column property="loans_total_x" label="新网" min-width=100></el-table-column>
+        <el-table-column property="loans_total" class-name="fontBold" label="合计" min-width=100></el-table-column>
+      </el-table-column>
+      <el-table-column label="7天期限放款总额(元)">
+        <el-table-column property="loans_total_7day_z" label="招财猫" min-width=100></el-table-column>
+        <el-table-column property="loans_total_7day_x" label="新网" min-width=100></el-table-column>
+        <el-table-column property="loans_total_7day" class-name="fontBold" label="合计" min-width=100></el-table-column>
       </el-table-column>
       <el-table-column label="14天期限放款总额(元)">
         <el-table-column property="loans_total_14day_z" label="招财猫" min-width=100></el-table-column>

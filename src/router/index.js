@@ -1895,7 +1895,7 @@ export const asyncRouterMap = [
     name: "用户信息管理",
     icon: "elextra-icon-user",
     children: [
-      {
+      /*{
         path: "/user/userList",
         component: userList,
         icon: "el-icon-star-on",
@@ -1942,7 +1942,7 @@ export const asyncRouterMap = [
         name: "优惠券信息列表",
         meta: ["用户信息管理", "优惠券信息列表"],
         attr: { role: ["boss"] }
-      },
+      },*/
       {
         path: "/user/newUserTagList",
         component: newUserTagList,
@@ -1961,7 +1961,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-  {
+  /*{
     path: "/loanManagement",
     component: Layout,
     redirect: "/loanManagement/loanApplicationsList",
@@ -2009,8 +2009,8 @@ export const asyncRouterMap = [
         attr: { role: ["boss"] }
       }
     ]
-  },
-  {
+  },*/
+/*  {
     path: "/repaymentManagement",
     component: Layout,
     redirect: "/repaymentManagement/repaymentList",
@@ -2121,7 +2121,7 @@ export const asyncRouterMap = [
         ]
       }
     ]
-  },
+  },*/
   {
     path: "/dataAnalysis",
     component: Layout,
@@ -2393,7 +2393,7 @@ export const asyncRouterMap = [
     icon: "elextra-icon-promotion",
     attr: { role: ["admin", "boss"] },
     children: [
-      {
+      /*{
         path: "/promotionManagement/promotionChannel",
         component: promotionChannel,
         icon: "el-icon-star-on",
@@ -2408,7 +2408,7 @@ export const asyncRouterMap = [
         name: "推广员管理",
         attr: { role: ["boss"] },
         meta: ["推广管理", "推广员管理"]
-      },
+      },*/
       {
         path: "/promotionManagement/promotionChannelStatistics",
         component: promotionChannelStatistics,
