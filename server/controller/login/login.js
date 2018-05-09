@@ -38,7 +38,7 @@ function sendCodeInfo (phoneNumber, code, response) {
   //组装请求
   let timeStamp = getNowFormatDate()
   let lastTimeKey = phoneNumber + '-lastTime'
-  let content = '【现金快贷】尊敬的用户，本次验证码为' + code + '请勿泄露，5分钟内有效！'
+  let content = '【灿福集团】尊敬的用户，本次验证码为' + code + '请勿泄露，5分钟内有效！'
   let batchNum = sms.nonce_str + timeStamp
   let missionNum = 'CFRStest'
   let sign = md5('app_key=' + sms.app_key + '&batch_num=' + batchNum + '&content=' + content + '&dest_id=' + phoneNumber + '&mission_num=' + missionNum + '&nonce_str=' + sms.nonce_str + '&sms_type=' + sms.sms_type + '&time_stamp=' + timeStamp + '&app_secret=' + sms.app_secret)
@@ -230,13 +230,11 @@ module.exports = {
     //这里是个异步操作
     client.get(phoneNumber, function (error, res) {
       if (error) {
-        console.log('这里出错11')
         console.log(error)
         client.quit()
         response.json({
           code: 2000
         })
-        console.log('这里出错12')
         return false
       }
       //操作完成，关闭redis连接
@@ -246,11 +244,9 @@ module.exports = {
         if (error) {
           console.log(error)
           client1.quit()
-          console.log('这里出错21')
           response.json({
             code: 2000
           })
-          console.log('这里出错22')
           return false
         }
         if (res && result) {
