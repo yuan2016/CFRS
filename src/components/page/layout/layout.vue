@@ -447,6 +447,13 @@
       this.showRocket()
       window.onscroll = this.showRocket
       this.clickHide()
+      let bd = document.body.clientWidth
+      this.$store.dispatch('setBodyWidth', bd)
+      let _this = this
+      window.onresize = function () {
+        let bd = document.body.clientWidth
+        _this.$store.dispatch('setBodyWidth', bd)
+      }
     },
     computed: {
       ...mapGetters([

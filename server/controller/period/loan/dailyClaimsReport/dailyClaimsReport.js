@@ -21,6 +21,9 @@ function formatData(rows) {
     if (row.D_DATE) {
       row.D_DATE = moment(row.D_DATE).format('YYYY-MM-DD ')
     }
+    if (row.UPDATE_TIME) {
+      row.UPDATE_TIME = moment(row.UPDATE_TIME).format('YYYY-MM-DD HH:mm:ss')
+    }
     // money
     if (row.KXLOAN_AMT_Z) {
       row.KXLOAN_AMT_Z = formatCurrency(row.KXLOAN_AMT_Z)

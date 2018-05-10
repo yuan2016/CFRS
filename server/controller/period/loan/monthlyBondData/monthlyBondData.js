@@ -9,11 +9,11 @@ let pro = require('child_process')
 let path = require('path')
 let fs = require('fs')
 
-const tHeader = [['', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计'], ['月份', '', '', '借款金额(元)', '', '', '', '', '利息(元)', '', '', '', '', '放款笔数', '', '', '创建时间', '修改时间']]
-const filterVal = ['D_MONTH', 'KXLOAN_AMT_Z', 'KXLOAN_AMT_X', 'XFLOAN_AMT_Z', 'XFLOAN_AMT_X', 'LOAN_AMT', 'KX_INTEREST_Z', 'KX_INTEREST_X', 'XF_INTEREST_Z', 'XF_INTEREST_X', 'INTEREST_AMT', 'KXLOAN_CNT_Z', 'KXLOAN_CNT_X', 'XFLOAN_CNT_Z', 'XFLOAN_CNT_X', 'LOAN_CNT', 'CREATE_TIME', 'UPDATE_TIME']
+const tHeader = [['', '', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计', 'ZCM开心分期', 'XW开心分期', 'ZCM消费分期', 'XW消费分期', '合计'], ['年', '月份', '', '', '借款金额(元)', '', '', '', '', '利息(元)', '', '', '', '', '放款笔数', '', '']]
+const filterVal = ['D_YEAR', 'D_MONTH', 'KXLOAN_AMT_Z', 'KXLOAN_AMT_X', 'XFLOAN_AMT_Z', 'XFLOAN_AMT_X', 'LOAN_AMT', 'KX_INTEREST_Z', 'KX_INTEREST_X', 'XF_INTEREST_Z', 'XF_INTEREST_X', 'INTEREST_AMT', 'KXLOAN_CNT_Z', 'KXLOAN_CNT_X', 'XFLOAN_CNT_Z', 'XFLOAN_CNT_X', 'LOAN_CNT']
 //横坐标纵坐标
-const merge = [[0, 0, 0, 1], [1, 0, 5, 0], [6, 0, 10, 0], [11, 0, 15, 0], [16, 0, 16, 1], [17, 0, 17, 1]]
-const change = [['A1', '    月份'], ['B1', '                          借款金额(元)'], ['G1', '                           利息(元)'], ['L1', '                           放款笔数'], ['Q1', '     创建时间'], ['R1', '     修改时间']]
+const merge = [[0, 0, 0, 1],[1, 0, 1, 1], [2, 0, 6, 0], [7, 0, 11, 0], [12, 0, 16, 0]]
+const change = [['A1', '    年'],['B1', '    月份'], ['C1', '                 借款金额(元)'], ['H1', '                 利息(元)'], ['M1', '                 放款笔数']]
 
 global.monthlyBondDataCount = 0
 

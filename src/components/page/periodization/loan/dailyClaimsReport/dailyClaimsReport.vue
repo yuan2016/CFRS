@@ -67,6 +67,7 @@
         <el-table-column property="XFLOAN_CNT_X" sortable="custom" label="XW消费分期" min-width="160"></el-table-column>
         <el-table-column property="LOAN_CNT" sortable="custom" label="合计" min-width="160"></el-table-column>
       </el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination

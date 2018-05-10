@@ -4,6 +4,7 @@ const getters = {
   permission_routers: state => state.permission.routers,
   addRouters: state => state.permission.addRouters,
   mark: state => state.permission.mark,
+  bodyWidth: state => state.app.bodyWidth,
   email: state => state.user.email,
   table: state => state.user.table,
   table1: state => state.user.table1,

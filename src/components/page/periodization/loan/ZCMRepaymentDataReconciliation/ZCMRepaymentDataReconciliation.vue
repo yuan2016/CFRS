@@ -49,6 +49,7 @@
         <el-table-column property="ZCM_LL" sortable="custom" label="ZCM连连" min-width="160"></el-table-column>
       </el-table-column>
       <el-table-column property="DIFF_VALUE" sortable="custom" label="差异值(元)" min-width="240"></el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div class="pop1">
       <p class="popTop">差异值=结算分析-三方账户分析</p>

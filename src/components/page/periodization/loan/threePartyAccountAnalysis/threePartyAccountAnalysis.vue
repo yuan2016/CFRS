@@ -62,7 +62,7 @@
         <el-table-column property="YMT_XN_D" sortable="custom" label="XN益码通(元)" min-width="130"></el-table-column>
         <el-table-column property="TOTAL_AMT_D" sortable="custom" label="合计(元)" min-width="110"></el-table-column>
       </el-table-column>
-      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间" min-width="140"></el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination

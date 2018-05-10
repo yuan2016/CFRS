@@ -917,6 +917,7 @@ let sqlMap = {
   period: {
     selectAll: "select * from ??",
     order: " order by d_date desc",
+    orderMonth: 'order by D_MONTH desc',
     selectAllBack: " limit ?,?",
     getCount: "select count(*) as count from ??",
     repaymentDetailData: {
@@ -925,47 +926,47 @@ let sqlMap = {
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectAllExcel:
-        'select d_date as "日期",user_id as "用户ID",user_name as "用户名",user_phone as "手机号",order_id as "借款ID",loan_id as "还款ID",loan_money as "借款金额",repayment_amount as "总还款金额(元)",repaymented_amount as "已还金额(元)",PACKAGE_MONEY as "礼包购买(元)",Principal_amount as "还款本金(元)",loan_accrual as "还款利息(元)",Overdue_fine as "逾期滞纳金(元)",renewal_fee as "续期手续费(元)",repayment_real_money as "实还金额(元)",return_money as "退款金额(元)",coupon_money as "优惠券金额(元)",Reduction_money as "减免金额(元)",repayment_time as "应还款时间",repayment_real_time as "实际还款时间",repayment_type as "付款方式",repayment_channel as "付款渠道",repayment_source as "付款来源",repayment_detail as "还款详情",repayment_status as "还款状态",Overdue_day as "逾期天数",renewal_day as "续期天数",year_rate as "年利率",Renewal_rate as "续期费率",Overdue_rate as "逾期费率",CREATE_TIME as "创建时间",UPDATE_TIME as "修改时间" from ?? '
+        'select d_date as "日期",user_id as "用户ID",user_name as "用户名",user_phone as "手机号",order_id as "借款ID",loan_id as "还款ID",loan_money as "借款金额",repayment_amount as "总还款金额(元)",repaymented_amount as "已还金额(元)",PACKAGE_MONEY as "礼包购买(元)",Principal_amount as "还款本金(元)",loan_accrual as "还款利息(元)",Overdue_fine as "逾期滞纳金(元)",renewal_fee as "续期手续费(元)",repayment_real_money as "实还金额(元)",return_money as "退款金额(元)",coupon_money as "优惠券金额(元)",Reduction_money as "减免金额(元)",repayment_time as "应还款时间",repayment_real_time as "实际还款时间",repayment_type as "付款方式",repayment_channel as "付款渠道",repayment_source as "付款来源",repayment_detail as "还款详情",repayment_status as "还款状态",Overdue_day as "逾期天数",renewal_day as "续期天数",year_rate as "年利率",Renewal_rate as "续期费率",Overdue_rate as "逾期费率" from ?? '
     },
     dailySettlementReport: {
       selectAll:
-        "select D_DATE,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,LQ_RECHARGE,TOTAL_AMT from ?? ",
+        "select D_DATE,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,LQ_RECHARGE,TOTAL_AMT,UPDATE_TIME from ?? ",
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectAllExcel:
         'select D_DATE as "日期",ADVANCE_REPAYMENT_AMT as "提前还款本金(元)",ADVANCE_REPAYMENT_INTEREST as "提前还款利息(元)",REPAYMENT_AMT as "正常还款本金(元)",REPAYMENT_INTEREST as "正常还款利息(元)",OVERDUE_REPAYMENT_AMT as "逾期还款本金(元)",OVERDUE_REPAYMENT_INTEREST as "逾期还款利息(元)",OVERDUE_LATE_FEE as "逾期滞纳金(元)",RENEWAL_FEE as "续期费(元)",YIMATONG_FEE as "益码通手续费(元)",LQ_RECHARGE as "零钱充值(元)",TOTAL_AMT as "合计(元)" from ?? ',
       selectSum:
-        " select null as D_DATE,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(LQ_RECHARGE) as LQ_RECHARGE,sum(TOTAL_AMT) as TOTAL_AMT from ?? ",
+        " select null as D_DATE,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(LQ_RECHARGE) as LQ_RECHARGE,sum(TOTAL_AMT) as TOTAL_AMT,UPDATE_TIME from ?? ",
         selectSumExcel:
         'select null as "日期",sum(ADVANCE_REPAYMENT_AMT) as "提前还款本金(元)",sum(ADVANCE_REPAYMENT_INTEREST) as "提前还款利息(元)",sum(REPAYMENT_AMT) as "正常还款本金(元)",sum(REPAYMENT_INTEREST) as "正常还款利息(元)",sum(OVERDUE_REPAYMENT_AMT) as "逾期还款本金(元)",sum(OVERDUE_REPAYMENT_INTEREST) as "逾期还款利息(元)",sum(OVERDUE_LATE_FEE) as "逾期滞纳金(元)",sum(RENEWAL_FEE) as "续期费(元)",sum(YIMATONG_FEE) as "益码通手续费(元)",sum(LQ_RECHARGE) as "零钱充值(元)",sum(TOTAL_AMT) as "合计(元)" from ?? '
     },
     dailyClaimsReport: {
       selectAll:
-        "select D_DATE,LOAN_TERM,KXLOAN_AMT_Z,KXLOAN_AMT_X,XFLOAN_AMT_Z,XFLOAN_AMT_X,LOAN_AMT,KX_INTEREST_Z,KX_INTEREST_X,XF_INTEREST_Z,XF_INTEREST_X,INTEREST_AMT,KXLOAN_CNT_Z,KXLOAN_CNT_X,XFLOAN_CNT_Z,XFLOAN_CNT_X,LOAN_CNT from ?? ",
+        "select D_DATE,LOAN_TERM,KXLOAN_AMT_Z,KXLOAN_AMT_X,XFLOAN_AMT_Z,XFLOAN_AMT_X,LOAN_AMT,KX_INTEREST_Z,KX_INTEREST_X,XF_INTEREST_Z,XF_INTEREST_X,INTEREST_AMT,KXLOAN_CNT_Z,KXLOAN_CNT_X,XFLOAN_CNT_Z,XFLOAN_CNT_X,LOAN_CNT,UPDATE_TIME from ?? ",
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectSum:
-        " select null as D_DATE,null as LOAN_TERM, sum(KXLOAN_AMT_Z) as KXLOAN_AMT_Z,sum(KXLOAN_AMT_X) as KXLOAN_AMT_X,sum(XFLOAN_AMT_Z) as XFLOAN_AMT_Z,sum(XFLOAN_AMT_X) as XFLOAN_AMT_X,sum(LOAN_AMT) as LOAN_AMT,sum(KX_INTEREST_Z) as KX_INTEREST_Z,sum(KX_INTEREST_X) as KX_INTEREST_X,sum(XF_INTEREST_Z) as XF_INTEREST_Z,sum(XF_INTEREST_X) as XF_INTEREST_X,sum(INTEREST_AMT) as INTEREST_AMT,sum(KXLOAN_CNT_Z) as KXLOAN_CNT_Z,sum(KXLOAN_CNT_X) as KXLOAN_CNT_X,sum(XFLOAN_CNT_Z) as XFLOAN_CNT_Z,sum(XFLOAN_CNT_X) as XFLOAN_CNT_X,sum(LOAN_CNT) as LOAN_CNT from ?? "
+        " select null as D_DATE,null as LOAN_TERM, sum(KXLOAN_AMT_Z) as KXLOAN_AMT_Z,sum(KXLOAN_AMT_X) as KXLOAN_AMT_X,sum(XFLOAN_AMT_Z) as XFLOAN_AMT_Z,sum(XFLOAN_AMT_X) as XFLOAN_AMT_X,sum(LOAN_AMT) as LOAN_AMT,sum(KX_INTEREST_Z) as KX_INTEREST_Z,sum(KX_INTEREST_X) as KX_INTEREST_X,sum(XF_INTEREST_Z) as XF_INTEREST_Z,sum(XF_INTEREST_X) as XF_INTEREST_X,sum(INTEREST_AMT) as INTEREST_AMT,sum(KXLOAN_CNT_Z) as KXLOAN_CNT_Z,sum(KXLOAN_CNT_X) as KXLOAN_CNT_X,sum(XFLOAN_CNT_Z) as XFLOAN_CNT_Z,sum(XFLOAN_CNT_X) as XFLOAN_CNT_X,sum(LOAN_CNT) as LOAN_CNT,UPDATE_TIME from ?? "
     },
     ZCMRepaymentDataReconciliation: {
       selectAll:
-        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,TOTAL_AMT,ZCM_LL,DIFF_VALUE from ?? ",
+        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,TOTAL_AMT,ZCM_LL,DIFF_VALUE,UPDATE_TIME from ?? ",
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectSum:
-        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZCM_LL) as ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
+        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZCM_LL) as ZCM_LL,sum(DIFF_VALUE) as DIFF_VALUE, UPDATE_TIME from ?? "
     },
     ZBrepaymentData: {
       selectAll:
-        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,TOTAL_AMT,ZB_LL,ZB_YMT,DIFF_VALUE from ?? ",
+        "select D_DATE,d_month,ADVANCE_REPAYMENT_AMT,ADVANCE_REPAYMENT_INTEREST,REPAYMENT_AMT,REPAYMENT_INTEREST,OVERDUE_REPAYMENT_AMT,OVERDUE_REPAYMENT_INTEREST,OVERDUE_LATE_FEE,RENEWAL_FEE,YIMATONG_FEE,TOTAL_AMT,ZB_LL,ZB_YMT,DIFF_VALUE,UPDATE_TIME from ?? ",
       order: " order by D_DATE desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ??",
       selectSum:
-        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZB_LL) as ZB_LL,sum(ZB_YMT) as ZB_YMT,sum(DIFF_VALUE) as DIFF_VALUE from ?? "
+        " select null as D_DATE,null as d_month,sum(ADVANCE_REPAYMENT_AMT) as ADVANCE_REPAYMENT_AMT,sum(ADVANCE_REPAYMENT_INTEREST) as ADVANCE_REPAYMENT_INTEREST,sum(REPAYMENT_AMT) as REPAYMENT_AMT,sum(REPAYMENT_INTEREST) as REPAYMENT_INTEREST,sum(OVERDUE_REPAYMENT_AMT) as OVERDUE_REPAYMENT_AMT,sum(OVERDUE_REPAYMENT_INTEREST) as OVERDUE_REPAYMENT_INTEREST,sum(OVERDUE_LATE_FEE) as OVERDUE_LATE_FEE,sum(RENEWAL_FEE) as RENEWAL_FEE,sum(YIMATONG_FEE) as YIMATONG_FEE,sum(TOTAL_AMT) as TOTAL_AMT,sum(ZB_LL) as ZB_LL,sum(ZB_YMT) as ZB_YMT,sum(DIFF_VALUE) as DIFF_VALUE,UPDATE_TIME from ?? "
     },
     monthlySettlementData: {
       selectAll:
@@ -1086,8 +1087,8 @@ let sqlMap = {
     },
     threePartyAccountAnalysis: {
       selectAll:
-        "select D_DATE,LL_ZCM_KX,LL_ZCM_XF,LL_ZB_KX,LL_ZB_XF,YMT_ZB_KX,YMT_ZB_XF,LL_LQ_XN,YMT_LQ_XN,LL_XQ_XN,YMT_XQ_XN,TOTAL_AMT,LL_ZCM_T,LL_ZB_T,YMT_ZB_T,LL_XN_T,YMT_XN_T,TOTAL_AMT_T,LL_ZCM_D,LL_ZB_D,YMT_ZB_D,LL_XN_D,YMT_XN_D,TOTAL_AMT_D from ?? ",
-      selectSum: 'select NULL D_DATE,sum(LL_ZCM_KX) LL_ZCM_KX,sum(LL_ZCM_XF) LL_ZCM_XF,sum(LL_ZB_KX) LL_ZB_KX,sum(LL_ZB_XF) LL_ZB_XF,sum(YMT_ZB_KX) YMT_ZB_KX,sum(YMT_ZB_XF) YMT_ZB_XF,sum(LL_LQ_XN) LL_LQ_XN,sum(YMT_LQ_XN) YMT_LQ_XN,sum(LL_XQ_XN) LL_XQ_XN,sum(YMT_XQ_XN) YMT_XQ_XN,sum(TOTAL_AMT) TOTAL_AMT,sum(LL_ZCM_T) LL_ZCM_T,sum(LL_ZB_T) LL_ZB_T,sum(YMT_ZB_T) YMT_ZB_T,sum(LL_XN_T) LL_XN_T,sum(YMT_XN_T) YMT_XN_T,sum(TOTAL_AMT_T) TOTAL_AMT_T,sum(LL_ZCM_D) LL_ZCM_D,sum(LL_ZB_D) LL_ZB_D,sum(YMT_ZB_D) YMT_ZB_D,sum(LL_XN_D) LL_XN_D,sum(YMT_XN_D) YMT_XN_D,sum(TOTAL_AMT_D) TOTAL_AMT_D from ?? ',
+        "select D_DATE,LL_ZCM_KX,LL_ZCM_XF,LL_ZB_KX,LL_ZB_XF,YMT_ZB_KX,YMT_ZB_XF,LL_LQ_XN,YMT_LQ_XN,LL_XQ_XN,YMT_XQ_XN,TOTAL_AMT,LL_ZCM_T,LL_ZB_T,YMT_ZB_T,LL_XN_T,YMT_XN_T,TOTAL_AMT_T,LL_ZCM_D,LL_ZB_D,YMT_ZB_D,LL_XN_D,YMT_XN_D,TOTAL_AMT_D,UPDATE_TIME from ?? ",
+      selectSum: 'select NULL D_DATE,sum(LL_ZCM_KX) LL_ZCM_KX,sum(LL_ZCM_XF) LL_ZCM_XF,sum(LL_ZB_KX) LL_ZB_KX,sum(LL_ZB_XF) LL_ZB_XF,sum(YMT_ZB_KX) YMT_ZB_KX,sum(YMT_ZB_XF) YMT_ZB_XF,sum(LL_LQ_XN) LL_LQ_XN,sum(YMT_LQ_XN) YMT_LQ_XN,sum(LL_XQ_XN) LL_XQ_XN,sum(YMT_XQ_XN) YMT_XQ_XN,sum(TOTAL_AMT) TOTAL_AMT,sum(LL_ZCM_T) LL_ZCM_T,sum(LL_ZB_T) LL_ZB_T,sum(YMT_ZB_T) YMT_ZB_T,sum(LL_XN_T) LL_XN_T,sum(YMT_XN_T) YMT_XN_T,sum(TOTAL_AMT_T) TOTAL_AMT_T,sum(LL_ZCM_D) LL_ZCM_D,sum(LL_ZB_D) LL_ZB_D,sum(YMT_ZB_D) YMT_ZB_D,sum(LL_XN_D) LL_XN_D,sum(YMT_XN_D) YMT_XN_D,sum(TOTAL_AMT_D) TOTAL_AMT_D,UPDATE_TIME from ?? ',
       order: " order by d_date desc",
       selectAllBack: " limit ?,?",
       getCount: "select count(*) as count from ?? ",

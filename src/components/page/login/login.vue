@@ -16,7 +16,7 @@
                 <el-form-item prop="phoneNumber" class="loginPhoneNumber">
                   <el-input type="text" placeholder="请输入手机号" v-model="loginForm.phoneNumber">
                   </el-input>
-                    <!-- <span class="message" @click="changeModel">使用邮箱登录</span> -->
+                     <span class="message" @click="changeModel">使用邮箱登录</span>
                 </el-form-item>
                 <el-form-item prop="picCode" class="picCode">
                   <el-input type="picCode" placeholder="请输入右侧验证码" v-model="loginForm.picCode">

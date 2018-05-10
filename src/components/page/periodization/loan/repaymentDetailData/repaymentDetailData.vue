@@ -52,7 +52,7 @@
       <el-table-column property="Reduction_money" sortable="custom" label="减免金额(元)" min-width="120"></el-table-column>
       <el-table-column property="repayment_time" sortable="custom" label="应还款时间" min-width="140"></el-table-column>
       <el-table-column property="repayment_real_time" sortable="custom" label="实际还款时间" min-width="140"></el-table-column>
-      <el-table-column property="repayment_type" label="付款方式" min-width="90"></el-table-column>
+      <el-table-column property="repayment_type" label="付款方式" min-width="110"></el-table-column>
       <el-table-column property="repayment_channel" label="付款渠道" min-width="90"></el-table-column>
       <el-table-column property="repayment_source" label="付款来源" min-width="90"></el-table-column>
       <el-table-column property="repayment_detail" label="还款详情" min-width="90"></el-table-column>
@@ -62,8 +62,7 @@
       <el-table-column property="year_rate" sortable="custom" label="年利率" min-width="90"></el-table-column>
       <el-table-column property="Renewal_rate" sortable="custom" label="续期费率" min-width="110"></el-table-column>
       <el-table-column property="Overdue_rate" sortable="custom" label="逾期费率" min-width="110"></el-table-column>
-      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间 " min-width="120"></el-table-column>
-      <el-table-column property="UPDATE_TIME" sortable="custom" label="修改时间" min-width="120"></el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="修改时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination

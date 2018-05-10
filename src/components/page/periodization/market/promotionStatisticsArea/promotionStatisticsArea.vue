@@ -293,6 +293,8 @@
     .promotionStatisticsArea
       .date-filter
         li
+          &:first-of-type
+            margin-left: 38px
           .selectContent
             height: 26px
 

@@ -26,8 +26,8 @@ function formatData(rows) {
     if (row.D_DATE) {
       row.D_DATE = moment(row.D_DATE).format('YYYY-MM-DD')
     }
-    if (row.CREATE_TIME) {
-      row.CREATE_TIME = moment(row.CREATE_TIME).format('YYYY-MM-DD HH:mm:ss')
+    if (row.UPDATE_TIME) {
+      row.UPDATE_TIME = moment(row.UPDATE_TIME).format('YYYY-MM-DD HH:mm:ss')
     }
     if (row.d_month) {
       row.d_month = row.d_month + '月'

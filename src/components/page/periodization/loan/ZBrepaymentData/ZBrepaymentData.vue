@@ -51,7 +51,7 @@
       <el-table-column property="ZB_YMT" sortable="custom" label="zb益码通(元)" min-width="120"></el-table-column>
       </el-table-column>
       <el-table-column property="DIFF_VALUE" sortable="custom" label="差异值(元)" min-width="160"></el-table-column>
-      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间" min-width="140"></el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div class="pop1">
       <p class="popTop">差异值=结算分析-三方账户</p>

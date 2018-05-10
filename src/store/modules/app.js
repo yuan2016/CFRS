@@ -7,7 +7,8 @@ const app = {
     },
     theme: 'default',
     livenewsChannels: Cookies.get('livenewsChannels') || '[]',
-    visitedViews: []
+    visitedViews: [],
+    bodyWidth: ''
   },
   mutations: {
     TOGGLE_SIDEBAR: (state, mark) => {
@@ -24,6 +25,9 @@ const app = {
     DEL_VISITED_VIEWS: (state, view) => {
       const index = state.visitedViews.indexOf(view)
       state.visitedViews.splice(index, 1)
+    },
+    SET_BODYWIDTH: (state, width) => {
+      state.bodyWidth = width
     }
   },
   actions: {
@@ -35,6 +39,9 @@ const app = {
     },
     delVisitedViews: ({commit}, view) => {
       commit('DEL_VISITED_VIEWS', view)
+    },
+    setBodyWidth: ({commit}, width) => {
+      commit('SET_BODYWIDTH', width)
     }
   }
 }

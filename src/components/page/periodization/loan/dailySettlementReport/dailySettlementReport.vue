@@ -44,6 +44,7 @@
       <el-table-column property="YIMATONG_FEE" sortable="custom" label="益码通手续费(元)" min-width="140"></el-table-column>
       <el-table-column property="LQ_RECHARGE" sortable="custom" label="零钱充值(元)" min-width="120"></el-table-column>
       <el-table-column property="TOTAL_AMT" sortable="custom" label="合计(元)" min-width="120"></el-table-column>
+      <el-table-column property="UPDATE_TIME" sortable="custom" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination

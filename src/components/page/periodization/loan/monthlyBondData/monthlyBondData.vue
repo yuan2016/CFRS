@@ -32,6 +32,7 @@
     </div>
     <el-table :data="fundData" highlight-current-row border stripe style="width: 100%;overflow: auto;" :height="height"
               class="monthlyBondData-table" @sort-change="sort">
+      <el-table-column property="D_YEAR" fixed sortable="custom" label="年"  min-width="80"></el-table-column>
       <el-table-column property="D_MONTH" fixed sortable="custom" label="月份"  min-width="80"></el-table-column>
       <el-table-column label="借款金额(元)">
         <el-table-column property="KXLOAN_AMT_Z" sortable="custom" label="ZCM开心分期" min-width="120"></el-table-column>
@@ -54,7 +55,6 @@
         <el-table-column property="XFLOAN_CNT_X" sortable="custom" label="XW消费分期" min-width="120"></el-table-column>
         <el-table-column property="LOAN_CNT" sortable="custom" label="合计" min-width="100"></el-table-column>
       </el-table-column>
-      <el-table-column property="CREATE_TIME" sortable="custom" label="创建时间" min-width="140"></el-table-column>
       <el-table-column property="UPDATE_TIME" sortable="custom" label="修改时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">

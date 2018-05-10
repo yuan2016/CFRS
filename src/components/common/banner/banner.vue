@@ -38,6 +38,7 @@
 
 <script type="text/ecmascript-6">
   import { clearToken } from '../../../common/js/storage'
+  import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
@@ -59,7 +60,16 @@
     },
     mounted() {
       this.setWidth()
-//      window.onresize = this.setWidth()
+    },
+    watch: {
+      bodyWidth: function () {
+        this.setWidth()
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'bodyWidth'
+      ])
     },
     methods: {
       jumpToLogin(path) {
