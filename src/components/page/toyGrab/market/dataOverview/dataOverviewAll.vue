@@ -310,7 +310,7 @@
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   .dateOverview
     height: 100%
     .date-filter
@@ -334,7 +334,7 @@
         .card
           height: 14px
           line-height: 14px
-          min-width: 200px
+          min-width: 160px
           font-size: 12px
           .card_title
             display: inline-block
@@ -346,7 +346,7 @@
               cursor: pointer
           .card_number
             display: inline-block
-            min-width: 120px
+            /*min-width: 120px*/
             color: #ff4949
         .wid100
           width: 100%
