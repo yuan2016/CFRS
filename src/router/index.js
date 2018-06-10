@@ -587,6 +587,15 @@ const deleteRobotInfo = r =>
       ),
     "deleteRobotInfo"
   );
+const phantoscope = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/auction/lab/phantoscope/phantoscope")
+      ),
+    "phantoscope"
+  );
 //借款管理
 const assetInformation = r =>
   require.ensure(
@@ -1325,6 +1334,61 @@ const promotionStatisticalChannel = r =>
       ),
     "promotionStatisticalChannel"
   );
+  /**闪电卡 */
+  const dailyPromotionEffect = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/dailyPromotionEffect/dailyPromotionEffect")
+      ),
+    "dailyPromotionEffect"
+  );
+  const weeklyPromotionEffect = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/weeklyPromotionEffect/weeklyPromotionEffect")
+      ),
+    "weeklyPromotionEffect"
+  );
+  const monthlyPromotionEffect = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/monthlyPromotionEffect/monthlyPromotionEffect")
+      ),
+    "monthlyPromotionEffect"
+  ); 
+  const dailyPromotionEffectSummary = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/dailyPromotionEffectSummary/dailyPromotionEffectSummary")
+      ),
+    "dailyPromotionEffectSummary"
+  ); 
+  const monthlyPromotionEffectSummary = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/monthlyPromotionEffectSummary/monthlyPromotionEffectSummary")
+      ),
+    "monthlyPromotionEffectSummary"
+  ); 
+  const weeklyPromotionEffectSummary = r =>
+  require.ensure(
+    [],
+    () =>
+      r(
+        require("../components/page/flashCard/market/weeklyPromotionEffectSummary/weeklyPromotionEffectSummary")
+      ),
+    "weeklyPromotionEffectSummary"
+  );        
 /**
  * icon : the icon show in the sidebar
  * hidden : if hidden:true will not show in the sidebar
@@ -2506,9 +2570,16 @@ export const asyncRouterMap = [
         component: deleteRobotInfo,
         name: "任意门",
         meta: ["实验室", "任意门"]
+      },
+      {
+        path: "/lab/phantoscope",
+        icon: "el-icon-star-on",
+        component: phantoscope,
+        name: "万花筒",
+        meta: ["实验室", "万花筒"]
       }
     ]
-  },
+      },
   {
     path: "/period/loan",
     redirect: "/period/loan/periodDailyLendingData",
@@ -2768,6 +2839,50 @@ export const asyncRouterMap = [
         meta: ["开心分期", "市场统计", "推广统计-渠道"]
       }
     ]
+  },
+  {
+    path: "/flashCard/market",
+    redirect: "/flashCard/market/dailyPromotionEffect",
+    icon: "elextra-icon-market2",
+    component: Layout,
+    name: "市场行情",
+    children: [{
+      path: "/flashCard/market/dailyPromotionEffect",
+      icon: "el-icon-star-on",
+      component: dailyPromotionEffect,
+      name: "渠道日推广效果统计",
+      meta: ["闪电卡", "市场行情", "渠道日推广效果统计"]
+    }, {
+      path: "/flashCard/market/weeklyPromotionEffect",
+      icon: "el-icon-star-on",
+      component: weeklyPromotionEffect,
+      name: "渠道周推广效果统计",
+      meta: ["闪电卡", "市场行情", "渠道周推广效果统计"]
+    }, {
+      path: "/flashCard/market/monthlyPromotionEffect",
+      icon: "el-icon-star-on",
+      component: monthlyPromotionEffect,
+      name: "渠道月推广效果统计",
+      meta: ["闪电卡", "市场行情", "渠道月推广效果统计"]
+    }, {
+      path: "/flashCard/market/dailyPromotionEffectSummary",
+      icon: "el-icon-star-on",
+      component: dailyPromotionEffectSummary,
+      name: "渠道日推广汇总",
+      meta: ["闪电卡", "市场行情", "渠道日推广汇总"]
+    }, {
+      path: "/flashCard/market/weeklyPromotionEffectSummary",
+      icon: "el-icon-star-on",
+      component: weeklyPromotionEffectSummary,
+      name: "渠道周推广汇总",
+      meta: ["闪电卡", "市场行情", "渠道周推广汇总"]
+    }, {
+      path: "/flashCard/market/monthlyPromotionEffectSummary",
+      icon: "el-icon-star-on",
+      component: monthlyPromotionEffectSummary,
+      name: "渠道月推广汇总",
+      meta: ["闪电卡", "市场行情", "渠道月推广汇总"]
+    }]
   },
   { path: "*", component: error, hidden: true }
 ];

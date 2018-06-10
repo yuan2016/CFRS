@@ -64,7 +64,7 @@ module.exports = {
       names.push('企鹅抓娃娃')
     }
     if (tables2) {
-      names.push('开心拍卖')
+      names.push('闪电卡')
     }
     if (tables3) {
       names.push('开心分期')
@@ -115,7 +115,7 @@ module.exports = {
         res.json({
           code: '120'
         })
-        return
+        return false
       } else {
         let tables = params.tables
         let tables1 = params.tables1
@@ -129,7 +129,7 @@ module.exports = {
           names.push('企鹅抓娃娃')
         }
         if (tables2) {
-          names.push('开心拍卖')
+          names.push('闪电卡')
         }
         if (tables3) {
           names.push('开心分期')
@@ -197,7 +197,7 @@ module.exports = {
       names.push('企鹅抓娃娃')
     }
     if (tables2) {
-      names.push('开心拍卖')
+      names.push('闪电卡')
     }
     if (tables3) {
       names.push('开心分期')

@@ -361,5 +361,14 @@ module.exports = {
     promotionStatisticsArea: 'PR_PM_PROMOTION_STATISTIC_REGION_KXFQ',
     //推广统计-渠道
     promotionStatisticalChannel: 'PR_PM_PROMOTION_STATISTIC_CHANNEL_KXFQ'
+  },
+  /*闪电卡*/
+  flashCard: {
+    dailyPromotionEffect: 'PR_SDK_CHANNEL_PROMOTION_D',
+    weeklyPromotionEffect: 'PR_SDK_CHANNEL_PROMOTION_W',
+    monthlyPromotionEffect: 'PR_SDK_CHANNEL_PROMOTION_M',
+    dailyPromotionEffectSummary: 'PR_SDK_CHANNEL_PROMOTION_D',
+    weeklyPromotionEffectSummary: 'PR_SDK_CHANNEL_PROMOTION_W',
+    monthlyPromotionEffectSummary: 'PR_SDK_CHANNEL_PROMOTION_M'
   }
 }

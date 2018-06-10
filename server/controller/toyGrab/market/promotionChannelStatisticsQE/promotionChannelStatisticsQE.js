@@ -402,7 +402,7 @@ module.exports = {
           if (err) {
             console.log(err)
             res.sendFile(path.join(process.cwd(), 'error.html'))
-            return
+            return false
           } else {
             console.log('Sent:', fileName)
             fs.unlink(currFilePath, function (err) {
@@ -415,13 +415,39 @@ module.exports = {
     }, 180000)
   },
   getSelectOptions (req, res) {
-  func.connPool1(sql.toyGrab.market.promotionChannelStatisticsQE.getSelectOptions, tableName.QEpromotionChannelStatistics, function (err, rs) {
-    if (err) {
-      console.log('[query] - :' + err)
+    func.connPool1(sql.toyGrab.market.promotionChannelStatisticsQE.getSelectOptions, tableName.QEpromotionChannelStatistics, function (err, rs) {
+      if (err) {
+        console.log('[query] - :' + err)
+      }
+      rs = packageRows(rs)
+      res.json(rs)
+    })
+  },
+  modifyParams (req, res) {
+    let query = req.body
+    let inputs = query.inputs
+    let itemsIndexs = query.itemsIndexs
+    let itemsNames = query.itemsNames
+    let itemsValues = query.itemsValues
+    let select, excelSelect, sqls = [], excelSqls = []
+    for(let i = 0; i < inputs.length; i++) {
+      if (inputs[i]) {
+        let arr = inputs[i].split('')
+        let temp = []
+        let length = arr.length
+        for (let j = 0; j < length; j++) {
+          let index = itemsIndexs.indexOf(arr[j])
+          if (index > -1) {
+            temp.push(itemsValues[index])
+          } else {
+            temp.push(arr[j])
+          }
+        }
+        excelSqls.push(temp.join(''))
+      } else {
+        excelSqls.push(itemsValues[i])
+      }
     }
-    rs = packageRows(rs)
-    res.json(rs)
-  })
-},
-
+    console.log(excelSqls)  
+  } 
 }

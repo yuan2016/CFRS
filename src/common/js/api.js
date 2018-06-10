@@ -377,6 +377,14 @@ export function getPromotionChannelStatisticsQESelect (data) {
     data: data
   })
 }
+//企鹅推广统计（渠道）修改列
+export function modifyParams (data) {
+  return fetch({
+    url: '/api/promotionChannelStatisticsQE/modifyParams',
+    method: 'post',
+    data: data
+  })
+}
 //企鹅推广统计（OPPO）
 export function getpromotionStatisticsQEClassify (data) {
   return fetch({
@@ -3271,6 +3279,147 @@ export function getPromotionStatisticalChannelSelect () {
 export function getPromotionStatisticalChannelRefresh () {
   return fetch({
     url: '/api/promotionStatisticalChannel/refresh',
+    method: 'post'
+  })
+}
+
+//渠道日推广效果统计
+export function getDailyPromotionEffect (data) {
+  return fetch({
+    url: '/api/dailyPromotionEffect',
+    method: 'post',
+    data: data
+  })
+}
+//渠道日推广效果统计数量
+export function getDailyPromotionEffectCount (data) {
+  return fetch({
+    url: '/api/dailyPromotionEffect/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道日推广效果统计select
+export function getDailyPromotionEffectSelect () {
+  return fetch({
+    url: '/api/dailyPromotionEffect/select',
+    method: 'post'
+  })
+}
+
+//渠道周推广效果统计
+export function getWeeklyPromotionEffect (data) {
+  return fetch({
+    url: '/api/weeklyPromotionEffect',
+    method: 'post',
+    data: data
+  })
+}
+//渠道周推广效果统计数量
+export function getWeeklyPromotionEffectCount (data) {
+  return fetch({
+    url: '/api/weeklyPromotionEffect/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道周推广效果统计select
+export function getWeeklyPromotionEffectSelect () {
+  return fetch({
+    url: '/api/weeklyPromotionEffect/select',
+    method: 'post'
+  })
+}
+//渠道月推广效果统计
+export function getMonthlyPromotionEffect (data) {
+  return fetch({
+    url: '/api/monthlyPromotionEffect',
+    method: 'post',
+    data: data
+  })
+}
+//渠道月推广效果统计数量
+export function getMonthlyPromotionEffectCount (data) {
+  return fetch({
+    url: '/api/monthlyPromotionEffect/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道月推广效果统计select
+export function getMonthlyPromotionEffectSelect () {
+  return fetch({
+    url: '/api/monthlyPromotionEffect/select',
+    method: 'post'
+  })
+}
+//渠道日推广汇总
+export function getDailyPromotionEffectSummary (data) {
+  return fetch({
+    url: '/api/dailyPromotionEffectSummary',
+    method: 'post',
+    data: data
+  })
+}
+//渠道日推广汇总数量
+export function getDailyPromotionEffectSummaryCount (data) {
+  return fetch({
+    url: '/api/dailyPromotionEffectSummary/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道日推广汇总select
+export function getDailyPromotionEffectSummarySelect () {
+  return fetch({
+    url: '/api/dailyPromotionEffectSummary/select',
+    method: 'post'
+  })
+}
+
+//渠道周推广汇总
+export function getWeeklyPromotionEffectSummary (data) {
+  return fetch({
+    url: '/api/weeklyPromotionEffectSummary',
+    method: 'post',
+    data: data
+  })
+}
+//渠道周推广汇总数量
+export function getWeeklyPromotionEffectSummaryCount (data) {
+  return fetch({
+    url: '/api/weeklyPromotionEffectSummary/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道周推广汇总select
+export function getWeeklyPromotionEffectSummarySelect () {
+  return fetch({
+    url: '/api/weeklyPromotionEffectSummary/select',
+    method: 'post'
+  })
+}
+//渠道月推广汇总
+export function getMonthlyPromotionEffectSummary (data) {
+  return fetch({
+    url: '/api/monthlyPromotionEffectSummary',
+    method: 'post',
+    data: data
+  })
+}
+//渠道月推广汇总数量
+export function getMonthlyPromotionEffectSummaryCount (data) {
+  return fetch({
+    url: '/api/monthlyPromotionEffectSummary/count',
+    method: 'post',
+    data: data
+  })
+}
+//渠道月推广汇总select
+export function getMonthlyPromotionEffectSummarySelect () {
+  return fetch({
+    url: '/api/monthlyPromotionEffectSummary/select',
     method: 'post'
   })
 }

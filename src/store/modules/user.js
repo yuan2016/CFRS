@@ -33,7 +33,7 @@ const user = {
     SET_TABLE_ZWW: (state, table) => {
       state.table1 = table
     },
-    SET_TABLE_JP: (state, table) => {
+    SET_TABLE_SDK: (state, table) => {
       state.table2 = table
     },
     SET_TABLE_FQ: (state, table) => {
@@ -81,11 +81,11 @@ const user = {
         const data = response.data[0]
         commit('SET_PRODUCT_NAME', data.product_names)
         commit('SET_NAME', data.user_name)
-        commit('SET_DEPARTMENT', data.department)
+        commit('SET_DEPARTMENT', data.department) 
         commit('SET_SEX', data.user_sex)
         commit('SET_TABLE', data.available_table)
         commit('SET_TABLE_ZWW', data.available_table_zww)
-        commit('SET_TABLE_JP', data.available_table_jp)
+        commit('SET_TABLE_SDK', data.available_table_sdk)
         commit('SET_TABLE_FQ', data.available_table_fq)
         commit('SET_PHONE', data.user_mobile)
         commit('SET_PERMISSION', data.user_permission)
@@ -104,7 +104,7 @@ const user = {
         commit('SET_SEX', data.user_sex)
         commit('SET_TABLE', data.available_table)
         commit('SET_TABLE_ZWW', data.available_table_zww)
-        commit('SET_TABLE_JP', data.available_table_jp)
+        commit('SET_TABLE_SDK', data.available_table_sdk)
         commit('SET_TABLE_FQ', data.available_table_fq)
         commit('SET_PHONE', data.user_mobile)
         commit('SET_PERMISSION', data.user_permission)

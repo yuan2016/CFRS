@@ -3,6 +3,7 @@
     <el-container class="container">
       <el-header class="header">
         <div class="header_logo"></div>
+        <!-- <div class="new" @click="jumpToNew"></div> -->
         <el-dropdown class="product" v-if="this.productNames.length>1" @command="handleCommand" trigger="click">
           <span class="el-dropdown-link">{{currentProduct}}<i class="el-icon-arrow-down el-icon--right"></i></span>
           <el-dropdown-menu slot="dropdown" class="chooseProject">
@@ -231,6 +232,10 @@
       }
     },
     methods: {
+      //跳转至新地址
+      // jumpToNew() {
+      //   window.open("http://report.zbswzn.cn");
+      // },
       //选择产品的方法
       handleCommand(command) {
         let key
@@ -242,7 +247,7 @@
         } else if (command === '企鹅抓娃娃') {
           value = this.$store.getters.table1.split('|')
           key = 1
-        } else if (command === '开心拍卖') {
+        } else if (command === '闪电卡') {
           value = this.$store.getters.table2.split('|')
           key = 2
         } else if (command === '开心分期') {

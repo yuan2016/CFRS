@@ -171,6 +171,13 @@ let promotionInformation = require('../controller/period/market/promotionInforma
 let registrationStatisticsReport = require('../controller/period/market/registrationStatisticsReport/registrationStatisticsReport')
 let promotionStatisticsArea = require('../controller/period/market/promotionStatisticsArea/promotionStatisticsArea')
 let promotionStatisticalChannel = require('../controller/period/market/promotionStatisticalChannel/promotionStatisticalChannel')
+/**闪电卡 */
+let dailyPromotionEffect = require('../controller/flashCard/market/dailyPromotionEffect/dailyPromotionEffect')
+let weeklyPromotionEffect = require('../controller/flashCard/market/weeklyPromotionEffect/weeklyPromotionEffect')
+let monthlyPromotionEffect = require('../controller/flashCard/market/monthlyPromotionEffect/monthlyPromotionEffect')
+let dailyPromotionEffectSummary = require('../controller/flashCard/market/dailyPromotionEffectSummary/dailyPromotionEffectSummary')
+let weeklyPromotionEffectSummary = require('../controller/flashCard/market/weeklyPromotionEffectSummary/weeklyPromotionEffectSummary')
+let monthlyPromotionEffectSummary = require('../controller/flashCard/market/monthlyPromotionEffectSummary/monthlyPromotionEffectSummary')
 let api = require('../api')
 
 let router = express.Router()
@@ -316,6 +323,7 @@ router.get(api.promotionChannelStatisticsQEExcelSUM, promotionChannelStatisticsQ
 router.post(api.onlineStatisticsHourly, promotionChannelStatisticsQE.fetOnlineStatisticsHourly)
 router.post(api.promotionChannelStatisticsQESUM, promotionChannelStatisticsQE.fetchAllSUM)
 router.post(api.promotionChannelStatisticsQEGetOptions, promotionChannelStatisticsQE.getSelectOptions)
+router.post(api.modifyParams, promotionChannelStatisticsQE.modifyParams)
 //推广统计（OPPO）
 router.post(api.promotionStatisticsQEClassifyCount, promotionStatisticsQEClassify.getCount)
 router.post(api.promotionStatisticsQEClassifyChanneName, promotionStatisticsQEClassify.getChannelName)
@@ -902,4 +910,34 @@ router.post(api.promotionStatisticalChannel, promotionStatisticalChannel.fetchAl
 router.post(api.promotionStatisticalChannelRefresh, promotionStatisticalChannel.refreshData)
 router.post(api.promotionStatisticalChannelGetOptions, promotionStatisticalChannel.getSelectOptions)
 router.get(api.promotionStatisticalChannelExcel, promotionStatisticalChannel.getExcelData)
+//渠道日推广效果统计
+router.post(api.dailyPromotionEffectCount, dailyPromotionEffect.getCount)
+router.post(api.dailyPromotionEffect, dailyPromotionEffect.fetchAll)
+router.post(api.dailyPromotionEffectSelect, dailyPromotionEffect.getSelectOptions)
+router.get(api.dailyPromotionEffectExcel, dailyPromotionEffect.getExcelData)
+//渠道周推广效果统计
+router.post(api.weeklyPromotionEffectCount, weeklyPromotionEffect.getCount)
+router.post(api.weeklyPromotionEffect, weeklyPromotionEffect.fetchAll)
+router.post(api.weeklyPromotionEffectSelect, weeklyPromotionEffect.getSelectOptions)
+router.get(api.weeklyPromotionEffectExcel, weeklyPromotionEffect.getExcelData)
+//渠道月推广效果统计
+router.post(api.monthlyPromotionEffectCount, monthlyPromotionEffect.getCount)
+router.post(api.monthlyPromotionEffect, monthlyPromotionEffect.fetchAll)
+router.post(api.monthlyPromotionEffectSelect, monthlyPromotionEffect.getSelectOptions)
+router.get(api.monthlyPromotionEffectExcel, monthlyPromotionEffect.getExcelData)
+//渠道日推广汇总
+router.post(api.dailyPromotionEffectSummaryCount, dailyPromotionEffectSummary.getCount)
+router.post(api.dailyPromotionEffectSummary, dailyPromotionEffectSummary.fetchAll)
+router.post(api.dailyPromotionEffectSummarySelect, dailyPromotionEffectSummary.getSelectOptions)
+router.get(api.dailyPromotionEffectSummaryExcel, dailyPromotionEffectSummary.getExcelData)
+//渠道周推广汇总
+router.post(api.weeklyPromotionEffectSummaryCount, weeklyPromotionEffectSummary.getCount)
+router.post(api.weeklyPromotionEffectSummary, weeklyPromotionEffectSummary.fetchAll)
+router.post(api.weeklyPromotionEffectSummarySelect, weeklyPromotionEffectSummary.getSelectOptions)
+router.get(api.weeklyPromotionEffectSummaryExcel, weeklyPromotionEffectSummary.getExcelData)
+//渠道月推广汇总
+router.post(api.monthlyPromotionEffectSummaryCount, monthlyPromotionEffectSummary.getCount)
+router.post(api.monthlyPromotionEffectSummary, monthlyPromotionEffectSummary.fetchAll)
+router.post(api.monthlyPromotionEffectSummarySelect, monthlyPromotionEffectSummary.getSelectOptions)
+router.get(api.monthlyPromotionEffectSummaryExcel, monthlyPromotionEffectSummary.getExcelData)
 module.exports = router

@@ -17,7 +17,7 @@
     </div>
     <el-table :data="fundData" highlight-current-row border fit stripe style="width: 100%;overflow: auto;"
               :height="height"
-              class="deleteRobotInfo-table">
+              class="deleteRobotInfo-table">  
       <tr v-for="item in items" :key="item">
         <el-table-column :property="item" :label="item" :min-width="getWidth(item)"></el-table-column>
       </tr>

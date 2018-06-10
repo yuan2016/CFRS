@@ -48,7 +48,7 @@ const permission = {
       } else if (num === 1) {
         state.currentProduct = '企鹅抓娃娃'
       } else if (num === 2) {
-        state.currentProduct = '开心拍卖'
+        state.currentProduct = '闪电卡'
       } else {
         state.currentProduct = '开心分期'
       }

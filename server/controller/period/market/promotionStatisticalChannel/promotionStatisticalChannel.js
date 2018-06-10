@@ -290,7 +290,7 @@ module.exports = {
           if (err) {
             console.log(err)
             res.sendFile(path.join(process.cwd(), 'error.html'))
-            return
+            return false
           } else {
             console.log('Sent:', fileName)
             fs.unlink(currFilePath, function (err) {

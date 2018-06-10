@@ -104,6 +104,7 @@ module.exports = {
   promotionChannelStatisticsQEExcelSUM: path + '/promotionChannelStatisticsQE/excelSUM',
   promotionChannelStatisticsQEUpdate: path + '/promotionChannelStatisticsQE/update',
   promotionChannelStatisticsQESUM: path + '/promotionChannelStatisticsQE/sum',
+  modifyParams: path + '/promotionChannelStatisticsQE/modifyParams',
   onlineStatisticsHourly: path + '/onlineStatisticsHourly', //在线统计图
   //推广统计（OPPO）
   promotionStatisticsQEClassify: path + '/promotionStatisticsQEClassify',
@@ -683,5 +684,35 @@ module.exports = {
   promotionStatisticalChannelCount: path + '/promotionStatisticalChannel/count',
   promotionStatisticalChannelRefresh: path + '/promotionStatisticalChannel/refresh',
   promotionStatisticalChannelGetOptions: path + '/promotionStatisticalChannel/getSelectOptions',
-  promotionStatisticalChannelExcel: path + '/promotionStatisticalChannel/excel'
+  promotionStatisticalChannelExcel: path + '/promotionStatisticalChannel/excel',
+  // 渠道日推广效果统计
+  dailyPromotionEffect: path + '/dailyPromotionEffect',
+  dailyPromotionEffectCount: path + '/dailyPromotionEffect/count',
+  dailyPromotionEffectSelect: path + '/dailyPromotionEffect/select',
+  dailyPromotionEffectExcel: path + '/dailyPromotionEffect/excel',  
+  // 渠道周推广效果统计
+  weeklyPromotionEffect: path + '/weeklyPromotionEffect',
+  weeklyPromotionEffectCount: path + '/weeklyPromotionEffect/count',
+  weeklyPromotionEffectSelect: path + '/weeklyPromotionEffect/select',
+  weeklyPromotionEffectExcel: path + '/weeklyPromotionEffect/excel',  
+  // 渠道月推广效果统计
+  monthlyPromotionEffect: path + '/monthlyPromotionEffect',
+  monthlyPromotionEffectCount: path + '/monthlyPromotionEffect/count',
+  monthlyPromotionEffectSelect: path + '/monthlyPromotionEffect/select',
+  monthlyPromotionEffectExcel: path + '/monthlyPromotionEffect/excel',
+  // 渠道日推广汇总
+  dailyPromotionEffectSummary: path + '/dailyPromotionEffectSummary',
+  dailyPromotionEffectSummaryCount: path + '/dailyPromotionEffectSummary/count',
+  dailyPromotionEffectSummarySelect: path + '/dailyPromotionEffectSummary/select',
+  dailyPromotionEffectSummaryExcel: path + '/dailyPromotionEffectSummary/excel',  
+  // 渠道周推广汇总
+  weeklyPromotionEffectSummary: path + '/weeklyPromotionEffectSummary',
+  weeklyPromotionEffectSummaryCount: path + '/weeklyPromotionEffectSummary/count',
+  weeklyPromotionEffectSummarySelect: path + '/weeklyPromotionEffectSummary/select',
+  weeklyPromotionEffectSummaryExcel: path + '/weeklyPromotionEffectSummary/excel',  
+  // 渠道月推广汇总   
+  monthlyPromotionEffectSummary: path + '/monthlyPromotionEffectSummary',
+  monthlyPromotionEffectSummaryCount: path + '/monthlyPromotionEffectSummary/count',
+  monthlyPromotionEffectSummarySelect: path + '/monthlyPromotionEffectSummary/select',
+  monthlyPromotionEffectSummaryExcel: path + '/monthlyPromotionEffectSummary/excel'    
 }

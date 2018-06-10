@@ -54,7 +54,7 @@ function selectRoles (productName, to) {
     if (pathOne === 'toyGrab') {
       value = store.getters.table1.split('|')
       key = 1
-    } else if (pathOne === 'auction') {
+    } else if (pathOne === 'flashCard') {
       value = store.getters.table2.split('|')
       key = 2
     } else if (pathOne === 'period') {
@@ -70,17 +70,17 @@ function selectRoles (productName, to) {
     if (pathOne === 'toyGrab' || pathOne === 'main') {
       value = store.getters.table1.split('|')
       key = 1
-    } else if (pathOne === 'auction') {
+    } else if (pathOne === 'flashCard') {
       value = store.getters.table2.split('|')
       key = 2
     } else if (pathOne === 'period') {
       value = store.getters.table3.split('|')
       key = 3
     }
-  } else if (productName === '开心拍卖') {
+  } else if (productName === '闪电卡') {
     let arrPath = to.path.split('/')
     let pathOne = arrPath[1]
-    if (pathOne === 'toyGrab' || pathOne === 'main' || pathOne === 'auction') {
+    if (pathOne === 'toyGrab' || pathOne === 'main' || pathOne === 'flashCard') {
       value = store.getters.table2.split('|')
       key = 2
     } else {
@@ -102,7 +102,7 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next({path: '/main'})
     } else {
-      if (store.getters.table.length === 0 && store.getters.table1.length === 0 && store.getters.table3.length === 0) {
+      if (store.getters.table.length === 0 && store.getters.table1.length === 0 && store.getters.table2.length === 0 && store.getters.table3.length === 0) {
         if (getPhone()) {
           store.dispatch('getInfo', getPhone()).then(res => {
             const productName = store.getters.productNames[0]
@@ -126,14 +126,14 @@ router.beforeEach((to, from, next) => {
             console.log(err)
           })
         }
-        } else {
+      } else {
           if (to.path === '/main' || to.path === '/main/index') {
             const productName = store.getters.productNames[0]
             if (productName === '开心钱包') {
               next({path: address[selectBaseTable(store.getters.table)[0]]})
             } else if (productName === '企鹅抓娃娃') {
               next({path: address[selectBaseTable(store.getters.table1)[0]]})
-            } else if (productName === '开心拍卖') {
+            } else if (productName === '闪电卡') {
               next({path: address[selectBaseTable(store.getters.table2)[0]]})
             } else {
               next({path: address[selectBaseTable(store.getters.table3)[0]]})

@@ -16,7 +16,7 @@
                 <el-form-item prop="phoneNumber" class="loginPhoneNumber">
                   <el-input type="text" placeholder="请输入手机号" v-model="loginForm.phoneNumber">
                   </el-input>
-                     <!-- <span class="message" @click="changeModel">使用邮箱登录</span> -->
+                     <span class="message" @click="changeModel">使用邮箱登录</span>
                 </el-form-item>
                 <el-form-item prop="picCode" class="picCode">
                   <el-input type="picCode" placeholder="请输入右侧验证码" v-model="loginForm.picCode">
@@ -330,15 +330,16 @@
                   message: resData.name + this.judgeTime() + ',欢迎进入报表系统',
                   type: 'success'
                 })
-                setTimeout(() => {
-                  this.$notify({
-                  title: '提示',
-                  message: '请在右上角下拉菜单中选择相应产品',
-                  duration: 3500,
-                  type: 'success',
-                  offset: 50
-                  })
-                }, 1000)
+                // setTimeout(() => {
+                //   this.$notify({
+                //   title: '提示',
+                //   dangerouslyUseHTMLString: true,
+                //   message: '<strong>服务器迁移至<a href="http://report.zbswzn.cn" class="new-address" target="_blank">新地址</a>，请做好书签备份</strong>',
+                //   duration: 3500,
+                //   type: 'warning',
+                //   offset: 50
+                //   })
+                // }, 1000)
               }
             })
           } else {
@@ -372,15 +373,16 @@
                   message: resData.name + this.judgeTime() + ',欢迎进入报表系统',
                   type: 'success'
                 })
-                setTimeout(() => {
-                  this.$notify({
-                  title: '提示',
-                  message: '请在右上角下拉菜单中选择相应产品',
-                  type: 'success',
-                  duration: 3500,
-                  offset: 50
-                  })
-                }, 1000)
+                // setTimeout(() => {
+                //   this.$notify({
+                //   title: '提示',
+                //   dangerouslyUseHTMLString: true,
+                //   message: '<strong>服务器迁移至<a href="http://report.zbswzn.cn" class="new-address" target="_blank">新地址</a>，请做好书签备份</strong>',
+                //   duration: 3500,
+                //   type: 'warning',
+                //   offset: 50
+                //   })
+                // }, 1000)
               }
             })
           } else {
@@ -693,5 +695,9 @@
         .footer
           position: relative
           bottom: none
+
+  .new-address
+    color: #409eff
+
 
 </style>

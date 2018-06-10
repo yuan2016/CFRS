@@ -153,7 +153,9 @@ module.exports = {
   },
   getExcelData(req, res) {
     let params = req.query
+    console.log(params)
     let queries = analysis(params, 'd_month', 'w')
+    console.log(queries)
     let query = sql.period.selectAll + queries + sql.period.orderMonth
     func.connPool1(query, [tableName.period.monthlyBondData], function (err, rs) {
       if (err) {

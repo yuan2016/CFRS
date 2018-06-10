@@ -129,6 +129,11 @@
         <el-table-column property="ouser_full_amount_rate_x" label="新网"></el-table-column>
         <el-table-column property="ouser_full_amount_rate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
+      <el-table-column label="扣款失败率">
+        <el-table-column property="Chargeback_failrate_z" label="招财猫"></el-table-column>
+        <el-table-column property="Chargeback_failrate_x" label="新网"></el-table-column>
+        <el-table-column property="Chargeback_failrate" class-name="fontBold" label="合计"></el-table-column>
+      </el-table-column>
       <el-table-column property="create_time" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
