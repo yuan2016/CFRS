@@ -1,4 +1,4 @@
-let parentTable = ['RMAB', '市场', '运营', '催收', '用户画像', '用户信息管理', '借款管理', '还款管理', '还款列表', '对账列表', '退款列表', '续期管理', '数据分析', '财务数据', '数据报表', '财务分析', '推广管理', '绩效考评', '权限管理', '现金借呗', '实验室', '企鹅抓娃娃', '市场分析', '埋点分析', '开心拍卖', '市场详情', '运营分析', '开心分期', '黑卡', '商城', '财务对账', '市场统计']
+let parentTable = ['RMAB', '市场', '运营', '催收', '用户画像', '用户信息管理', '借款管理', '还款管理', '还款列表', '对账列表', '退款列表', '续期管理', '数据分析', '财务数据', '数据报表', '财务分析', '推广管理', '绩效考评', '权限管理', '现金借呗', '实验室', '企鹅抓娃娃', '市场分析', '埋点分析', '开心拍卖', '市场详情', '运营分析', '开心分期', '黑卡', '商城', '市场统计', '闪电卡', '市场行情']
 let address = {
   '新用户借款通过率': '/RMAB/market/newUserPassRate/tab1',
   '邀请活动': '/RMAB/operate/invitationEvent',
@@ -138,7 +138,13 @@ let address = {
   '推广员信息表': '/period/market/promotionInformation',
   '注册量统计表': '/period/market/registrationStatisticsReport',
   '推广统计-地区': '/period/market/promotionStatisticsArea',
-  '推广统计-渠道': '/period/market/promotionStatisticalChannel'
+  '推广统计-渠道': '/period/market/promotionStatisticalChannel',
+  '渠道日推广效果统计': '/flashCard/market/dailyPromotionEffect',
+  '渠道周推广效果统计': '/flashCard/market/dailyPromotionEffect',
+  '渠道月推广效果统计': '/flashCard/market/dailyPromotionEffect',
+  '渠道日推广汇总': '/flashCard/market/dailyPromotionEffectSummary',
+  '渠道周推广汇总': '/flashCard/market/weeklyPromotionEffectSummary',
+  '渠道月推广汇总': '/flashCard/market/monthlyPromotionEffectSummary'
 }
 
 export { parentTable, address }

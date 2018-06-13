@@ -37,9 +37,6 @@ module.exports = {
   getOne (req, res) {
     let params = req.body
     let query = sql.global.selectOne
-    console.log(params.tableName)
-    console.log(params.offset)
-    console.log(params.limit)
     func.connPool1(query, [params.tableName, params.offset, params.limit], function (err, rs) {
       if (err) {
         console.log('[query] - :' + err)

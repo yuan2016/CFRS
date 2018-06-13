@@ -28,16 +28,32 @@ const user = {
       state.sex = sex
     },
     SET_TABLE: (state, table) => {
-      state.table = table
+      if (table){
+        state.table = table
+      } else {
+        state.table = ''
+      }
     },
     SET_TABLE_ZWW: (state, table) => {
-      state.table1 = table
+      if (table){
+        state.table1 = table
+      } else {
+        state.table1 = ''
+      }
     },
     SET_TABLE_SDK: (state, table) => {
-      state.table2 = table
+      if (table){
+        state.table2 = table
+      } else {
+        state.table2 = ''
+      }
     },
     SET_TABLE_FQ: (state, table) => {
-      state.table3 = table
+      if (table){
+        state.table3 = table
+      } else {
+        state.table3 = ''
+      }
     },
     SET_PHONE: (state, phone) => {
       state.phone = phone
