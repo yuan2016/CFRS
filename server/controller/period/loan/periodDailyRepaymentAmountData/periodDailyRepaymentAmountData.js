@@ -9,7 +9,7 @@ let pro = require('child_process')
 let path = require('path')
 let fs = require('fs')
 
-const tHeader = [['', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计'], ['日期', '到期金额(元)', '', '', '逾期金额(元)', '', '', '逾期率', '', '', '还款率', '', '', '7天期限逾期单数', '', '', '14天期限逾期单数', '', '', '7天期限逾期金额(元)', '', '14天期限逾期金额(元)', '', '', '7天期限逾期率', '', '', '14天期限逾期率', '', '', '老用户逾期率', '', '', '新用户逾期率', '', '', '老用户还款率', '', '', '新用户还款率', '', '', '老用户到期金额(元)', '', '', '新用户到期金额(元)', '', '', '老用户逾期金额(元)', '', '', '新用户逾期金额(元)']]
+const tHeader = [['', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计'], ['日期', '到期金额(元)', '', '', '逾期金额(元)', '', '', '逾期率', '', '', '还款率', '', '', '7天期限逾期单数', '', '', '14天期限逾期单数', '', '', '7天期限逾期金额(元)', '', '14天期限逾期金额(元)', '', '', '7天期限逾期率', '', '', '14天期限逾期率', '', '', '老用户逾期率', '', '', '新用户逾期率', '', '', '老用户还款率', '', '', '新用户还款率', '', '', '老用户到期金额(元)', '', '', '新用户到期金额(元)', '', '', '老用户逾期金额(元)', '', '', '新用户逾期金额(元)', '', '', '续期率']]
 const filterVal = ['D_DATE', 'MATURE_MONEY_Z', 'MATURE_MONEY_X', 'MATURE_MONEY', 'OVERDUE_MONEY_Z', 'OVERDUE_MONEY_X', 'OVERDUE_MONEY', 'OVERDUE_RATE_Z', 'OVERDUE_RATE_X', 'OVERDUE_RATE', 'REPAYMENT_RATE_Z', 'REPAYMENT_RATE_X', 'REPAYMENT_RATE',
   'OVERDUE_NUM_7DAY_Z', 'OVERDUE_NUM_7DAY_X', 'OVERDUE_NUM_7DAY',
   'OVERDUE_NUM_14DAY_Z', 'OVERDUE_NUM_14DAY_X', 'OVERDUE_NUM_14DAY',
@@ -17,10 +17,10 @@ const filterVal = ['D_DATE', 'MATURE_MONEY_Z', 'MATURE_MONEY_X', 'MATURE_MONEY',
   'OVERDUE_MONEY_14DAY_Z', 'OVERDUE_MONEY_14DAY_X', 'OVERDUE_MONEY_14DAY',
   'OVERDUE_RATE_7DAY_Z', 'OVERDUE_RATE_7DAY_X', 'OVERDUE_RATE_7DAY',
   'OVERDUE_RATE_14DAY_Z', 'OVERDUE_RATE_14DAY_X', 'OVERDUE_RATE_14DAY',
-  'OVERDUE_RATE_OUSER_Z', 'OVERDUE_RATE_OUSER_X', 'OVERDUE_RATE_OUSER', 'OVERDUE_RATE_NUSER_Z', 'OVERDUE_RATE_NUSER_X', 'OVERDUE_RATE_NUSER', 'REPAYMENT_RATE_OUSER_Z', 'REPAYMENT_RATE_OUSER_X', 'REPAYMENT_RATE_OUSER', 'REPAYMENT_RATE_NUSER_Z', 'REPAYMENT_RATE_NUSER_X', 'REPAYMENT_RATE_NUSER', 'MATURE_MONEY_OUSER_Z', 'MATURE_MONEY_OUSER_X', 'MATURE_MONEY_OUSER', 'MATURE_MONEY_NUSER_Z', 'MATURE_MONEY_NUSER_X', 'MATURE_MONEY_NUSER', 'OVERDUE_MONEY_OUSER_Z', 'OVERDUE_MONEY_OUSER_X', 'OVERDUE_MONEY_OUSER', 'OVERDUE_MONEY_NUSER_Z', 'OVERDUE_MONEY_NUSER_X', 'OVERDUE_MONEY_NUSER']
+  'OVERDUE_RATE_OUSER_Z', 'OVERDUE_RATE_OUSER_X', 'OVERDUE_RATE_OUSER', 'OVERDUE_RATE_NUSER_Z', 'OVERDUE_RATE_NUSER_X', 'OVERDUE_RATE_NUSER', 'REPAYMENT_RATE_OUSER_Z', 'REPAYMENT_RATE_OUSER_X', 'REPAYMENT_RATE_OUSER', 'REPAYMENT_RATE_NUSER_Z', 'REPAYMENT_RATE_NUSER_X', 'REPAYMENT_RATE_NUSER', 'MATURE_MONEY_OUSER_Z', 'MATURE_MONEY_OUSER_X', 'MATURE_MONEY_OUSER', 'MATURE_MONEY_NUSER_Z', 'MATURE_MONEY_NUSER_X', 'MATURE_MONEY_NUSER', 'OVERDUE_MONEY_OUSER_Z', 'OVERDUE_MONEY_OUSER_X', 'OVERDUE_MONEY_OUSER', 'OVERDUE_MONEY_NUSER_Z', 'OVERDUE_MONEY_NUSER_X', 'OVERDUE_MONEY_NUSER', 'RENEWAL_RATE_Z', 'RENEWAL_RATE_X', 'RENEWAL_RATE']
 //横坐标纵坐标
-const merge = [[0, 0, 0, 1], [1, 0, 3, 0], [4, 0, 6, 0], [7, 0, 9, 0], [10, 0, 12, 0], [13, 0, 15, 0], [16, 0, 18, 0], [19, 0, 21, 0], [22, 0, 24, 0], [25, 0, 27, 0], [28, 0, 30, 0], [31, 0, 33, 0], [34, 0, 36, 0], [37, 0, 39, 0], [40, 0, 42, 0], [43, 0, 45, 0], [46, 0, 48, 0], [49, 0, 51, 0]]
-const change = [['A1', '    日期'], ['B1', '  到期金额(元)'], ['E1', '  逾期金额(元)'], ['H1', '  逾期率'], ['K1', '  还款率'], ['N1', ' 7天期限逾期单数'], ['Q1', ' 14天期限逾期单数'], ['T1', ' 7天期限逾期金额(元)'], ['W1', ' 14天期限逾期金额(元)'], ['Z1', ' 7天期限逾期率'], ['AC1', ' 14天期限逾期率'], ['AF1', ' 老用户逾期率'], ['AI1', ' 新用户逾期率'], ['AL1', ' 老用户还款率'], ['AO1', ' 新用户还款率'], ['AR1', ' 老用户到期金额(元)'], ['AU1', ' 新用户到期金额(元)'], ['AX1', ' 老用户逾期金额(元)'], ['BA1', ' 新用户逾期金额(元)']]
+const merge = [[0, 0, 0, 1], [1, 0, 3, 0], [4, 0, 6, 0], [7, 0, 9, 0], [10, 0, 12, 0], [13, 0, 15, 0], [16, 0, 18, 0], [19, 0, 21, 0], [22, 0, 24, 0], [25, 0, 27, 0], [28, 0, 30, 0], [31, 0, 33, 0], [34, 0, 36, 0], [37, 0, 39, 0], [40, 0, 42, 0], [43, 0, 45, 0], [46, 0, 48, 0], [49, 0, 51, 0], [52, 0, 54, 0]]
+const change = [['A1', '    日期'], ['B1', '  到期金额(元)'], ['E1', '  逾期金额(元)'], ['H1', '  逾期率'], ['K1', '  还款率'], ['N1', ' 7天期限逾期单数'], ['Q1', ' 14天期限逾期单数'], ['T1', ' 7天期限逾期金额(元)'], ['W1', ' 14天期限逾期金额(元)'], ['Z1', ' 7天期限逾期率'], ['AC1', ' 14天期限逾期率'], ['AF1', ' 老用户逾期率'], ['AI1', ' 新用户逾期率'], ['AL1', ' 老用户还款率'], ['AO1', ' 新用户还款率'], ['AR1', ' 老用户到期金额(元)'], ['AU1', ' 新用户到期金额(元)'], ['AX1', ' 老用户逾期金额(元)'], ['BA1', ' 新用户逾期金额(元)'], ['BD1', ' 续期率']]
 
 global.periodDailyRepaymentAmountDataCount = 0
 
@@ -200,6 +200,15 @@ function formatData(rows) {
     }
     if (row.REPAYMENT_RATE_NUSER) {
       row.REPAYMENT_RATE_NUSER = (row.REPAYMENT_RATE_NUSER * 100).toFixed(2) + '%'
+    }
+    if (row.RENEWAL_RATE_Z) {
+      row.RENEWAL_RATE_Z = (row.RENEWAL_RATE_Z * 100).toFixed(2) + '%'
+    }
+    if (row.RENEWAL_RATE_X) {
+      row.RENEWAL_RATE_X = (row.RENEWAL_RATE_X * 100).toFixed(2) + '%'
+    }
+    if (row.RENEWAL_RATE) {
+      row.RENEWAL_RATE = (row.RENEWAL_RATE * 100).toFixed(2) + '%'
     }
     return row
   })

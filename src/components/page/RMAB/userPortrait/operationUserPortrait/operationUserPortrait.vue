@@ -175,8 +175,8 @@
       banner
     },
     created () {
-      this.loading = true
-      this.getDataInit()
+      // this.loading = true
+      // this.getDataInit()
     },
     mounted () {
       this.resizeHeight()
@@ -233,14 +233,14 @@
         return getOperationUserPortraitCount()
       },
       search () {
-        this.loading = true
-        if (this.startTime !== '') {
-          this.startTime = formatDate(new Date(this.startTime), 'yyyy-MM-dd')
-        }
-        if (this.endTime !== '') {
-          this.endTime = formatDate(new Date(this.endTime), 'yyyy-MM-dd')
-        }
-        this.getDataInit()
+        // this.loading = true
+        // if (this.startTime !== '') {
+        //   this.startTime = formatDate(new Date(this.startTime), 'yyyy-MM-dd')
+        // }
+        // if (this.endTime !== '') {
+        //   this.endTime = formatDate(new Date(this.endTime), 'yyyy-MM-dd')
+        // }
+        // this.getDataInit()
       },
       sort (info) {
         if (info.order === 'ascending') {

@@ -29,7 +29,7 @@
       }
     },
     created () {
-      this.getDataInit()
+      // this.getDataInit()
     },
     methods: {
       getDataInit () {

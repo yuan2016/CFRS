@@ -123,6 +123,11 @@
           <el-table-column property="OVERDUE_MONEY_NUSER_X" label="新网" min-width=100></el-table-column>
           <el-table-column property="OVERDUE_MONEY_NUSER" class-name="fontBold" label="合计" min-width=100></el-table-column>
         </el-table-column>
+        <el-table-column label="续期率">
+          <el-table-column property="RENEWAL_RATE_Z" label="招财猫" min-width=100></el-table-column>
+          <el-table-column property="RENEWAL_RATE_X" label="新网" min-width=100></el-table-column>
+          <el-table-column property="RENEWAL_RATE" class-name="fontBold" label="合计" min-width=100></el-table-column>
+        </el-table-column>
         <el-table-column property="CREATE_TIME" label="更新时间" min-width="140"></el-table-column>
     </el-table>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">

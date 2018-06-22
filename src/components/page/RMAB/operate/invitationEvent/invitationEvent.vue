@@ -59,8 +59,8 @@
       banner
     },
     created () {
-      this.loading = true
-      this.getData()
+      // this.loading = true
+      // this.getData()
     },
     mounted () {
       this.resizeHeight()
@@ -98,8 +98,8 @@
         })
       },
       search () {
-        this.loading = true
-        this.getData()
+        // this.loading = true
+        // this.getData()
       },
       resizeHeight () {
         this.setHeight()

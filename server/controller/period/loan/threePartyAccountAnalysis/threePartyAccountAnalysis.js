@@ -24,12 +24,12 @@ function formatJson(filterVal, jsonData) {
 }
 
 //千分位表示为普通数字表示
-function changeItem(a) {
-  if (a === 0 || a === '0') {
-    return a
-  }
-  return parseFloat(a.split(',').join(''))
-}
+// function changeItem(a) {
+//   if (a === 0 || a === '0') {
+//     return a
+//   }
+//   return parseFloat(a.split(',').join(''))
+// }
 
 function formatData(rows) {
   return rows.map(row => {

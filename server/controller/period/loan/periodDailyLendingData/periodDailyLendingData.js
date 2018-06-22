@@ -9,7 +9,7 @@ let pro = require('child_process')
 let path = require('path')
 let fs = require('fs')
 
-const tHeader = [['', '', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计'], ['日期', '注册人数', '借款人数', '', '成功借款人数', '', '新用户借款占比', '', '老用户借款占比', '', '累计新用户借款占比', '', '累计老用户借款占比', '', '放款单数', '', '7天期限放款单数', '', '14天期限放款单数', '', '放款总额', '', '7天期限放款总额', '',  '14天期限放款总额', '', '老用户放款单数', '', '老用户放款总额', '', '新用户放款单数', '', '新用户放款总额', '', '满额率', '', '新用户满额率', '', '老用户满额率', '', '扣款失败率', '']]
+const tHeader = [['', '', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计', '招财猫', '新网', '合计'], ['日期', '注册人数', '借款人数', '', '成功借款人数', '', '新用户借款占比', '', '老用户借款占比', '', '累计新用户借款占比', '', '累计老用户借款占比', '', '放款单数', '', '7天期限放款单数', '', '14天期限放款单数', '', '放款总额', '', '7天期限放款总额', '',  '14天期限放款总额', '', '老用户放款单数', '', '老用户放款总额', '', '新用户放款单数', '', '新用户放款总额', '', '满额率', '', '新用户满额率', '', '老用户满额率', '', '扣款失败率', '', '新用户续期率', '', '老用户续期率', '', '总续期率', '']]
 const filterVal = ['d_date', 'register_num', 'loan_num_z', 'loan_num_x', 'loan_num', 'success_loan_num_z', 'success_loan_num_x', 'success_loan_num', 'newuser_loan_rate_z', 'newuser_loan_rate_x', 'newuser_loan_rate', 'olduser_loan_rate_z', 'olduser_loan_rate_x', 'olduser_loan_rate', 'accunewuser_loan_rate_z', 'accunewuser_loan_rate_x', 'accunewuser_loan_rate', 'accuolduser_loan_rate_z', 'accuolduser_loan_rate_x', 'accuolduser_loan_rate',
   'loan_singular_z', 'loan_singular_x', 'loan_singular',
   'loan_singular_7day_z', 'loan_singular_7day_x', 'loan_singular_7day',
@@ -20,10 +20,10 @@ const filterVal = ['d_date', 'register_num', 'loan_num_z', 'loan_num_x', 'loan_n
   'loan_singular_ouser_z', 'loan_singular_ouser_x', 'loan_singular_ouser',
   'loans_total_ouser_z', 'loans_total_ouser_x', 'loans_total_ouser',
   'loan_singular_nuser_z', 'loan_singular_nuser_x', 'loan_singular_nuser',
-  'loans_total_nuser_z', 'loans_total_nuser_x', 'loans_total_nuser', 'full_amount_rate_z', 'full_amount_rate_x', 'full_amount_rate', 'nuser_full_amount_rate_z', 'nuser_full_amount_rate_x', 'nuser_full_amount_rate', 'ouser_full_amount_rate_z', 'ouser_full_amount_rate_x', 'ouser_full_amount_rate', 'Chargeback_failrate_z', 'Chargeback_failrate_x', 'Chargeback_failrate']
+  'loans_total_nuser_z', 'loans_total_nuser_x', 'loans_total_nuser', 'full_amount_rate_z', 'full_amount_rate_x', 'full_amount_rate', 'nuser_full_amount_rate_z', 'nuser_full_amount_rate_x', 'nuser_full_amount_rate', 'ouser_full_amount_rate_z', 'ouser_full_amount_rate_x', 'ouser_full_amount_rate', 'Chargeback_failrate_z', 'Chargeback_failrate_x', 'Chargeback_failrate', 'renewal_rate_nuser_z', 'renewal_rate_nuser_x', 'renewal_rate_nuser', 'renewal_rate_ouser_z', 'renewal_rate_ouser_x', 'renewal_rate_ouser', 'renewal_rate_z', 'renewal_rate_x', 'renewal_rate']
 //横坐标纵坐标
-const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 4, 0], [5, 0, 7, 0], [8, 0, 10, 0], [11, 0, 13, 0], [14, 0, 16, 0], [17, 0, 19, 0], [20, 0, 22, 0], [23, 0, 25, 0], [26, 0, 28, 0], [29, 0, 31, 0], [32, 0, 34, 0], [35, 0, 37, 0], [38, 0, 40, 0], [41, 0, 43, 0], [44, 0, 46, 0], [47, 0, 49, 0], [50, 0, 52, 0], [53, 0, 55, 0], [56, 0, 58, 0], [59, 0, 61, 0]]
-const change = [['A1', '    日期'], ['B1', '  注册人数'], ['C1', '  借款人数'], ['F1', '  成功借款人数'], ['I1', '  新用户借款占比'], ['L1', ' 老用户借款占比'], ['O1', ' 累计新用户借款占比'], ['R1', ' 累计老用户借款占比'], ['U1', ' 放款单数'], ['X1', ' 7天期限放款单数(元)'], ['AA1', ' 14天期限放款单数(元)'], ['AD1', ' 放款总额'], ['AG1', ' 7天期限放款总额(元)'], ['AJ1', ' 14天期限放款总额(元)'], ['AM1', ' 老用户放款单数'], ['AP1', ' 老用户放款总额(元)'], ['AS1', ' 新用户放款单数'], ['AV1', ' 新用户放款总额(元)'], ['AY1', ' 满额率'], ['BB1', ' 新用户满额率'], ['BE1', ' 老用户满额率'], ['BH1', ' 扣款失败率']]
+const merge = [[0, 0, 0, 1], [1, 0, 1, 1], [2, 0, 4, 0], [5, 0, 7, 0], [8, 0, 10, 0], [11, 0, 13, 0], [14, 0, 16, 0], [17, 0, 19, 0], [20, 0, 22, 0], [23, 0, 25, 0], [26, 0, 28, 0], [29, 0, 31, 0], [32, 0, 34, 0], [35, 0, 37, 0], [38, 0, 40, 0], [41, 0, 43, 0], [44, 0, 46, 0], [47, 0, 49, 0], [50, 0, 52, 0], [53, 0, 55, 0], [56, 0, 58, 0], [59, 0, 61, 0], [62, 0, 64, 0], [65, 0, 67, 0], [68, 0, 70, 0]]
+const change = [['A1', '    日期'], ['B1', '  注册人数'], ['C1', '  借款人数'], ['F1', '  成功借款人数'], ['I1', '  新用户借款占比'], ['L1', ' 老用户借款占比'], ['O1', ' 累计新用户借款占比'], ['R1', ' 累计老用户借款占比'], ['U1', ' 放款单数'], ['X1', ' 7天期限放款单数(元)'], ['AA1', ' 14天期限放款单数(元)'], ['AD1', ' 放款总额'], ['AG1', ' 7天期限放款总额(元)'], ['AJ1', ' 14天期限放款总额(元)'], ['AM1', ' 老用户放款单数'], ['AP1', ' 老用户放款总额(元)'], ['AS1', ' 新用户放款单数'], ['AV1', ' 新用户放款总额(元)'], ['AY1', ' 满额率'], ['BB1', ' 新用户满额率'], ['BE1', ' 老用户满额率'], ['BH1', ' 扣款失败率'], ['BK1', ' 新用户续期率'], ['BN1', ' 老用户续期率'], ['BQ1', ' 总续期率']]
 
 global.periodDailyLendingCount = 0
 
@@ -224,6 +224,34 @@ function formatData(rows) {
     }
     if (row.Chargeback_failrate) {
       row.Chargeback_failrate = (row.Chargeback_failrate * 100).toFixed(2) + '%'
+    }
+
+    if (row.renewal_rate_nuser_z) {
+      row.renewal_rate_nuser_z = (row.renewal_rate_nuser_z * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_nuser_x) {
+      row.renewal_rate_nuser_x = (row.renewal_rate_nuser_x * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_nuser) {
+      row.renewal_rate_nuser = (row.renewal_rate_nuser * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_ouser_z) {
+      row.renewal_rate_ouser_z = (row.renewal_rate_ouser_z * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_ouser_x) {
+      row.renewal_rate_ouser_x = (row.renewal_rate_ouser_x * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_ouser) {
+      row.renewal_rate_ouser = (row.renewal_rate_ouser * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_z) {
+      row.renewal_rate_z = (row.renewal_rate_z * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate_x) {
+      row.renewal_rate_x = (row.renewal_rate_x * 100).toFixed(2) + '%'
+    }
+    if (row.renewal_rate) {
+      row.renewal_rate = (row.renewal_rate * 100).toFixed(2) + '%'
     }
     return row
   })

@@ -1596,7 +1596,7 @@ export function getDailyRepaymentUnitDataRefresh (data) {
 //21天分期统计数据
 export function getDaysStageStatistics (data) {
   return fetch({
-    url: '/api/daysStageStatistics21',
+    url: '/api/created () {       // this.loading = true       // this.getDataInit()       // this.isShowRefreshAndExcel()     },',
     method: 'post',
     data: data
   })
@@ -1604,7 +1604,7 @@ export function getDaysStageStatistics (data) {
 //21天分期统计数量
 export function getDaysStageStatisticsCount (data) {
   return fetch({
-    url: '/api/daysStageStatistics21/count',
+    url: '/api/created () {       // this.loading = true       // this.getDataInit()       // this.isShowRefreshAndExcel()     },/count',
     method: 'post',
     data: data
   })
@@ -1612,7 +1612,7 @@ export function getDaysStageStatisticsCount (data) {
 //21天分期统计一键刷新
 export function getDaysStageStatisticsRefresh (data) {
   return fetch({
-    url: '/api/daysStageStatistics21/refresh',
+    url: '/api/created () {       // this.loading = true       // this.getDataInit()       // this.isShowRefreshAndExcel()     },/refresh',
     method: 'post',
     data: data
   })

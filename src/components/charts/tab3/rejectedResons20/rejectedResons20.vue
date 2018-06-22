@@ -40,7 +40,7 @@
       }
     },
     created () {
-      this.getDataInit()
+      // this.getDataInit()
     },
     methods: {
       parseArrToInt (arr) {

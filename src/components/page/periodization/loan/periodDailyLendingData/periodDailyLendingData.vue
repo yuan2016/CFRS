@@ -134,8 +134,26 @@
         <el-table-column property="Chargeback_failrate_x" label="新网"></el-table-column>
         <el-table-column property="Chargeback_failrate" class-name="fontBold" label="合计"></el-table-column>
       </el-table-column>
+      <el-table-column label="新用户续期率">
+        <el-table-column property="renewal_rate_nuser_z" label="招财猫"></el-table-column>
+        <el-table-column property="renewal_rate_nuser_x" label="新网"></el-table-column>
+        <el-table-column property="renewal_rate_nuser" class-name="fontBold" label="合计"></el-table-column>
+      </el-table-column>
+      <el-table-column label="老用户续期率">
+        <el-table-column property="renewal_rate_ouser_z" label="招财猫"></el-table-column>
+        <el-table-column property="renewal_rate_ouser_x" label="新网"></el-table-column>
+        <el-table-column property="renewal_rate_ouser" class-name="fontBold" label="合计"></el-table-column>
+      </el-table-column>
+      <el-table-column label="总续期率">
+        <el-table-column property="renewal_rate_z" label="招财猫"></el-table-column>
+        <el-table-column property="renewal_rate_x" label="新网"></el-table-column>
+        <el-table-column property="renewal_rate" class-name="fontBold" label="合计"></el-table-column>
+      </el-table-column>
       <el-table-column property="create_time" label="更新时间" min-width="140"></el-table-column>
     </el-table>
+    <div class="pop1">
+      <p class="popTop">总续期率=续期金额/(续期金额+放款金额)</p>
+    </div>
     <div style="text-align: center;margin-top: 10px;" v-show="fundData.length!=0">
       <el-pagination
         @size-change="handleSizeChange"
@@ -197,6 +215,32 @@
       ...mapGetters([
         'permission'
       ])
+    },
+    updated () {
+      if (document.getElementsByClassName('el-table__row').length > 0) {
+        let header = document.getElementsByClassName('el-table__header')[0]
+        let pops = [24]
+        for (let i = 0; i < pops.length; i++) {
+          let j = pops[i]
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].style.position = 'relative'
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].insertAdjacentHTML('beforeEnd', '<i class="elextra-icon-info"></i>')
+        }
+        let popName = [document.getElementsByClassName('pop1')[0]]
+        let clientWidth = document.documentElement.clientWidth
+        for (let i = 0; i < pops.length; i++) {
+          let j = pops[i]
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseover', function (event) {
+            let x = clientWidth - event.clientX + 20
+            let y = event.clientY - 30
+            popName[i].style.display = 'block'
+            popName[i].style.top = y + 'px'
+            popName[i].style.right = x + 'px'
+          })
+          header.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0].getElementsByTagName('th')[j].getElementsByTagName('i')[0].addEventListener('mouseout', function () {
+            popName[i].style.display = 'none'
+          })
+        }
+      }
     },
     methods: {
       //每页显示数据量变更
@@ -351,6 +395,25 @@
     .fontBold
       .cell
         font-weight:bold
+    .pop1
+      display: none
+      position: absolute
+      padding: 5px
+      border: 1px solid #cccccc
+      border-radius: 5px
+      font-size: 12px
+      background-color: #fff
+      box-shadow: 5px 5px 5px #999
 
+    .popTop
+      padding-bottom: 5px    
+
+    .elextra-icon-info
+      position: absolute
+      top: 15px
+      right: 7px
+      font-size: 16px
+      color: rgb(102, 102, 102)
+      font-weight: 400 !important  
 </style>
 

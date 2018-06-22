@@ -98,8 +98,8 @@
       banner
     },
     created () {
-      this.loading = true
-      this.getData()
+      // this.loading = true
+      // this.getData()
     },
     mounted () {
      this.resizeHeight()

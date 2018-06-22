@@ -100,9 +100,9 @@
       banner
     },
     created() {
-      this.loading = true
-      this.getDataInit()
-      this.isShowRefreshAndExcel()
+      // this.loading = true
+      // this.getDataInit()
+      // this.isShowRefreshAndExcel()
     },
     mounted() {
       this.resizeHeight()
@@ -172,8 +172,8 @@
         })
       },
       search() {
-        this.loading = true
-        this.getDataInit()
+        // this.loading = true
+        // this.getDataInit()
       },
       refreshData() {
         this.buttonLoading = true

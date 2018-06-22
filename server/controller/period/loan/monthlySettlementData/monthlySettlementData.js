@@ -161,17 +161,17 @@ module.exports = {
       pro.exec(shell.monthlySettlementData, function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error)
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 每月债权表shell脚本执行失败')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + '  每月结算表shell脚本执行失败')
           res.json({code: '500'})
           console.log("failed")
           global.monthlySettlementDataCount = 0
         } else {
-          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 每月债权表shell脚本执行成功')
+          console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 每月结算表shell脚本执行成功')
           res.json({code: '200'})
           global.monthlySettlementDataCount = 0
         }
       })
-      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + ' 每月债权表开始执行shell脚本')
+      console.log(moment(new Date()).format('YYYY-MM-DD HH:mm:ss') + '  每月结算表开始执行shell脚本')
     } else {
       res.json({code: '400'})
     }

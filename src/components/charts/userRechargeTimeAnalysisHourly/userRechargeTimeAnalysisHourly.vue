@@ -17,7 +17,7 @@
 
   export default {
     created() {
-      this.getDataInit()
+      // this.getDataInit()
     },
     watch: {
       message: function () {

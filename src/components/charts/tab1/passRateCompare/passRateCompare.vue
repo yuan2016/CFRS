@@ -17,11 +17,11 @@
 
   export default {
     created () {
-      this.title = this.message.split('-')
-      this.title = this.title.join('.').slice(5)
-      this.name = this.info.split('-')
-      this.name = this.name.join('.').slice(5)
-      this.getDataInit()
+      // this.title = this.message.split('-')
+      // this.title = this.title.join('.').slice(5)
+      // this.name = this.info.split('-')
+      // this.name = this.name.join('.').slice(5)
+      // this.getDataInit()
     },
     data () {
       return {

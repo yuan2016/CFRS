@@ -96,12 +96,12 @@
       this.resizeHeight()
     },
     created () {
-      this.loading = true
-      setTimeout(() => {
-        this.loading = false
-      }, 800)
-      this.getSelectOptions()
-      this.getDailyOptions()
+      // this.loading = true
+      // setTimeout(() => {
+      //   this.loading = false
+      // }, 800)
+      // this.getSelectOptions()
+      // this.getDailyOptions()
     },
     methods: {
       resizeHeight () {

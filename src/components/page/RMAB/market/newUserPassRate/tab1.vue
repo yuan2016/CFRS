@@ -92,11 +92,11 @@
       this.resizeHeight()
     },
     created () {
-      this.loading = true
-      setTimeout(() => {
-        this.loading = false
-      }, 800)
-      this.getDataInit()
+      // this.loading = true
+      // setTimeout(() => {
+      //   this.loading = false
+      // }, 800)
+      // this.getDataInit()
     },
     components: {
       weeklyPassRateTrends,
